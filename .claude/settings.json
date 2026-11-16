@@ -1,0 +1,32 @@
+{
+	"permissions": {
+		"allow": [
+			"Edit",
+			"Write",
+			"WebSearch",
+			"WebFetch",
+			"Bash(pnpm:*)",
+			"Bash(npx:*)",
+			"Bash(node:*)",
+			"Bash(git:*)",
+			"Bash(gh run:*)",
+			"Bash(gh pr:*)",
+			"Bash(ls:*)",
+			"Bash(cat:*)",
+			"Bash(grep:*)",
+			"Bash(find:*)",
+			"Bash(mkdir:*)",
+			"Bash(mv:*)",
+			"Bash(cp:*)"
+		],
+		"ask": ["Bash(gh repo create:*)", "Bash(brew:*)"],
+		"deny": [
+			"Bash(sudo:*)",
+			"Bash(git push --force:*)",
+			"Bash(git push -f:*)",
+			"Bash(gh repo delete:*)",
+			"Bash(rm -rf /:*)",
+			"Bash(rm -rf ~:*)"
+		]
+	}
+}
