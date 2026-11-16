@@ -1,0 +1,1660 @@
+# Machine-readable catalogue of docs/CURRICULUM.md (ids, titles, level, family, prerequisites,
+# compareWith). Edited by hand; `pnpm content:validate` checks it against CURRICULUM.md
+# (ids, levels, German titles, prerequisites) and for cycles. IDs never change (CLAUDE.md §9).
+schemaVersion: 1
+points:
+  - id: pronouns-nominative
+    title:
+      en: Subject pronouns (Nominativ)
+      de: Personalpronomen im Nominativ
+    level: A1
+    family: pronouns
+    prerequisites: []
+    compareWith: []
+  - id: present-regular
+    title:
+      en: "Present tense: regular verbs"
+      de: "Präsens: regelmäßige Verben"
+    level: A1
+    family: verbs
+    prerequisites:
+      - pronouns-nominative
+    compareWith:
+      - present-stem-change
+  - id: sein-haben-present
+    title:
+      en: sein and haben in the present
+      de: sein und haben im Präsens
+    level: A1
+    family: verbs
+    prerequisites:
+      - pronouns-nominative
+    compareWith: []
+  - id: present-stem-change
+    title:
+      en: Present tense with vowel change
+      de: Präsens mit Vokalwechsel
+    level: A1
+    family: verbs
+    prerequisites:
+      - present-regular
+    compareWith:
+      - present-regular
+  - id: word-order-v2
+    title:
+      en: Verb-second in main clauses
+      de: Verbzweitstellung im Hauptsatz
+    level: A1
+    family: word-order
+    prerequisites:
+      - present-regular
+    compareWith:
+      - subordinate-weil-dass
+  - id: questions-yes-no-w
+    title:
+      en: Yes/no and W-questions
+      de: Ja/Nein- und W-Fragen
+    level: A1
+    family: word-order
+    prerequisites:
+      - word-order-v2
+    compareWith: []
+  - id: noun-gender-articles
+    title:
+      en: Gender and definite/indefinite article (Nominativ)
+      de: Genus und bestimmter/unbestimmter Artikel (Nominativ)
+    level: A1
+    family: articles
+    prerequisites: []
+    compareWith: []
+  - id: noun-plural
+    title:
+      en: Plural forms of nouns
+      de: Pluralformen der Nomen
+    level: A1
+    family: basics
+    prerequisites:
+      - noun-gender-articles
+    compareWith: []
+  - id: compound-nouns
+    title:
+      en: "Compound nouns: the last word decides the article"
+      de: "Komposita: das letzte Wort bestimmt den Artikel"
+    level: A1
+    family: basics
+    prerequisites:
+      - noun-gender-articles
+    compareWith: []
+  - id: negation-nicht-kein
+    title:
+      en: Negation with nicht and kein
+      de: Negation mit nicht und kein
+    level: A1
+    family: basics
+    prerequisites:
+      - noun-gender-articles
+    compareWith:
+      - negation-position
+  - id: accusative-articles
+    title:
+      en: "Accusative: articles"
+      de: "Akkusativ: Artikel"
+    level: A1
+    family: cases
+    prerequisites:
+      - noun-gender-articles
+    compareWith:
+      - dative-articles
+  - id: es-gibt
+    title:
+      en: es gibt + Akkusativ
+      de: es gibt + Akkusativ
+    level: A1
+    family: cases
+    prerequisites:
+      - accusative-articles
+    compareWith: []
+  - id: possessive-articles-nom-akk
+    title:
+      en: Possessive articles (Nominativ, Akkusativ)
+      de: Possessivartikel (Nominativ, Akkusativ)
+    level: A1
+    family: articles
+    prerequisites:
+      - accusative-articles
+    compareWith:
+      - possessive-articles-dative
+  - id: pronouns-accusative
+    title:
+      en: Personal pronouns in the Akkusativ
+      de: Personalpronomen im Akkusativ
+    level: A1
+    family: pronouns
+    prerequisites:
+      - accusative-articles
+    compareWith:
+      - pronouns-dative
+  - id: modal-verbs-present
+    title:
+      en: Modal verbs in the present + sentence bracket
+      de: Modalverben im Präsens + Satzklammer
+    level: A1
+    family: modality
+    prerequisites:
+      - word-order-v2
+    compareWith:
+      - modal-verbs-preterite
+  - id: separable-verbs
+    title:
+      en: Separable verbs
+      de: Trennbare Verben
+    level: A1
+    family: verbs
+    prerequisites:
+      - word-order-v2
+    compareWith:
+      - separable-inseparable-pairs
+  - id: imperative
+    title:
+      en: Imperative (du, ihr, Sie)
+      de: Imperativ (du, ihr, Sie)
+    level: A1
+    family: verbs
+    prerequisites:
+      - present-stem-change
+      - separable-verbs
+    compareWith: []
+  - id: perfect-haben
+    title:
+      en: Perfekt with haben (regular participles)
+      de: Perfekt mit haben (regelmäßige Partizipien)
+    level: A1
+    family: tenses
+    prerequisites:
+      - sein-haben-present
+    compareWith:
+      - perfect-sein
+  - id: perfect-sein
+    title:
+      en: Perfekt with sein
+      de: Perfekt mit sein
+    level: A1
+    family: tenses
+    prerequisites:
+      - perfect-haben
+    compareWith:
+      - perfect-haben
+  - id: participle-irregular
+    title:
+      en: Irregular participles
+      de: Unregelmäßige Partizipien
+    level: A1
+    family: tenses
+    prerequisites:
+      - perfect-haben
+    compareWith: []
+  - id: preteritum-sein-haben
+    title:
+      en: Präteritum of sein and haben
+      de: Präteritum von sein und haben
+    level: A1
+    family: tenses
+    prerequisites:
+      - sein-haben-present
+    compareWith:
+      - perfect-haben
+  - id: time-prepositions-basic
+    title:
+      en: "Time expressions: am, um, im, von … bis"
+      de: "Zeitangaben: am, um, im, von … bis"
+    level: A1
+    family: prepositions
+    prerequisites: []
+    compareWith: []
+  - id: dative-basic-mit-bei-zu
+    title:
+      en: Dativ after mit, bei, zu, aus, von, nach, seit (intro)
+      de: Dativ nach mit, bei, zu, aus, von, nach, seit (Einstieg)
+    level: A1
+    family: prepositions
+    prerequisites:
+      - accusative-articles
+    compareWith:
+      - accusative-prepositions
+  - id: conjunctions-aduso
+    title:
+      en: und, aber, oder, denn, sondern (position 0)
+      de: und, aber, oder, denn, sondern (Position 0)
+    level: A1
+    family: connectors
+    prerequisites:
+      - word-order-v2
+    compareWith:
+      - adverbial-connectors
+      - subordinate-weil-dass
+  - id: man-indefinite
+    title:
+      en: "man: the generic pronoun"
+      de: man
+    level: A1
+    family: pronouns
+    prerequisites:
+      - present-regular
+    compareWith: []
+  - id: gern-lieber
+    title:
+      en: gern, lieber, am liebsten
+      de: gern, lieber, am liebsten
+    level: A1
+    family: basics
+    prerequisites:
+      - present-regular
+    compareWith:
+      - comparison
+  - id: dative-articles
+    title:
+      en: "Dativ: articles and nouns (Dativ plural -n)"
+      de: "Dativ: Artikel und Nomen (Dativ-Plural -n)"
+    level: A2
+    family: cases
+    prerequisites:
+      - dative-basic-mit-bei-zu
+    compareWith:
+      - accusative-articles
+      - genitive-articles
+  - id: pronouns-dative
+    title:
+      en: Personal pronouns in the Dativ
+      de: Personalpronomen im Dativ
+    level: A2
+    family: pronouns
+    prerequisites:
+      - dative-articles
+    compareWith:
+      - pronouns-accusative
+  - id: possessive-articles-dative
+    title:
+      en: Possessive articles in the Dativ
+      de: Possessivartikel im Dativ
+    level: A2
+    family: articles
+    prerequisites:
+      - dative-articles
+    compareWith:
+      - possessive-articles-nom-akk
+  - id: dative-verbs
+    title:
+      en: Verbs with the Dativ
+      de: Verben mit Dativ
+    level: A2
+    family: cases
+    prerequisites:
+      - dative-articles
+    compareWith:
+      - dative-accusative-verbs
+  - id: dative-accusative-verbs
+    title:
+      en: Verbs with Dativ and Akkusativ + object order
+      de: Verben mit Dativ und Akkusativ + Reihenfolge der Objekte
+    level: A2
+    family: cases
+    prerequisites:
+      - dative-verbs
+      - pronouns-dative
+    compareWith:
+      - mittelfeld-order
+  - id: accusative-prepositions
+    title:
+      en: Prepositions with the Akkusativ
+      de: Präpositionen mit Akkusativ
+    level: A2
+    family: prepositions
+    prerequisites:
+      - accusative-articles
+    compareWith:
+      - dative-prepositions
+  - id: dative-prepositions
+    title:
+      en: Prepositions with the Dativ (complete)
+      de: Präpositionen mit Dativ (vollständig)
+    level: A2
+    family: prepositions
+    prerequisites:
+      - dative-articles
+    compareWith:
+      - accusative-prepositions
+      - two-way-prepositions
+  - id: two-way-prepositions
+    title:
+      en: "Two-way prepositions: wo? (Dativ) / wohin? (Akkusativ)"
+      de: "Wechselpräpositionen: wo? (Dativ) / wohin? (Akkusativ)"
+    level: A2
+    family: prepositions
+    prerequisites:
+      - dative-prepositions
+      - accusative-prepositions
+    compareWith:
+      - dative-prepositions
+      - position-verbs
+  - id: position-verbs
+    title:
+      en: stellen/stehen, legen/liegen, setzen/sitzen, hängen
+      de: stellen/stehen, legen/liegen, setzen/sitzen, hängen
+    level: A2
+    family: verbs
+    prerequisites:
+      - two-way-prepositions
+    compareWith:
+      - two-way-prepositions
+  - id: preposition-contractions
+    title:
+      en: im, ins, am, ans, zum, zur, beim, vom
+      de: im, ins, am, ans, zum, zur, beim, vom
+    level: A2
+    family: prepositions
+    prerequisites:
+      - two-way-prepositions
+    compareWith: []
+  - id: adj-endings-definite
+    title:
+      en: Adjective endings after the definite article
+      de: Adjektivdeklination nach bestimmtem Artikel
+    level: A2
+    family: adjectives
+    prerequisites:
+      - dative-articles
+    compareWith:
+      - adj-endings-indefinite
+  - id: adj-endings-indefinite
+    title:
+      en: Adjective endings after ein-, possessive articles and kein
+      de: Adjektivdeklination nach unbestimmtem Artikel / Possessivartikel / kein
+    level: A2
+    family: adjectives
+    prerequisites:
+      - adj-endings-definite
+    compareWith:
+      - adj-endings-definite
+      - adj-endings-zero
+  - id: comparison
+    title:
+      en: Comparative and superlative
+      de: Komparativ und Superlativ
+    level: A2
+    family: adjectives
+    prerequisites:
+      - adj-endings-definite
+    compareWith:
+      - je-desto
+  - id: reflexive-verbs-akk
+    title:
+      en: Reflexive verbs (Akkusativ)
+      de: Reflexive Verben (Akkusativ)
+    level: A2
+    family: verbs
+    prerequisites:
+      - pronouns-accusative
+    compareWith:
+      - reflexive-dative
+  - id: reflexive-dative
+    title:
+      en: Reflexive pronouns in the Dativ
+      de: Reflexivpronomen im Dativ
+    level: A2
+    family: verbs
+    prerequisites:
+      - reflexive-verbs-akk
+      - pronouns-dative
+    compareWith:
+      - reflexive-verbs-akk
+  - id: modal-verbs-preterite
+    title:
+      en: Präteritum of the modal verbs
+      de: Präteritum der Modalverben
+    level: A2
+    family: modality
+    prerequisites:
+      - modal-verbs-present
+    compareWith:
+      - konjunktiv2-politeness
+  - id: subordinate-weil-dass
+    title:
+      en: Subordinate clauses with weil and dass (verb last)
+      de: Nebensätze mit weil und dass (Verb am Ende)
+    level: A2
+    family: clauses
+    prerequisites:
+      - word-order-v2
+    compareWith:
+      - conjunctions-aduso
+      - adverbial-connectors
+  - id: subordinate-wenn-ob
+    title:
+      en: Subordinate clauses with wenn and ob
+      de: Nebensätze mit wenn und ob
+    level: A2
+    family: clauses
+    prerequisites:
+      - subordinate-weil-dass
+    compareWith:
+      - temporal-clauses
+      - indirect-questions
+  - id: indirect-questions
+    title:
+      en: Indirect questions (W-word / ob)
+      de: Indirekte Fragen (W-Wort / ob)
+    level: A2
+    family: clauses
+    prerequisites:
+      - subordinate-wenn-ob
+    compareWith:
+      - subordinate-wenn-ob
+  - id: subordinate-first
+    title:
+      en: "Subordinate clause first: verb–verb in the middle"
+      de: "Nebensatz vorne: Verb-Verb in der Mitte"
+    level: A2
+    family: word-order
+    prerequisites:
+      - subordinate-weil-dass
+    compareWith:
+      - subordinate-weil-dass
+  - id: adverbial-connectors
+    title:
+      en: deshalb, trotzdem, dann, danach, sonst (inversion)
+      de: deshalb, trotzdem, dann, danach, sonst (Inversion)
+    level: A2
+    family: connectors
+    prerequisites:
+      - word-order-v2
+    compareWith:
+      - conjunctions-aduso
+      - subordinate-weil-dass
+  - id: konjunktiv2-politeness
+    title:
+      en: "Konjunktiv II: würde, hätte, wäre, könnte (politeness, wishes, advice)"
+      de: "Konjunktiv II: würde, hätte, wäre, könnte (Höflichkeit, Wünsche, Ratschläge)"
+    level: A2
+    family: subjunctive
+    prerequisites:
+      - modal-verbs-preterite
+    compareWith:
+      - modal-verbs-preterite
+  - id: future-werden
+    title:
+      en: Futur I with werden
+      de: Futur I mit werden
+    level: A2
+    family: tenses
+    prerequisites:
+      - modal-verbs-present
+    compareWith:
+      - future-assumption
+      - passive-present
+  - id: indefinite-pronouns
+    title:
+      en: jemand, niemand, etwas, nichts, alle, viele
+      de: jemand, niemand, etwas, nichts, alle, viele
+    level: A2
+    family: pronouns
+    prerequisites:
+      - pronouns-accusative
+    compareWith:
+      - indefinite-substitutes
+  - id: ordinal-dates
+    title:
+      en: Ordinal numbers and dates
+      de: Ordinalzahlen und Datum
+    level: A2
+    family: basics
+    prerequisites:
+      - dative-articles
+    compareWith: []
+  - id: genitive-names
+    title:
+      en: Genitiv with names (Annas Buch)
+      de: Genitiv bei Namen
+    level: A2
+    family: cases
+    prerequisites:
+      - noun-gender-articles
+    compareWith:
+      - genitive-articles
+  - id: question-words-cases
+    title:
+      en: wer, wen, wem, wessen
+      de: wer, wen, wem, wessen
+    level: A2
+    family: pronouns
+    prerequisites:
+      - dative-articles
+    compareWith: []
+  - id: welcher-dieser
+    title:
+      en: welch-, dies-, jed- (determiners)
+      de: welch-, dies-, jed- (Artikelwörter)
+    level: A2
+    family: articles
+    prerequisites:
+      - dative-articles
+    compareWith: []
+  - id: preterite-regular-irregular
+    title:
+      en: Präteritum (regular, irregular, mixed)
+      de: Präteritum (regelmäßig, unregelmäßig, gemischt)
+    level: B1
+    family: tenses
+    prerequisites:
+      - participle-irregular
+    compareWith:
+      - tense-choice-narration
+  - id: pluperfect
+    title:
+      en: Plusquamperfekt
+      de: Plusquamperfekt
+    level: B1
+    family: tenses
+    prerequisites:
+      - preterite-regular-irregular
+    compareWith:
+      - preterite-regular-irregular
+  - id: tense-choice-narration
+    title:
+      en: Perfekt or Präteritum? (spoken vs. written)
+      de: Perfekt oder Präteritum? (mündlich/schriftlich)
+    level: B1
+    family: tenses
+    prerequisites:
+      - preterite-regular-irregular
+    compareWith:
+      - preterite-regular-irregular
+      - perfect-haben
+  - id: future-assumption
+    title:
+      en: Futur I for assumptions
+      de: Futur I für Vermutungen
+    level: B1
+    family: modality
+    prerequisites:
+      - future-werden
+    compareWith:
+      - subjective-modal-verbs
+      - future-werden
+  - id: relative-nom-akk
+    title:
+      en: Relative clauses (Nominativ, Akkusativ)
+      de: Relativsätze (Nominativ, Akkusativ)
+    level: B1
+    family: clauses
+    prerequisites:
+      - subordinate-weil-dass
+    compareWith:
+      - relative-dat-gen
+  - id: relative-dat-gen
+    title:
+      en: "Relative clauses (Dativ, Genitiv: dessen, deren)"
+      de: "Relativsätze (Dativ, Genitiv: dessen, deren)"
+    level: B1
+    family: clauses
+    prerequisites:
+      - relative-nom-akk
+      - genitive-articles
+    compareWith:
+      - relative-nom-akk
+  - id: relative-prepositions
+    title:
+      en: Relative clauses with a preposition
+      de: Relativsätze mit Präposition
+    level: B1
+    family: clauses
+    prerequisites:
+      - relative-dat-gen
+    compareWith:
+      - relative-was-wo
+  - id: relative-was-wo
+    title:
+      en: Relative pronouns was, wo, worüber
+      de: Relativpronomen was, wo, worüber
+    level: B1
+    family: clauses
+    prerequisites:
+      - relative-nom-akk
+    compareWith:
+      - relative-nom-akk
+      - relative-wer-was
+  - id: genitive-articles
+    title:
+      en: "Genitiv: articles and the -(e)s ending"
+      de: "Genitiv: Artikel und Endung -(e)s"
+    level: B1
+    family: cases
+    prerequisites:
+      - dative-articles
+    compareWith:
+      - dative-articles
+      - genitive-vs-von
+  - id: genitive-prepositions
+    title:
+      en: Prepositions with the Genitiv
+      de: Präpositionen mit Genitiv
+    level: B1
+    family: prepositions
+    prerequisites:
+      - genitive-articles
+    compareWith:
+      - dative-prepositions
+      - concessive-obwohl-trotzdem
+  - id: adj-endings-zero
+    title:
+      en: Adjective endings without an article (strong declension)
+      de: Adjektivdeklination ohne Artikel (starke Deklination)
+    level: B1
+    family: adjectives
+    prerequisites:
+      - adj-endings-indefinite
+    compareWith:
+      - adj-endings-indefinite
+  - id: adj-endings-full
+    title:
+      en: "Adjective endings: the whole system incl. Genitiv"
+      de: "Adjektivdeklination: alle Fälle inkl. Genitiv (Gesamtsystem)"
+    level: B1
+    family: adjectives
+    prerequisites:
+      - adj-endings-zero
+      - genitive-articles
+    compareWith:
+      - adj-after-quantifiers
+  - id: n-declension
+    title:
+      en: n-declension (der Student → den Studenten)
+      de: n-Deklination
+    level: B1
+    family: cases
+    prerequisites:
+      - dative-articles
+    compareWith: []
+  - id: adjectives-as-nouns
+    title:
+      en: Adjectives and participles as nouns
+      de: Nominalisierte Adjektive und Partizipien
+    level: B1
+    family: adjectives
+    prerequisites:
+      - adj-endings-full
+    compareWith:
+      - capitalisation-nominalized
+  - id: passive-present
+    title:
+      en: Passive, present (Vorgangspassiv)
+      de: Passiv Präsens (Vorgangspassiv)
+    level: B1
+    family: passive
+    prerequisites:
+      - participle-irregular
+    compareWith:
+      - state-passive
+      - future-werden
+  - id: passive-preterite
+    title:
+      en: Passive, Präteritum
+      de: Passiv Präteritum
+    level: B1
+    family: passive
+    prerequisites:
+      - passive-present
+    compareWith:
+      - passive-perfect
+  - id: passive-modal
+    title:
+      en: Passive with modal verbs
+      de: Passiv mit Modalverben
+    level: B1
+    family: passive
+    prerequisites:
+      - passive-present
+    compareWith:
+      - passive-alternatives
+  - id: passive-von-durch
+    title:
+      en: "Agent in the passive: von or durch"
+      de: "Agens im Passiv: von oder durch"
+    level: B1
+    family: passive
+    prerequisites:
+      - passive-present
+    compareWith: []
+  - id: konjunktiv2-present-forms
+    title:
+      en: "Konjunktiv II present: forms (strong verbs)"
+      de: "Konjunktiv II Gegenwart: Formen (starke Verben: käme, ginge, wüsste …)"
+    level: B1
+    family: subjunctive
+    prerequisites:
+      - konjunktiv2-politeness
+    compareWith:
+      - konjunktiv1-present
+  - id: konjunktiv2-past
+    title:
+      en: Konjunktiv II past (hätte gemacht, wäre gegangen)
+      de: Konjunktiv II Vergangenheit
+    level: B1
+    family: subjunctive
+    prerequisites:
+      - konjunktiv2-present-forms
+    compareWith:
+      - konjunktiv2-present-forms
+  - id: irreal-conditions
+    title:
+      en: Unreal conditions
+      de: Irreale Bedingungssätze
+    level: B1
+    family: subjunctive
+    prerequisites:
+      - konjunktiv2-past
+    compareWith:
+      - conditional-falls-sofern
+  - id: irreal-wishes
+    title:
+      en: Unreal wishes
+      de: Irreale Wünsche
+    level: B1
+    family: subjunctive
+    prerequisites:
+      - irreal-conditions
+    compareWith:
+      - irreal-conditions
+  - id: infinitive-zu
+    title:
+      en: Infinitive with zu
+      de: Infinitiv mit zu
+    level: B1
+    family: clauses
+    prerequisites:
+      - separable-verbs
+    compareWith:
+      - um-zu-damit
+  - id: um-zu-damit
+    title:
+      en: "Purpose clauses: um … zu / damit"
+      de: "Finalsätze: um … zu / damit"
+    level: B1
+    family: clauses
+    prerequisites:
+      - infinitive-zu
+    compareWith:
+      - infinitive-zu
+  - id: temporal-clauses
+    title:
+      en: "Time clauses: als, wenn, während, bevor, nachdem, seit(dem), bis, sobald"
+      de: "Temporalsätze: als, wenn, während, bevor, nachdem, seit(dem), bis, sobald"
+    level: B1
+    family: clauses
+    prerequisites:
+      - subordinate-wenn-ob
+      - pluperfect
+    compareWith:
+      - subordinate-wenn-ob
+      - adversative-connectors
+  - id: concessive-obwohl-trotzdem
+    title:
+      en: obwohl vs. trotzdem
+      de: obwohl vs. trotzdem
+    level: B1
+    family: connectors
+    prerequisites:
+      - adverbial-connectors
+    compareWith:
+      - genitive-prepositions
+      - concessive-advanced
+  - id: consecutive-sodass
+    title:
+      en: sodass / so …, dass
+      de: sodass / so …, dass
+    level: B1
+    family: clauses
+    prerequisites:
+      - subordinate-weil-dass
+    compareWith: []
+  - id: two-part-connectors
+    title:
+      en: Two-part connectors (entweder … oder, weder … noch …)
+      de: entweder … oder, weder … noch, sowohl … als auch, nicht nur … sondern auch, zwar … aber
+    level: B1
+    family: connectors
+    prerequisites:
+      - conjunctions-aduso
+    compareWith: []
+  - id: je-desto
+    title:
+      en: je … desto/umso
+      de: je … desto/umso
+    level: B1
+    family: connectors
+    prerequisites:
+      - comparison
+    compareWith:
+      - comparison
+  - id: verbs-with-prepositions
+    title:
+      en: Verbs with prepositions
+      de: Verben mit Präpositionen
+    level: B1
+    family: prepositions
+    prerequisites:
+      - two-way-prepositions
+    compareWith:
+      - adjectives-with-prepositions
+      - nouns-with-prepositions
+  - id: da-wo-compounds
+    title:
+      en: da(r)- and wo(r)-compounds
+      de: da(r)- und wo(r)-Wörter
+    level: B1
+    family: pronouns
+    prerequisites:
+      - verbs-with-prepositions
+    compareWith:
+      - prepositional-correlates
+  - id: lassen
+    title:
+      en: lassen (have something done, allow)
+      de: lassen (veranlassen, erlauben)
+    level: B1
+    family: modality
+    prerequisites:
+      - modal-verbs-present
+    compareWith: []
+  - id: mittelfeld-order
+    title:
+      en: Order in the Mittelfeld (TeKaMoLo, pronouns before nouns)
+      de: Reihenfolge im Mittelfeld (TeKaMoLo, Pronomen vor Nomen)
+    level: B1
+    family: word-order
+    prerequisites:
+      - dative-accusative-verbs
+    compareWith:
+      - negation-position
+      - nachfeld
+  - id: modal-perfect-double-infinitive
+    title:
+      en: Modal verbs in the Perfekt (double infinitive)
+      de: Modalverben im Perfekt (Ersatzinfinitiv)
+    level: B1
+    family: modality
+    prerequisites:
+      - modal-verbs-preterite
+      - perfect-haben
+    compareWith: []
+  - id: indefinite-substitutes
+    title:
+      en: "einer, keiner, welche, meins: pronouns replacing nouns"
+      de: einer, keiner, welche, meins
+    level: B1
+    family: pronouns
+    prerequisites:
+      - indefinite-pronouns
+    compareWith:
+      - indefinite-pronouns
+  - id: word-formation-nouns-basic
+    title:
+      en: "Nouns from verbs and adjectives: -ung, -heit, -keit, -ion, das + infinitive"
+      de: "Nomen aus Verben/Adjektiven: -ung, -heit, -keit, -ion, das + Infinitiv"
+    level: B1
+    family: nominal
+    prerequisites:
+      - noun-gender-articles
+    compareWith:
+      - word-formation-adjectives
+  - id: passive-perfect
+    title:
+      en: Passive, Perfekt and Plusquamperfekt
+      de: Passiv Perfekt und Plusquamperfekt
+    level: B2
+    family: passive
+    prerequisites:
+      - passive-preterite
+    compareWith:
+      - state-passive
+  - id: state-passive
+    title:
+      en: Stative passive (ist geöffnet)
+      de: Zustandspassiv
+    level: B2
+    family: passive
+    prerequisites:
+      - passive-perfect
+    compareWith:
+      - passive-present
+      - passive-perfect
+  - id: passive-alternatives
+    title:
+      en: "Passive substitutes: man, sein + zu, sich lassen, -bar/-lich"
+      de: "Passiversatz: man, sein + zu, sich lassen, -bar/-lich"
+    level: B2
+    family: passive
+    prerequisites:
+      - passive-modal
+    compareWith:
+      - passive-modal
+      - gerundive
+  - id: konjunktiv1-present
+    title:
+      en: "Konjunktiv I: reported speech (present)"
+      de: "Konjunktiv I: indirekte Rede (Gegenwart)"
+    level: B2
+    family: subjunctive
+    prerequisites:
+      - konjunktiv2-present-forms
+    compareWith:
+      - konjunktiv2-present-forms
+      - reported-speech-sollen-wollen
+  - id: konjunktiv1-past-future
+    title:
+      en: "Konjunktiv I: past and future; Konjunktiv II as a substitute"
+      de: "Konjunktiv I: Vergangenheit und Zukunft; Ersatzformen mit Konjunktiv II"
+    level: B2
+    family: subjunctive
+    prerequisites:
+      - konjunktiv1-present
+    compareWith:
+      - konjunktiv2-past
+  - id: reported-speech-sollen-wollen
+    title:
+      en: sollen/wollen for reported claims
+      de: sollen/wollen zur Redewiedergabe
+    level: B2
+    family: modality
+    prerequisites:
+      - konjunktiv1-present
+    compareWith:
+      - konjunktiv1-present
+      - subjective-modal-verbs
+  - id: als-ob
+    title:
+      en: als ob / als wenn / als + Konjunktiv II
+      de: als ob / als wenn / als + Konjunktiv II
+    level: B2
+    family: subjunctive
+    prerequisites:
+      - konjunktiv2-past
+    compareWith: []
+  - id: participle-adjectives
+    title:
+      en: Partizip I and II as adjectives
+      de: Partizip I und II als Adjektiv
+    level: B2
+    family: adjectives
+    prerequisites:
+      - adj-endings-full
+    compareWith:
+      - participial-attributes-intro
+  - id: participial-attributes-intro
+    title:
+      en: Extended participial attributes (intro)
+      de: Erweiterte Partizipialattribute (Einstieg)
+    level: B2
+    family: nominal
+    prerequisites:
+      - participle-adjectives
+      - relative-nom-akk
+    compareWith:
+      - relative-nom-akk
+      - participial-attributes
+  - id: subjective-modal-verbs
+    title:
+      en: "Modal verbs, subjective use: assumption and claim"
+      de: "Modalverben subjektiv: Vermutung und Behauptung"
+    level: B2
+    family: modality
+    prerequisites:
+      - future-assumption
+    compareWith:
+      - future-assumption
+      - reported-speech-sollen-wollen
+  - id: future-2
+    title:
+      en: Futur II
+      de: Futur II
+    level: B2
+    family: tenses
+    prerequisites:
+      - future-assumption
+    compareWith:
+      - future-assumption
+  - id: infinitive-past
+    title:
+      en: Perfect and passive infinitive
+      de: Infinitiv Perfekt und Passiv
+    level: B2
+    family: clauses
+    prerequisites:
+      - infinitive-zu
+      - passive-perfect
+    compareWith:
+      - subjective-modal-past
+  - id: ohne-statt-zu-dass
+    title:
+      en: ohne … zu / ohne dass; (an)statt … zu / (an)statt dass
+      de: ohne … zu / ohne dass; (an)statt … zu / (an)statt dass
+    level: B2
+    family: clauses
+    prerequisites:
+      - infinitive-zu
+    compareWith:
+      - modal-clauses-indem
+  - id: modal-clauses-indem
+    title:
+      en: "Manner clauses: indem, dadurch dass, ohne dass"
+      de: "Modalsätze: indem, dadurch dass, ohne dass"
+    level: B2
+    family: clauses
+    prerequisites:
+      - ohne-statt-zu-dass
+    compareWith:
+      - ohne-statt-zu-dass
+  - id: conditional-falls-sofern
+    title:
+      en: "Conditionals: falls, sofern, es sei denn, verb-first conditions"
+      de: "Konditional: falls, sofern, es sei denn, Bedingungssatz ohne wenn (Verb vorn)"
+    level: B2
+    family: clauses
+    prerequisites:
+      - irreal-conditions
+    compareWith:
+      - irreal-conditions
+  - id: adversative-connectors
+    title:
+      en: während, wohingegen, dagegen, jedoch, hingegen
+      de: während, wohingegen, dagegen, jedoch, hingegen
+    level: B2
+    family: connectors
+    prerequisites:
+      - temporal-clauses
+    compareWith:
+      - temporal-clauses
+  - id: causal-connectors
+    title:
+      en: da, denn, nämlich, deshalb, aufgrund
+      de: da, denn, nämlich, deshalb, aufgrund
+    level: B2
+    family: connectors
+    prerequisites:
+      - concessive-obwohl-trotzdem
+    compareWith:
+      - subordinate-weil-dass
+      - nominal-verbal-causal
+  - id: concessive-advanced
+    title:
+      en: obgleich, dennoch, allerdings, auch wenn, selbst wenn
+      de: obgleich, dennoch, allerdings, auch wenn, selbst wenn
+    level: B2
+    family: connectors
+    prerequisites:
+      - concessive-obwohl-trotzdem
+    compareWith:
+      - concessive-obwohl-trotzdem
+      - concessive-formal
+  - id: final-advanced
+    title:
+      en: damit, um … zu, zwecks, zum + nominalisation
+      de: damit, um … zu, zwecks, zum + Nominalisierung
+    level: B2
+    family: connectors
+    prerequisites:
+      - um-zu-damit
+    compareWith:
+      - um-zu-damit
+      - nominal-verbal-final
+  - id: genitive-prepositions-advanced
+    title:
+      en: "Genitive prepositions: angesichts, aufgrund, bezüglich, hinsichtlich, mithilfe, anlässlich, infolge"
+      de: "Genitivpräpositionen: angesichts, aufgrund, bezüglich, hinsichtlich, mithilfe, anlässlich, infolge"
+    level: B2
+    family: prepositions
+    prerequisites:
+      - genitive-prepositions
+    compareWith:
+      - genitive-prepositions
+      - rare-prepositions
+  - id: adjectives-with-prepositions
+    title:
+      en: Adjectives with prepositions
+      de: Adjektive mit Präpositionen
+    level: B2
+    family: prepositions
+    prerequisites:
+      - verbs-with-prepositions
+    compareWith:
+      - verbs-with-prepositions
+  - id: nouns-with-prepositions
+    title:
+      en: Nouns with prepositions
+      de: Nomen mit Präpositionen
+    level: B2
+    family: prepositions
+    prerequisites:
+      - verbs-with-prepositions
+    compareWith:
+      - verbs-with-prepositions
+  - id: relative-wer-was
+    title:
+      en: Relative clauses with wer/was
+      de: Relativsätze mit wer/was
+    level: B2
+    family: clauses
+    prerequisites:
+      - relative-was-wo
+    compareWith:
+      - relative-was-wo
+  - id: es-correlate
+    title:
+      en: es as placeholder and correlate
+      de: es als Platzhalter und Korrelat
+    level: B2
+    family: word-order
+    prerequisites:
+      - subordinate-weil-dass
+    compareWith:
+      - prepositional-correlates
+  - id: prepositional-correlates
+    title:
+      en: "Correlates: darauf, dass …; damit, dass …"
+      de: "Korrelate: darauf, dass …; damit, dass …"
+    level: B2
+    family: clauses
+    prerequisites:
+      - da-wo-compounds
+    compareWith:
+      - da-wo-compounds
+      - es-correlate
+  - id: modal-particles-basic
+    title:
+      en: "Modal particles: doch, ja, mal, eben, halt, denn"
+      de: "Modalpartikeln: doch, ja, mal, eben, halt, denn"
+    level: B2
+    family: style
+    prerequisites:
+      - word-order-v2
+    compareWith:
+      - modal-particles-advanced
+  - id: negation-position
+    title:
+      en: Position of nicht (sentence vs. constituent negation)
+      de: Position von nicht (Satz- vs. Teilnegation)
+    level: B2
+    family: word-order
+    prerequisites:
+      - mittelfeld-order
+    compareWith:
+      - negation-nicht-kein
+  - id: adj-after-quantifiers
+    title:
+      en: Adjective endings after alle, beide, einige, viele, mehrere, manche
+      de: Adjektivendungen nach alle, beide, einige, viele, mehrere, manche
+    level: B2
+    family: adjectives
+    prerequisites:
+      - adj-endings-full
+    compareWith:
+      - adj-endings-full
+  - id: nominalization-intro
+    title:
+      en: "Nominalisation: verbal → nominal style (intro)"
+      de: "Nominalisierung: Verbalstil → Nominalstil (Einstieg)"
+    level: B2
+    family: nominal
+    prerequisites:
+      - word-formation-nouns-basic
+      - genitive-articles
+    compareWith:
+      - word-formation-nouns-basic
+  - id: function-verb-structures
+    title:
+      en: Light-verb constructions (Funktionsverbgefüge)
+      de: Funktionsverbgefüge
+    level: B2
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+    compareWith:
+      - verb-noun-collocations
+      - function-verb-advanced
+  - id: word-formation-prefixes
+    title:
+      en: "Verb prefixes: be-, ver-, er-, zer-, ent-, miss-"
+      de: "Verbpräfixe: be-, ver-, er-, zer-, ent-, miss-"
+    level: B2
+    family: verbs
+    prerequisites:
+      - separable-verbs
+    compareWith:
+      - separable-inseparable-pairs
+  - id: separable-inseparable-pairs
+    title:
+      en: Separable or inseparable? (umfahren, übersetzen, wiederholen)
+      de: Trennbar oder untrennbar? (umfahren, übersetzen, wiederholen)
+    level: B2
+    family: verbs
+    prerequisites:
+      - word-formation-prefixes
+    compareWith:
+      - separable-verbs
+      - word-formation-prefixes
+  - id: word-formation-adjectives
+    title:
+      en: "Adjective formation: -bar, -lich, -ig, -los, -haft, -sam"
+      de: "Adjektivbildung: -bar, -lich, -ig, -los, -haft, -sam"
+    level: B2
+    family: nominal
+    prerequisites:
+      - word-formation-nouns-basic
+    compareWith:
+      - word-formation-nouns-basic
+  - id: comma-rules
+    title:
+      en: Commas (subordinate clauses, infinitive groups, lists)
+      de: Kommasetzung (Nebensätze, Infinitivgruppen, Aufzählungen)
+    level: B2
+    family: spelling
+    prerequisites:
+      - subordinate-weil-dass
+      - infinitive-zu
+    compareWith:
+      - punctuation-advanced
+  - id: nominal-verbal-causal
+    title:
+      en: "Nominal ↔ verbal: causal (weil → wegen/aufgrund)"
+      de: "Nominal ↔ Verbal: kausal"
+    level: C1
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+      - causal-connectors
+    compareWith:
+      - causal-connectors
+      - nominal-verbal-concessive
+  - id: nominal-verbal-temporal
+    title:
+      en: "Nominal ↔ verbal: temporal (als → bei, nachdem → nach …)"
+      de: "Nominal ↔ Verbal: temporal"
+    level: C1
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+      - temporal-clauses
+    compareWith:
+      - temporal-clauses
+  - id: nominal-verbal-concessive
+    title:
+      en: "Nominal ↔ verbal: concessive (obwohl → trotz)"
+      de: "Nominal ↔ Verbal: konzessiv"
+    level: C1
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+      - concessive-advanced
+    compareWith:
+      - nominal-verbal-causal
+  - id: nominal-verbal-final
+    title:
+      en: "Nominal ↔ verbal: purpose (um … zu → zu/zur, zwecks)"
+      de: "Nominal ↔ Verbal: final"
+    level: C1
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+      - final-advanced
+    compareWith:
+      - final-advanced
+  - id: nominal-verbal-conditional
+    title:
+      en: "Nominal ↔ verbal: conditional (wenn → bei, im Falle, ohne)"
+      de: "Nominal ↔ Verbal: konditional"
+    level: C1
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+      - conditional-falls-sofern
+    compareWith:
+      - conditional-falls-sofern
+  - id: nominal-verbal-modal
+    title:
+      en: "Nominal ↔ verbal: manner (indem → durch, mittels)"
+      de: "Nominal ↔ Verbal: modal"
+    level: C1
+    family: nominal
+    prerequisites:
+      - nominalization-intro
+      - modal-clauses-indem
+    compareWith:
+      - modal-clauses-indem
+  - id: participial-attributes
+    title:
+      en: Participial attributes ↔ relative clauses (complex)
+      de: Partizipialattribute ↔ Relativsätze (komplex)
+    level: C1
+    family: nominal
+    prerequisites:
+      - participial-attributes-intro
+    compareWith:
+      - participial-attributes-intro
+      - gerundive
+  - id: gerundive
+    title:
+      en: Gerundive (das zu lösende Problem)
+      de: Gerundivum
+    level: C1
+    family: nominal
+    prerequisites:
+      - participial-attributes
+      - passive-alternatives
+    compareWith:
+      - participial-attributes
+      - passive-alternatives
+  - id: passive-all-tenses-modal
+    title:
+      en: Passive in all tenses with modal verbs
+      de: Passiv in allen Zeiten mit Modalverben
+    level: C1
+    family: passive
+    prerequisites:
+      - passive-perfect
+      - konjunktiv2-past
+    compareWith:
+      - konjunktiv2-advanced
+  - id: konjunktiv1-news
+    title:
+      en: Konjunktiv I in news and reports (all tenses, passive)
+      de: Konjunktiv I in Nachrichten und Berichten (alle Zeiten, Passiv)
+    level: C1
+    family: subjunctive
+    prerequisites:
+      - konjunktiv1-past-future
+    compareWith:
+      - konjunktiv1-past-future
+      - indirect-speech-complex
+  - id: konjunktiv2-advanced
+    title:
+      en: "Konjunktiv II: passive, modals, unreal comparisons and consequences"
+      de: "Konjunktiv II: Passiv, Modalverben, irreale Vergleiche und Folgen (zu …, als dass)"
+    level: C1
+    family: subjunctive
+    prerequisites:
+      - passive-all-tenses-modal
+    compareWith:
+      - als-ob
+      - passive-all-tenses-modal
+  - id: subjective-modal-past
+    title:
+      en: Subjective modal verbs in the past
+      de: Subjektive Modalverben in der Vergangenheit
+    level: C1
+    family: modality
+    prerequisites:
+      - subjective-modal-verbs
+      - infinitive-past
+    compareWith:
+      - subjective-modal-verbs
+  - id: function-verb-advanced
+    title:
+      en: Light-verb constructions (advanced, passive meaning)
+      de: Funktionsverbgefüge (erweitert, Passiv-Bedeutung)
+    level: C1
+    family: nominal
+    prerequisites:
+      - function-verb-structures
+    compareWith:
+      - function-verb-structures
+  - id: connectors-advanced
+    title:
+      en: insofern (als), soweit, je nachdem, zumal, wenngleich, geschweige denn, vorausgesetzt dass
+      de: insofern (als), soweit, je nachdem, zumal, wenngleich, geschweige denn, vorausgesetzt dass
+    level: C1
+    family: connectors
+    prerequisites:
+      - adversative-connectors
+      - concessive-advanced
+    compareWith:
+      - concessive-advanced
+  - id: modal-particles-advanced
+    title:
+      en: "Modal particles: wohl, schon, etwa, ruhig, bloß, nur, eigentlich, überhaupt"
+      de: "Modalpartikeln: wohl, schon, etwa, ruhig, bloß, nur, eigentlich, überhaupt"
+    level: C1
+    family: style
+    prerequisites:
+      - modal-particles-basic
+    compareWith:
+      - modal-particles-basic
+      - modal-particle-combinations
+  - id: nachfeld
+    title:
+      en: Extraposition and the Nachfeld
+      de: Ausklammerung und Nachfeld
+    level: C1
+    family: word-order
+    prerequisites:
+      - mittelfeld-order
+    compareWith:
+      - mittelfeld-order
+      - topicalization-emphasis
+  - id: apposition
+    title:
+      en: Apposition and case agreement
+      de: Apposition und Kasuskongruenz
+    level: C1
+    family: cases
+    prerequisites:
+      - adj-endings-full
+    compareWith: []
+  - id: genitive-vs-von
+    title:
+      en: Genitive attribute vs. von + Dativ (register)
+      de: Genitivattribut vs. von + Dativ (Register)
+    level: C1
+    family: style
+    prerequisites:
+      - genitive-articles
+    compareWith:
+      - genitive-articles
+  - id: verb-noun-collocations
+    title:
+      en: Noun–verb collocations (eine Entscheidung treffen)
+      de: Nomen-Verb-Verbindungen
+    level: C1
+    family: style
+    prerequisites:
+      - function-verb-structures
+    compareWith:
+      - function-verb-structures
+  - id: participle-clauses
+    title:
+      en: Participle constructions replacing clauses
+      de: Partizipialkonstruktionen als Satzersatz
+    level: C1
+    family: nominal
+    prerequisites:
+      - participle-adjectives
+    compareWith:
+      - participial-attributes
+  - id: capitalisation-nominalized
+    title:
+      en: Capitalisation of nominalisations
+      de: Großschreibung von Nominalisierungen
+    level: C1
+    family: spelling
+    prerequisites:
+      - adjectives-as-nouns
+    compareWith:
+      - adjectives-as-nouns
+  - id: text-cohesion
+    title:
+      en: "Text cohesion: pro-forms, reference words, connectors"
+      de: "Textkohärenz: Pro-Formen, Verweiswörter, Konnektoren"
+    level: C1
+    family: style
+    prerequisites:
+      - prepositional-correlates
+    compareWith: []
+  - id: academic-style
+    title:
+      en: "Academic style: passive, man, impersonal constructions, nominal style"
+      de: "Wissenschaftssprache: Passiv, man, unpersönliche Konstruktionen, Nominalstil"
+    level: C1
+    family: style
+    prerequisites:
+      - nominal-verbal-causal
+    compareWith:
+      - register-shift
+      - nominal-chains
+  - id: indirect-speech-complex
+    title:
+      en: Reported speech in complex sentences and questions
+      de: Indirekte Rede in komplexen Sätzen und Fragen
+    level: C1
+    family: subjunctive
+    prerequisites:
+      - konjunktiv1-news
+    compareWith:
+      - konjunktiv1-news
+  - id: konjunktiv1-formal
+    title:
+      en: Konjunktiv I in instructions, wishes and formulas
+      de: Konjunktiv I in Anweisungen, Wünschen, Formeln
+    level: C2
+    family: subjunctive
+    prerequisites:
+      - konjunktiv1-news
+    compareWith:
+      - konjunktiv1-news
+  - id: genitive-verbs
+    title:
+      en: Verbs and adjectives with the Genitiv
+      de: Verben und Adjektive mit Genitiv
+    level: C2
+    family: cases
+    prerequisites:
+      - genitive-prepositions-advanced
+    compareWith: []
+  - id: rare-prepositions
+    title:
+      en: "Rare prepositions: zufolge, ungeachtet, unbeschadet, kraft, vermöge, binnen, zwecks"
+      de: "Seltene Präpositionen: zufolge, ungeachtet, unbeschadet, kraft, vermöge, binnen, zwecks"
+    level: C2
+    family: prepositions
+    prerequisites:
+      - genitive-prepositions-advanced
+    compareWith:
+      - genitive-prepositions-advanced
+  - id: concessive-formal
+    title:
+      en: wie dem auch sei, so … auch, mag … auch, wenngleich
+      de: wie dem auch sei, so … auch, mag … auch, wenngleich
+    level: C2
+    family: connectors
+    prerequisites:
+      - connectors-advanced
+    compareWith:
+      - concessive-advanced
+  - id: topicalization-emphasis
+    title:
+      en: Fronting and emphasis (topicalisation, cleft sentences)
+      de: Vorfeldbesetzung und Hervorhebung (Topikalisierung, Spaltsätze)
+    level: C2
+    family: word-order
+    prerequisites:
+      - nachfeld
+    compareWith:
+      - nachfeld
+  - id: ellipsis-coordination
+    title:
+      en: Ellipsis and coordination reduction
+      de: Ellipse und Koordinationsreduktion
+    level: C2
+    family: word-order
+    prerequisites:
+      - topicalization-emphasis
+    compareWith: []
+  - id: nominal-chains
+    title:
+      en: "Nominal chains and officialese: decode and avoid"
+      de: Nominalketten und Amtsdeutsch entschlüsseln und vermeiden
+    level: C2
+    family: style
+    prerequisites:
+      - academic-style
+    compareWith:
+      - academic-style
+  - id: participle-chains
+    title:
+      en: Multiple participial attributes
+      de: Mehrfache Partizipialattribute
+    level: C2
+    family: nominal
+    prerequisites:
+      - participial-attributes
+      - gerundive
+    compareWith:
+      - participial-attributes
+  - id: modal-particle-combinations
+    title:
+      en: "Combinations: doch mal, ja wohl, eben halt, denn eigentlich"
+      de: "Kombinationen: doch mal, ja wohl, eben halt, denn eigentlich"
+    level: C2
+    family: style
+    prerequisites:
+      - modal-particles-advanced
+    compareWith:
+      - modal-particles-advanced
+  - id: word-formation-advanced
+    title:
+      en: "Word formation: linking elements, conversion, derivation"
+      de: "Wortbildung: Fugenelemente, Konversion, Derivation"
+    level: C2
+    family: nominal
+    prerequisites:
+      - word-formation-adjectives
+    compareWith:
+      - word-formation-adjectives
+  - id: spoken-vs-written
+    title:
+      en: Spoken vs. written grammar
+      de: Gesprochene vs. geschriebene Grammatik erkennen
+    level: C2
+    family: style
+    prerequisites:
+      - genitive-prepositions
+    compareWith:
+      - register-shift
+  - id: regional-variants
+    title:
+      en: "Austria and Switzerland: grammar variants"
+      de: "Österreich und Schweiz: Grammatikvarianten"
+    level: C2
+    family: style
+    prerequisites:
+      - perfect-sein
+    compareWith:
+      - perfect-sein
+  - id: register-shift
+    title:
+      en: "Register shift: colloquial, neutral, elevated"
+      de: "Registerwechsel: dasselbe in umgangssprachlich, neutral, gehoben"
+    level: C2
+    family: style
+    prerequisites:
+      - academic-style
+    compareWith:
+      - spoken-vs-written
+      - academic-style
+  - id: punctuation-advanced
+    title:
+      en: "Punctuation: commas with participle/infinitive groups, appositions, semicolon"
+      de: "Zeichensetzung: Kommas bei Partizipial- und Infinitivgruppen, Appositionen, Semikolon"
+    level: C2
+    family: spelling
+    prerequisites:
+      - comma-rules
+    compareWith:
+      - comma-rules

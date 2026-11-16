@@ -2,7 +2,7 @@
 	"name": "grammatik-gym",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Master German grammar from A1 to C2 — phone-first, offline-capable PWA.",
+	"description": "Master German grammar from A1 to C2 \u2014 phone-first, offline-capable PWA.",
 	"type": "module",
 	"engines": {
 		"node": ">=24",
@@ -13,8 +13,8 @@
 		"#lib/*": "./src/lib/*"
 	},
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+		"dev": "pnpm content:compile && vite dev",
+		"build": "pnpm content:compile && vite build",
 		"preview": "tsx scripts/serve.ts build",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -23,7 +23,9 @@
 		"test": "vitest --run",
 		"test:watch": "vitest",
 		"test:e2e": "playwright test",
-		"verify": "pnpm lint && pnpm check && pnpm test && pnpm build"
+		"content:validate": "tsx scripts/content-validate.ts",
+		"content:compile": "tsx scripts/content-compile.ts",
+		"verify": "pnpm lint && pnpm check && pnpm test && pnpm content:validate && pnpm build"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",

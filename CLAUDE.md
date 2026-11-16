@@ -39,9 +39,10 @@ pnpm dev              # dev server (use --host to open it on the phone in the sa
 pnpm verify           # lint + typecheck + unit tests + content:validate + build  (must be green)
 pnpm test             # unit tests (Vitest)
 pnpm test:e2e         # Playwright (phone + desktop viewports)
-pnpm content:validate # schema + consistency checks on content/
-pnpm content:lint-de  # LanguageTool check of every correct sentence (cached, report only)
-pnpm content:stats    # items per point/level/type, coverage of CURRICULUM.md
+pnpm content:validate # schema + consistency checks on content/ (gate 1)
+pnpm content:compile  # validate + write static/content/*.json (runs before dev/build)
+pnpm content:lint-de  # LanguageTool check of every correct sentence (cached, report only) — P4.4
+pnpm content:stats    # items per point/level/type, coverage of CURRICULUM.md — P4.4
 pnpm build && pnpm preview   # preview = GitHub-Pages-like static server for build/ (scripts/serve.ts)
 ```
 

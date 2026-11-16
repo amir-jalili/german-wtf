@@ -22,8 +22,8 @@ Goal: an empty but real, deployed, installable app with CI.
 Goal: learn and practise 6 real grammar points on the phone with excellent checking.
 
 - [x] **P1.1** Content schemas (Zod) for catalogue, point, lesson, items: cloze, choice, order. Type tests.
-- [ ] **P1.2** `content/catalogue.yaml` with **all** points from CURRICULUM.md (id, titles, level, family, prereqs, compareWith). Validator: ids, cycles, sync with CURRICULUM.md.
-- [ ] **P1.3** `scripts/content-validate.ts` + `content-compile.ts` (YAML → `static/content/<level>.json`, hashed). Wired into `pnpm verify` and build.
+- [x] **P1.2** `content/catalogue.yaml` with **all** points from CURRICULUM.md (id, titles, level, family, prereqs, compareWith). Validator: ids, cycles, sync with CURRICULUM.md.
+- [x] **P1.3** `scripts/content-validate.ts` + `content-compile.ts` (YAML → `static/content/<level>.json`, hashed). Wired into `pnpm verify` and build.
 - [ ] **P1.4** Checker v1: normalise, accepted variants, near-miss (capitalisation, umlaut as ae/oe/ue, ß/ss, Levenshtein 1), `distractorNotes`, token diff with highlighted spans. ≥ 40 table-driven tests incl. German edge cases.
 - [ ] **P1.5** Exercise components: Cloze (with umlaut bar), Choice, Order (tiles + Feldermodell strip). Keyboard + touch. Feedback panel (✅ / 🟡 / ❌ with diff, rule, "open lesson").
 - [ ] **P1.6** Lesson page `/point/[id]`: summary, rule (Markdown), table with case colours, x-rayed examples (tap a word → role/case), pitfalls, TTS play buttons, "Practise" button.
