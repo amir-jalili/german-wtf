@@ -42,7 +42,7 @@ pnpm test:e2e         # Playwright (phone + desktop viewports)
 pnpm content:validate # schema + consistency checks on content/
 pnpm content:lint-de  # LanguageTool check of every correct sentence (cached, report only)
 pnpm content:stats    # items per point/level/type, coverage of CURRICULUM.md
-pnpm build && pnpm preview
+pnpm build && pnpm preview   # preview = GitHub-Pages-like static server for build/ (scripts/serve.ts)
 ```
 
 Keep this list in sync with `package.json`.
