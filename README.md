@@ -10,6 +10,8 @@ Master German grammar from **A1 to C2** in 15 minutes a day. Phone-first, works 
 - **Verified content**: schema checks, LanguageTool, and a blind-solve review before any item is served.
 
 > Status: in development. See `docs/PROGRESS.md`.
+>
+> **Live app:** https://amir-jalili.github.io/grammatik-gym/ (deployed from `main` by GitHub Actions)
 
 ## Develop
 
