@@ -12,7 +12,7 @@ Goal: an empty but real, deployed, installable app with CI.
 - [x] **P0.2** Scaffold SvelteKit (Svelte 5, TS strict, adapter-static), Tailwind, ESLint, Prettier, Vitest, Playwright (iPhone 13 + Desktop Chrome projects), pnpm scripts from CLAUDE.md §3. `pnpm verify` green.
 - [x] **P0.3** ESLint boundary rule: `src/lib/engine/**` may not import svelte, `$app/*`, dexie, DOM globals or `src/lib/{ui,db,stores}`. A test file proves the rule fires.
 - [x] **P0.4** PWA: manifest, icons (simple original logo), service worker precaching the shell; Lighthouse "installable" passes; offline reload of `/` works (Playwright offline test).
-- [ ] **P0.5** App shell: bottom nav (Today · Map · Mistakes · Stats · Settings), dark mode, theme tokens incl. case colours N/A/D/G with letter badges, error boundary.
+- [x] **P0.5** App shell: bottom nav (Today · Map · Mistakes · Stats · Settings), dark mode, theme tokens incl. case colours N/A/D/G with letter badges, error boundary.
 - [ ] **P0.6** GitHub repo `grammatik-gym` (ask AJ before creating; free GitHub Pages needs a public repo unless he has Pro — free with the GitHub Student Developer Pack; fine either way, because book content lives in a separate private repo) + Actions: verify + e2e on PR/push; deploy `main` to GitHub Pages. README with live URL.
 - [ ] **P0.7** ADR 0004 hosting choice, plus anything decided in P0.
 - [ ] **P0.8** Release plumbing: semver version shown in Settings, `CHANGELOG.md` (Keep a Changelog), "New version — reload" toast from the service worker, `src/lib/flags.ts` for feature flags, `tests/fixtures/` for backup fixtures (CLAUDE.md §9).

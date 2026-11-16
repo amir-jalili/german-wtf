@@ -16,7 +16,7 @@ test('app shell loads offline after the first visit', async ({ page, context }) 
 
 	await context.setOffline(true);
 	await page.reload();
-	await expect(page.getByRole('heading', { level: 1 })).toContainText('Grammatik Gym');
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Today');
 	await context.setOffline(false);
 });
 

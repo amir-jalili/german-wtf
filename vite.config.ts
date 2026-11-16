@@ -2,6 +2,11 @@ import tailwindcss from '@tailwindcss/vite';
 import adapter from '@sveltejs/adapter-static';
 import { withPwa } from '@vite-pwa/sveltekit';
 import { defineConfig } from 'vitest/config';
+import { readFileSync } from 'node:fs';
+
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as {
+	version: string;
+};
 
 /**
  * Base path for deployment. Empty locally; GitHub Actions sets BASE_PATH=/grammatik-gym
@@ -19,6 +24,7 @@ function parseBasePath(value: string | undefined): '' | `/${string}` {
 const FALLBACK = '404.html';
 
 export default defineConfig({
+	define: { __APP_VERSION__: JSON.stringify(pkg.version) },
 	plugins: [
 		tailwindcss(),
 		withPwa(
