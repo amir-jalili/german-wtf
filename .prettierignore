@@ -1,0 +1,21 @@
+# Package managers
+pnpm-lock.yaml
+
+# Generated
+/static/content/
+/.svelte-kit/
+/build/
+/dev-dist/
+/private-dist/
+/.cache/
+/test-results/
+/playwright-report/
+
+# Content YAML keeps its hand-written layout
+/content/**/*.yaml
+
+# Hand-written docs keep their own layout
+/docs/**/*.md
+/*.md
+/.claude/**/*.md
+/content/**/*.md

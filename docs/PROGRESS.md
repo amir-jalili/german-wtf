@@ -16,6 +16,19 @@ Newest entry on top. Every session that changes anything ends with an entry, so 
 - **Next:** the exact next task ID and first step
 ```
 
+## Toolchain (P0.1, 2026-11-16)
+
+| Tool | Version |
+|---|---|
+| macOS | Darwin 27.0 (Apple Silicon) |
+| git | 2.54.0 (Apple Git-157) |
+| Node | 26.13.1 (`.nvmrc`) |
+| pnpm | 12.21.0 (`packageManager` field) |
+| gh | 2.104.0, logged in as `amir-jalili` |
+| Claude Code | 2.1.326 |
+
+Nothing had to be installed. Key packages: SvelteKit 3.2, Svelte 5.57, Vite 8.3, TypeScript 6.0, Tailwind 4.3, Vitest 5.1, Playwright 1.65 (exact versions in `pnpm-lock.yaml`).
+
 ## Content coverage
 
 | Level | Points in catalogue | With lesson | Verified items | Generators |

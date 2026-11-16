@@ -8,8 +8,8 @@ Work top to bottom. Tick a task (`- [x]`) only when its acceptance criteria are 
 
 Goal: an empty but real, deployed, installable app with CI.
 
-- [ ] **P0.1** Check toolchain (git, Node LTS, pnpm, gh). Install missing tools via Homebrew only after telling AJ. Record versions in PROGRESS.
-- [ ] **P0.2** Scaffold SvelteKit (Svelte 5, TS strict, adapter-static), Tailwind, ESLint, Prettier, Vitest, Playwright (iPhone 13 + Desktop Chrome projects), pnpm scripts from CLAUDE.md §3. `pnpm verify` green.
+- [x] **P0.1** Check toolchain (git, Node LTS, pnpm, gh). Install missing tools via Homebrew only after telling AJ. Record versions in PROGRESS.
+- [x] **P0.2** Scaffold SvelteKit (Svelte 5, TS strict, adapter-static), Tailwind, ESLint, Prettier, Vitest, Playwright (iPhone 13 + Desktop Chrome projects), pnpm scripts from CLAUDE.md §3. `pnpm verify` green.
 - [ ] **P0.3** ESLint boundary rule: `src/lib/engine/**` may not import svelte, `$app/*`, dexie, DOM globals or `src/lib/{ui,db,stores}`. A test file proves the rule fires.
 - [ ] **P0.4** PWA: manifest, icons (simple original logo), service worker precaching the shell; Lighthouse "installable" passes; offline reload of `/` works (Playwright offline test).
 - [ ] **P0.5** App shell: bottom nav (Today · Map · Mistakes · Stats · Settings), dark mode, theme tokens incl. case colours N/A/D/G with letter badges, error boundary.
