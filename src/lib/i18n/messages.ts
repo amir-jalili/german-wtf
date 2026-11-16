@@ -17,6 +17,7 @@ export const messages = {
 		'stats.title': 'Stats',
 		'settings.title': 'Settings',
 		'settings.version': 'Version',
+		'settings.whatsNew': 'What’s new in',
 		'error.title': 'Something went wrong',
 		'error.body':
 			'The app hit an error. Your progress is safe. Copy the debug info and send it to AJ.',

@@ -15,7 +15,7 @@ Goal: an empty but real, deployed, installable app with CI.
 - [x] **P0.5** App shell: bottom nav (Today · Map · Mistakes · Stats · Settings), dark mode, theme tokens incl. case colours N/A/D/G with letter badges, error boundary.
 - [ ] **P0.6** GitHub repo `grammatik-gym` (ask AJ before creating; free GitHub Pages needs a public repo unless he has Pro — free with the GitHub Student Developer Pack; fine either way, because book content lives in a separate private repo) + Actions: verify + e2e on PR/push; deploy `main` to GitHub Pages. README with live URL.
 - [x] **P0.7** ADR 0004 hosting choice, plus anything decided in P0.
-- [ ] **P0.8** Release plumbing: semver version shown in Settings, `CHANGELOG.md` (Keep a Changelog), "New version — reload" toast from the service worker, `src/lib/flags.ts` for feature flags, `tests/fixtures/` for backup fixtures (CLAUDE.md §9).
+- [x] **P0.8** Release plumbing: semver version shown in Settings, `CHANGELOG.md` (Keep a Changelog), "New version — reload" toast from the service worker, `src/lib/flags.ts` for feature flags, `tests/fixtures/` for backup fixtures (CLAUDE.md §9).
 
 ## Phase 1 — The core loop (AJ uses it on day 1)
 

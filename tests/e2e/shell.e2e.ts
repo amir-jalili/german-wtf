@@ -63,3 +63,14 @@ test('unknown routes show the error panel with the status', async ({ page }) => 
 	await page.goto('/does-not-exist');
 	await expect(page.getByRole('alert')).toContainText('404');
 });
+
+test('the update toast appears when a new version is ready and can be dismissed', async ({
+	page
+}) => {
+	await page.goto('/dev/styles');
+	await page.getByRole('button', { name: 'Simulate new version' }).click();
+	const toast = page.getByRole('status');
+	await expect(toast).toContainText('New version ready');
+	await toast.getByRole('button', { name: 'Later' }).click();
+	await expect(toast).toBeHidden();
+});

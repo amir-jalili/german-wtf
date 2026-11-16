@@ -1,6 +1,7 @@
 <script lang="ts">
 	/** Style guide: tokens, badges and buttons in the current colour scheme. Dev only, unlisted. */
 	import CaseBadge from '#lib/ui/common/CaseBadge.svelte';
+	import { pwa } from '#lib/pwa/register.svelte.js';
 	const cases = ['nom', 'akk', 'dat', 'gen'] as const;
 </script>
 
@@ -27,3 +28,8 @@
 	<span class="text-warn">🟡 almost</span>
 	<span class="text-danger">❌ wrong</span>
 </div>
+
+<h2 class="mt-6 text-lg font-semibold">Update toast</h2>
+<button type="button" class="btn-secondary mt-2" onclick={() => (pwa.needRefresh = true)}>
+	Simulate new version
+</button>

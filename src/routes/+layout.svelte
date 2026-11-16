@@ -4,6 +4,7 @@
 	import { pwa } from '#lib/pwa/register.svelte.js';
 	import BottomNav from '#lib/ui/common/BottomNav.svelte';
 	import ErrorPanel from '#lib/ui/common/ErrorPanel.svelte';
+	import UpdateToast from '#lib/ui/common/UpdateToast.svelte';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
@@ -22,4 +23,5 @@
 			{/snippet}
 		</svelte:boundary>
 	</main>
+	<UpdateToast />
 </div>
