@@ -172,7 +172,7 @@ Pure functions `(lexicon, params, rng) → Item[]` for closed paradigms: definit
 
 ### 5.5 X-ray annotations
 
-Examples (and optionally items) carry spans: `{ from, to, role: 'subj'|'akk-obj'|'dat-obj'|'gen-attr'|'prep-obj'|'verb'|'verb-part', case?, gender? }`. The UI colours them; tapping a word shows its role and case. Written by hand in content; generators emit them automatically.
+Examples (and optionally items) carry spans: `{ text, role: 'subj'|'akk-obj'|'dat-obj'|'gen-attr'|'prep-obj'|'verb'|'verb-part'|'pred', case?, gender?, note? }` where `text` is the exact words of the span (first occurrence in the sentence) — easier to write by hand than character offsets; the validator checks that the text occurs. The UI colours them; tapping a word shows its role and case. Written by hand in content; generators emit them automatically.
 
 ## 6. Storage (Dexie)
 
