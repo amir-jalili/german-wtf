@@ -1,0 +1,350 @@
+id: accusative-articles
+title: { en: "Accusative: articles", de: "Akkusativ: Artikel" }
+level: A1
+family: cases
+prerequisites: [noun-gender-articles]
+compareWith: [dative-articles]
+version: 1
+lesson:
+  summary: "The direct object takes the Akkusativ. Only masculine changes: der → den, ein → einen. Feminine, neuter and plural look exactly like the Nominativ."
+  rule: |
+    The **direct object** (the thing or person the action is done to) stands in the **Akkusativ**.
+    Ask *Wen oder was?* — *Ich kaufe **den Tisch**.*
+
+    Only the **masculine** forms change:
+    - der → **den** · *Ich sehe den Mann.*
+    - ein → **einen** · *Ich habe einen Hund.*
+
+    Feminine (*die/eine*), neuter (*das/ein*) and plural (*die*) stay the same as in the Nominativ.
+
+    Typical Akkusativ verbs: *haben, brauchen, kaufen, sehen, suchen, essen, trinken, lesen, kennen, nehmen* and *es gibt*.
+  table:
+    columns: [m, f, n, pl]
+    rows:
+      "Nominativ (der)": ["der Tisch", "die Lampe", "das Bett", "die Stühle"]
+      "Akkusativ (der)": ["den Tisch", "die Lampe", "das Bett", "die Stühle"]
+      "Nominativ (ein)": ["ein Tisch", "eine Lampe", "ein Bett", "– Stühle"]
+      "Akkusativ (ein)": ["einen Tisch", "eine Lampe", "ein Bett", "– Stühle"]
+  examples:
+    - de: "Ich kaufe den Tisch."
+      en: "I'm buying the table."
+      xray:
+        - { text: "Ich", role: subj, case: nom }
+        - { text: "kaufe", role: verb }
+        - { text: "den Tisch", role: akk-obj, case: akk, gender: m }
+    - de: "Lena hat einen Bruder."
+      en: "Lena has a brother."
+      xray:
+        - { text: "Lena", role: subj, case: nom }
+        - { text: "hat", role: verb }
+        - { text: "einen Bruder", role: akk-obj, case: akk, gender: m }
+    - de: "Wir brauchen eine Lampe."
+      en: "We need a lamp."
+      xray:
+        - { text: "Wir", role: subj, case: nom }
+        - { text: "brauchen", role: verb }
+        - { text: "eine Lampe", role: akk-obj, case: akk, gender: f, note: "feminine: no change" }
+    - de: "Er trinkt das Wasser."
+      en: "He drinks the water."
+      xray:
+        - { text: "Er", role: subj, case: nom }
+        - { text: "trinkt", role: verb }
+        - { text: "das Wasser", role: akk-obj, case: akk, gender: n, note: "neuter: no change" }
+    - de: "Kofi sucht die Schlüssel."
+      en: "Kofi is looking for the keys."
+      xray:
+        - { text: "Kofi", role: subj, case: nom }
+        - { text: "sucht", role: verb }
+        - { text: "die Schlüssel", role: akk-obj, case: akk, gender: pl, note: "plural: no change" }
+  pitfalls:
+    - "Only masculine changes. If you wrote *eine Tisch* or *das Mann*, the problem is the gender, not the case."
+    - "Don't \"fix\" feminine or neuter nouns: *die Frau* and *das Kind* stay the same in the Akkusativ."
+    - "The subject (*Wer?*) stays Nominativ even when it comes later: *Den Kuchen isst **der** Hund.*"
+items:
+  - id: accusative-articles/001
+    type: cloze
+    level: A1
+    skill: form
+    text: "Ich kaufe {{den}} Tisch."
+    hint: "(der Tisch)"
+    accepted: [den]
+    explanation: "Direct object → Akkusativ. Masculine *der* becomes *den*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      der: "*der* is Nominativ. The table is the direct object (wen oder was kaufe ich?) → *den*."
+      dem: "*dem* is Dativ. *kaufen* takes the Akkusativ → *den*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/002
+    type: cloze
+    level: A1
+    skill: form
+    text: "Lena hat {{einen}} Bruder."
+    hint: "(ein Bruder)"
+    accepted: [einen]
+    explanation: "*haben* takes the Akkusativ. Masculine *ein* becomes *einen*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      ein: "*ein* is the Nominativ form. After *haben* the noun is the direct object → *einen*."
+      einem: "*einem* is Dativ. *haben* takes the Akkusativ → *einen*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/003
+    type: cloze
+    level: A1
+    skill: form
+    text: "Wir brauchen {{eine}} Lampe."
+    hint: "(eine Lampe)"
+    accepted: [eine]
+    explanation: "Akkusativ, but *Lampe* is feminine: *eine* stays *eine*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      einen: "*einen* is masculine. *Lampe* is feminine → *eine* (feminine never changes in the Akkusativ)."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/004
+    type: cloze
+    level: A1
+    skill: form
+    text: "Er trinkt {{das}} Wasser."
+    hint: "(das Wasser)"
+    accepted: [das]
+    explanation: "Akkusativ, but *Wasser* is neuter: *das* stays *das*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      den: "*den* is masculine. *Wasser* is neuter → *das* (neuter never changes in the Akkusativ)."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/005
+    type: cloze
+    level: A1
+    skill: form
+    text: "Siehst du {{den}} Mann dort?"
+    hint: "(der Mann)"
+    accepted: [den]
+    explanation: "*sehen* takes the Akkusativ. Masculine *der* → *den*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      der: "*der* is Nominativ. The man is the one being seen (direct object) → *den*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/006
+    type: cloze
+    level: A1
+    skill: form
+    text: "Murat sucht {{die}} Schlüssel."
+    hint: "(die Schlüssel, Plural)"
+    accepted: [die]
+    explanation: "Akkusativ plural looks like the Nominativ: *die*."
+    errorTags: [article-form, number]
+    distractorNotes:
+      den: "*den* is masculine singular (or Dativ plural). Here *die Schlüssel* is plural → *die*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/007
+    type: cloze
+    level: A1
+    skill: form
+    text: "Ich habe {{einen}} Hund."
+    hint: "(ein Hund)"
+    accepted: [einen]
+    explanation: "*haben* + Akkusativ; masculine *ein* → *einen*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      ein: "Nominativ form. The dog is the direct object → *einen*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/008
+    type: cloze
+    level: A1
+    skill: form
+    text: "Hast du {{ein}} Auto?"
+    hint: "(ein Auto)"
+    accepted: [ein]
+    explanation: "Akkusativ, but *Auto* is neuter: *ein* stays *ein*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      einen: "*einen* is masculine. *Auto* is neuter → *ein*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/009
+    type: cloze
+    level: A1
+    skill: form
+    text: "Sie liest {{einen}} Roman."
+    hint: "(ein Roman)"
+    accepted: [einen]
+    explanation: "*lesen* takes the Akkusativ; masculine *ein* → *einen*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      ein: "Nominativ form. The novel is being read (direct object) → *einen*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/010
+    type: cloze
+    level: A1
+    skill: form
+    text: "Wir essen {{den}} Kuchen."
+    hint: "(der Kuchen)"
+    accepted: [den]
+    explanation: "*essen* takes the Akkusativ; masculine *der* → *den*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      der: "*der* is Nominativ. The cake is being eaten (direct object) → *den*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/011
+    type: cloze
+    level: A1
+    skill: form
+    text: "Yuki kauft {{eine}} Jacke."
+    hint: "(eine Jacke)"
+    accepted: [eine]
+    explanation: "Akkusativ, but *Jacke* is feminine: *eine* stays *eine*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      einen: "*einen* is masculine. *Jacke* is feminine → *eine*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/012
+    type: cloze
+    level: A1
+    skill: form
+    text: "Kennst du {{die}} Frau?"
+    hint: "(die Frau)"
+    accepted: [die]
+    explanation: "Akkusativ, but *Frau* is feminine: *die* stays *die*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      den: "*den* is masculine. *Frau* is feminine → *die*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/013
+    type: cloze
+    level: A1
+    skill: form
+    text: "Ich nehme {{das}} Brot."
+    hint: "(das Brot)"
+    accepted: [das]
+    explanation: "Akkusativ, but *Brot* is neuter: *das* stays *das*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      den: "*den* is masculine. *Brot* is neuter → *das*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/014
+    type: choice
+    level: A1
+    skill: form
+    text: "Ich suche ___ Bahnhof."
+    hint: "(der Bahnhof)"
+    options: [den, der, dem, das]
+    answer: den
+    explanation: "*suchen* takes the Akkusativ; masculine *der* → *den*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      der: "Nominativ. The station is what I'm looking for (direct object) → *den*."
+      dem: "Dativ. *suchen* takes the Akkusativ → *den*."
+      das: "*Bahnhof* is masculine, not neuter → *den*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/015
+    type: choice
+    level: A1
+    skill: form
+    text: "Amir hat ___ Schwester."
+    hint: "(die Schwester)"
+    options: [eine, einen, ein, einer]
+    answer: eine
+    explanation: "*haben* + Akkusativ, but *Schwester* is feminine: *eine*."
+    errorTags: [article-form, gender]
+    distractorNotes:
+      einen: "Masculine form. *Schwester* is feminine → *eine*."
+      ein: "Masculine/neuter Nominativ form. *Schwester* is feminine → *eine*."
+      einer: "Dativ/Genitiv feminine. *haben* takes the Akkusativ → *eine*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/016
+    type: choice
+    level: A1
+    skill: form
+    text: "Wir sehen ___ Film."
+    hint: "(der Film)"
+    options: [den, der, das, dem]
+    answer: den
+    explanation: "*sehen* takes the Akkusativ; masculine *der* → *den*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      der: "Nominativ. The film is what we see (direct object) → *den*."
+      das: "*Film* is masculine → *den*."
+      dem: "Dativ. *sehen* takes the Akkusativ → *den*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/017
+    type: choice
+    level: A1
+    skill: form
+    text: "Brauchst du ___ Stift?"
+    hint: "(der Stift)"
+    options: [einen, ein, eine, einem]
+    answer: einen
+    explanation: "*brauchen* takes the Akkusativ; masculine *ein* → *einen*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      ein: "Nominativ form. The pen is the direct object → *einen*."
+      eine: "Feminine. *Stift* is masculine → *einen*."
+      einem: "Dativ. *brauchen* takes the Akkusativ → *einen*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/018
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the sentence: We are looking for the teacher."
+    tiles: [wir, suchen, den, Lehrer]
+    accepted: ["Wir suchen den Lehrer", "Den Lehrer suchen wir"]
+    suffix: "."
+    fields: { vorfeld: "Wir", leftBracket: "suchen", mittelfeld: "den Lehrer" }
+    explanation: "Verb in second position; the Akkusativ object *den Tisch* can also start the sentence for emphasis."
+    errorTags: [v2-position]
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/019
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the sentence: Amir has a son."
+    tiles: [Amir, hat, einen, Sohn]
+    accepted: ["Amir hat einen Sohn", "Einen Sohn hat Amir"]
+    suffix: "."
+    fields: { vorfeld: "Amir", leftBracket: "hat", mittelfeld: "einen Sohn" }
+    explanation: "Verb second; *einen Bruder* is the Akkusativ object and can stand first for emphasis."
+    errorTags: [v2-position]
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/020
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the question: Do you see the bus?"
+    tiles: [siehst, du, den, Bus]
+    accepted: ["Siehst du den Bus"]
+    suffix: "?"
+    fields: { leftBracket: "Siehst", mittelfeld: "du den Bus" }
+    explanation: "Yes/no question: the verb comes first, then the subject, then the Akkusativ object."
+    errorTags: [v2-position]
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original
+  - id: accusative-articles/021
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the sentence: She drinks the tea."
+    tiles: [sie, trinkt, den, Tee]
+    accepted: ["Sie trinkt den Tee", "Den Tee trinkt sie"]
+    suffix: "."
+    fields: { vorfeld: "Sie", leftBracket: "trinkt", mittelfeld: "den Tee" }
+    explanation: "Verb second; the object *das Wasser* may also take the first position."
+    errorTags: [v2-position]
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
+    source: original

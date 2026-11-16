@@ -296,6 +296,7 @@ function sortedKey(list: readonly string[]): string {
 	return [...list].sort().join(',');
 }
 
+/** Order tiles are compared case-insensitively: the UI capitalises the first tile itself. */
 function tokenKey(text: string): string {
-	return text.split(/\s+/).filter(Boolean).sort().join('\u0000');
+	return text.toLocaleLowerCase('de-DE').split(/\s+/).filter(Boolean).sort().join('\u0000');
 }

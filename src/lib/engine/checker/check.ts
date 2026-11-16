@@ -26,6 +26,8 @@ export interface CheckOptions {
 	distractorNotes?: Readonly<Record<string, string>>;
 	/** Minimum length of the expected word for the one-typo tolerance. Default 6. */
 	typoMinLength?: number;
+	/** Treat capitalisation differences as exact matches (tiles the user cannot edit). */
+	ignoreCase?: boolean;
 }
 
 /** Checks a typed answer against every accepted variant. */
@@ -39,6 +41,8 @@ export function check(
 
 	for (const variant of accepted) {
 		if (given === normalise(variant)) return { verdict: 'correct', matched: variant };
+		if (options.ignoreCase && foldCase(given) === foldCase(variant))
+			return { verdict: 'correct', matched: variant };
 	}
 
 	for (const variant of accepted) {
