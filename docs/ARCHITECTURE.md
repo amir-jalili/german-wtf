@@ -143,7 +143,7 @@ interface BaseItem {
 
 ### 5.1 Checker (`engine/checker`)
 
-Pipeline: `normalise(answer)` → exact match against normalised accepted answers → if none: **near-miss** check (capitalisation only; umlaut written as `ae/oe/ue` or missing; ß/ss; Levenshtein ≤ 1 on a word ≥ 5 letters that isn't itself a different valid form) → if none: **diagnose**: look up `distractorNotes`; else compare token by token with the closest accepted answer and infer the tag (same lemma different ending → `adj-ending`/`article-form`/`verb-conjugation` by POS from the item metadata; same tokens different order → word-order tag; different preposition → `preposition-choice`). Returns:
+Pipeline: `normalise(answer)` → exact match against normalised accepted answers → if none: **near-miss** check (capitalisation only; umlaut written as `ae/oe/ue` or missing; ß/ss; one internal typo in a word of ≥ 6 letters whose first and last letters are right and that isn't itself a different listed form — endings and short words are never "typos", because that is where the grammar lives) → if none: **diagnose**: look up `distractorNotes`; else compare token by token with the closest accepted answer and infer the tag (same lemma different ending → `adj-ending`/`article-form`/`verb-conjugation` by POS from the item metadata; same tokens different order → word-order tag; different preposition → `preposition-choice`). Returns:
 
 ```ts
 type CheckResult =
