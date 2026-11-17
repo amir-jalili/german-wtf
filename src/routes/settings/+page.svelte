@@ -12,8 +12,11 @@
 		importBackup,
 		MAX_NEW_PER_DAY,
 		readBackupText,
-		rebuildAllCards
+		rebuildAllCards,
+		TTS_RATES,
+		type Theme
 	} from '#lib/db/index.js';
+	import { canSpeak, germanVoices, speak } from '#lib/audio/tts.js';
 	import ChoiceGroup from '#lib/ui/common/ChoiceGroup.svelte';
 	import { settings } from '#lib/stores/settings.svelte.js';
 	import { CHAOS_LEVELS, type ChaosLevel } from '#lib/engine/fun/pick.js';
@@ -45,6 +48,25 @@
 		{ value: 0.9, label: t('settings.retentionNormal') },
 		{ value: 0.95, label: t('settings.retentionStrict') }
 	];
+
+	const themeOptions: { value: Theme; label: string }[] = [
+		{ value: 'system', label: t('settings.themeSystem') },
+		{ value: 'light', label: t('settings.themeLight') },
+		{ value: 'dark', label: t('settings.themeDark') }
+	];
+	const rateLabels = [t('settings.ttsSlow'), t('settings.ttsNormal'), t('settings.ttsFast')];
+	const rateOptions = TTS_RATES.map((r, i) => ({
+		value: r as number,
+		label: rateLabels[i] ?? `${r}`
+	}));
+	let voices = $state<string[]>([]);
+	onMount(() => {
+		if (!canSpeak()) return;
+		const update = () => (voices = germanVoices().map((v) => v.name));
+		update();
+		speechSynthesis.addEventListener('voiceschanged', update);
+		return () => speechSynthesis.removeEventListener('voiceschanged', update);
+	});
 
 	async function setRetention(value: number): Promise<void> {
 		await settings.set('targetRetention', value);
@@ -152,6 +174,47 @@
 		/>
 		{t('stats.showStreak')}
 	</label>
+</section>
+
+<section class="card mt-4 space-y-3 text-sm" aria-labelledby="look-h">
+	<h2 id="look-h" class="text-base font-semibold">{t('settings.look')}</h2>
+	<p id="theme-l" class="font-medium">{t('settings.theme')}</p>
+	<ChoiceGroup
+		labelledby="theme-l"
+		options={themeOptions}
+		selected={settings.value.theme}
+		onselect={(v) => settings.set('theme', v)}
+		testid="theme"
+	/>
+	<p id="rate-l" class="font-medium">{t('settings.ttsRate')}</p>
+	<ChoiceGroup
+		labelledby="rate-l"
+		options={rateOptions}
+		selected={settings.value.ttsRate}
+		onselect={(v) => settings.set('ttsRate', v)}
+		testid="tts-rate"
+	/>
+	<label class="block">
+		<span class="font-medium">{t('settings.ttsVoice')}</span>
+		{#if voices.length}
+			<select
+				class="mt-1 tap w-full rounded-xl border border-border bg-surface px-3"
+				value={settings.value.ttsVoice}
+				onchange={(e) => settings.set('ttsVoice', e.currentTarget.value)}
+				data-testid="tts-voice"
+			>
+				<option value="">{t('settings.ttsAuto')}</option>
+				{#each voices as name (name)}<option value={name}>{name}</option>{/each}
+			</select>
+		{:else}
+			<span class="mt-1 block text-muted">{t('settings.ttsNone')}</span>
+		{/if}
+	</label>
+	{#if voices.length}
+		<button type="button" class="btn-secondary" onclick={() => speak(t('settings.ttsSample'))}>
+			🔊 {t('settings.ttsTry')}
+		</button>
+	{/if}
 </section>
 
 <section class="card mt-4 space-y-3 text-sm" aria-labelledby="chaos-h">

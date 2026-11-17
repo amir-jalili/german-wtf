@@ -24,7 +24,10 @@ export {
 	DEFAULT_SETTINGS,
 	DAILY_MINUTES,
 	MAX_NEW_PER_DAY,
-	type Settings
+	THEMES,
+	TTS_RATES,
+	type Settings,
+	type Theme
 } from './settings.js';
 export {
 	loadAnswers,

@@ -7,11 +7,25 @@
 	import BottomNav from '#lib/ui/common/BottomNav.svelte';
 	import ErrorPanel from '#lib/ui/common/ErrorPanel.svelte';
 	import UpdateToast from '#lib/ui/common/UpdateToast.svelte';
+	import { setSpeechPrefs } from '#lib/audio/tts.js';
+	import { settings } from '#lib/stores/settings.svelte.js';
+	import { applyTheme } from '#lib/ui/theme.js';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
 
-	onMount(() => pwa.register());
+	onMount(() => {
+		pwa.register();
+		void settings.load();
+	});
+
+	// Theme and speech follow the settings (P2.8c).
+	$effect(() => {
+		if (settings.loaded) applyTheme(settings.value.theme);
+	});
+	$effect(() => {
+		setSpeechPrefs({ rate: settings.value.ttsRate, voiceName: settings.value.ttsVoice });
+	});
 </script>
 
 <div class="md:flex md:min-h-dvh">

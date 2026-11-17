@@ -80,3 +80,18 @@ test('Today shows the mascot and the tagline', async ({ page }) => {
 	await expect(page.getByRole('img', { name: /Dativ the cat/ })).toBeVisible();
 	await expect(page.getByTestId('tagline')).toHaveText('Was zur Katze?!');
 });
+
+test('theme setting overrides the system and survives a reload', async ({ page }) => {
+	await page.emulateMedia({ colorScheme: 'light' });
+	await page.goto('/settings');
+	await page.getByTestId('theme').getByRole('radio', { name: 'Night cat' }).click();
+	await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+	const bg = () => page.evaluate(() => getComputedStyle(document.documentElement).backgroundColor);
+	expect(await bg()).toBe('rgb(23, 20, 17)');
+	await page.reload();
+	// set before first paint from the localStorage mirror
+	await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+	await page.getByTestId('theme').getByRole('radio', { name: 'System' }).click();
+	await expect(page.locator('html')).not.toHaveAttribute('data-theme', /./);
+	expect(await bg()).not.toBe('rgb(23, 20, 17)');
+});

@@ -15,7 +15,16 @@ export interface Settings {
 	newPerDay: number;
 	/** Show the day streak on Stats (some people find streaks stressful). */
 	showStreak: boolean;
+	theme: Theme;
+	/** Speech rate for German audio, 0.5–1.5. */
+	ttsRate: number;
+	/** Preferred German voice name; '' = pick automatically. */
+	ttsVoice: string;
 }
+
+export const THEMES = ['system', 'light', 'dark'] as const;
+export type Theme = (typeof THEMES)[number];
+export const TTS_RATES = [0.75, 0.95, 1.1] as const;
 
 export const DAILY_MINUTES = [5, 10, 15, 25] as const;
 export const MAX_NEW_PER_DAY = 3;
@@ -25,7 +34,10 @@ export const DEFAULT_SETTINGS: Settings = {
 	targetRetention: DEFAULT_RETENTION,
 	dailyMinutes: 15,
 	newPerDay: 1,
-	showStreak: true
+	showStreak: true,
+	theme: 'system',
+	ttsRate: 0.95,
+	ttsVoice: ''
 };
 
 function intIn(value: unknown, min: number, max: number, fallback: number): number {
@@ -51,7 +63,17 @@ export async function loadSettings(db: GymDB): Promise<Settings> {
 		showStreak:
 			typeof map.get('showStreak') === 'boolean'
 				? (map.get('showStreak') as boolean)
-				: DEFAULT_SETTINGS.showStreak
+				: DEFAULT_SETTINGS.showStreak,
+		theme: THEMES.includes(map.get('theme') as Theme)
+			? (map.get('theme') as Theme)
+			: DEFAULT_SETTINGS.theme,
+		ttsRate:
+			typeof map.get('ttsRate') === 'number' &&
+			(map.get('ttsRate') as number) >= 0.5 &&
+			(map.get('ttsRate') as number) <= 1.5
+				? (map.get('ttsRate') as number)
+				: DEFAULT_SETTINGS.ttsRate,
+		ttsVoice: typeof map.get('ttsVoice') === 'string' ? (map.get('ttsVoice') as string) : ''
 	};
 }
 

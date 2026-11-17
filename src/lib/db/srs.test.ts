@@ -116,5 +116,16 @@ describe('SRS storage', () => {
 			{ key: 'newPerDay', value: 9 }
 		]);
 		expect(await loadSettings(db)).toMatchObject({ dailyMinutes: 25, newPerDay: 1 });
+		expect(await loadSettings(db)).toMatchObject({ theme: 'system', ttsRate: 0.95, ttsVoice: '' });
+		await db.settings.bulkPut([
+			{ key: 'theme', value: 'dark' },
+			{ key: 'ttsRate', value: 9 },
+			{ key: 'ttsVoice', value: 'Anna' }
+		]);
+		expect(await loadSettings(db)).toMatchObject({
+			theme: 'dark',
+			ttsRate: 0.95,
+			ttsVoice: 'Anna'
+		});
 	});
 });
