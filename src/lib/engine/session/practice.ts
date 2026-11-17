@@ -17,20 +17,26 @@ export function pickPracticeItems(items: readonly Item[], options: PracticeOptio
 		items.filter((i) => !i.retired && i.review.status === 'verified'),
 		options.rng
 	);
-	// Round-robin over types, each queue in random order.
+	// Greedy interleaving: always take the type with the most items left, excluding the
+	// previous item's type. This avoids two of the same type in a row whenever that is possible.
 	const queues = new Map<string, Item[]>();
-	for (const item of pool)
-		(queues.get(item.type) ?? queues.set(item.type, []).get(item.type)!).push(item);
-	const types = shuffle([...queues.keys()], options.rng);
+	for (const item of pool) {
+		const queue = queues.get(item.type) ?? [];
+		queue.push(item);
+		queues.set(item.type, queue);
+	}
+	const types = shuffle([...queues.keys()], options.rng); // random tie-break order
+	const remaining = (t: string): number => queues.get(t)?.length ?? 0;
 	const picked: Item[] = [];
 	let lastType: string | undefined;
-	while (picked.length < count && types.some((t) => queues.get(t)!.length)) {
-		// Prefer a type different from the previous item's.
-		const candidates = types.filter((t) => queues.get(t)!.length && t !== lastType);
-		const type = candidates[0] ?? types.find((t) => queues.get(t)!.length)!;
+	while (picked.length < count) {
+		const available = types.filter((t) => remaining(t) > 0);
+		if (!available.length) break;
+		const others = available.filter((t) => t !== lastType);
+		const choices = others.length ? others : available;
+		const type = choices.reduce((best, t) => (remaining(t) > remaining(best) ? t : best));
 		picked.push(queues.get(type)!.shift()!);
 		lastType = type;
-		types.push(types.splice(types.indexOf(type), 1)[0]!); // rotate
 	}
 	return picked;
 }

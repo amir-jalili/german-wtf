@@ -40,6 +40,10 @@ export default defineConfig({
 			// PWA / service worker strategy: see ADR 0005.
 			{
 				strategies: 'generateSW',
+				// Absolute base and scope: Kit renders relative paths, so on a deep link (/practice/x)
+				// a relative ./sw.js would resolve to /practice/sw.js and 404.
+				base: `${base}/`,
+				scope: `${base}/`,
 				registerType: 'prompt', // never force-reload a session; the app shows "New version — reload"
 				injectRegister: false, // registered from src/lib/pwa/register.svelte.ts
 				manifestFilename: 'manifest.webmanifest',
