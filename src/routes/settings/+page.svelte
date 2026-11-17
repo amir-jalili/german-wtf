@@ -43,22 +43,28 @@
 		value: n,
 		label: `${n}`
 	}));
-	const retentionOptions = [
+	const retentionOptions = $derived([
 		{ value: 0.85, label: t('settings.retentionRelaxed') },
 		{ value: 0.9, label: t('settings.retentionNormal') },
 		{ value: 0.95, label: t('settings.retentionStrict') }
-	];
+	]);
 
-	const themeOptions: { value: Theme; label: string }[] = [
+	const themeOptions: { value: Theme; label: string }[] = $derived([
 		{ value: 'system', label: t('settings.themeSystem') },
 		{ value: 'light', label: t('settings.themeLight') },
 		{ value: 'dark', label: t('settings.themeDark') }
-	];
-	const rateLabels = [t('settings.ttsSlow'), t('settings.ttsNormal'), t('settings.ttsFast')];
-	const rateOptions = TTS_RATES.map((r, i) => ({
-		value: r as number,
-		label: rateLabels[i] ?? `${r}`
-	}));
+	]);
+	const rateLabels = $derived([
+		t('settings.ttsSlow'),
+		t('settings.ttsNormal'),
+		t('settings.ttsFast')
+	]);
+	const rateOptions = $derived(
+		TTS_RATES.map((r, i) => ({
+			value: r as number,
+			label: rateLabels[i] ?? `${r}`
+		}))
+	);
 	let voices = $state<string[]>([]);
 	onMount(() => {
 		if (!canSpeak()) return;
@@ -190,6 +196,17 @@
 
 <section class="card mt-4 space-y-3 text-sm" aria-labelledby="look-h">
 	<h2 id="look-h" class="text-base font-semibold">{t('settings.look')}</h2>
+	<p id="lang-l" class="font-medium">Language · Sprache</p>
+	<ChoiceGroup
+		labelledby="lang-l"
+		options={[
+			{ value: 'en', label: 'English' },
+			{ value: 'de', label: 'Deutsch' }
+		]}
+		selected={settings.value.uiLanguage}
+		onselect={(v) => settings.set('uiLanguage', v)}
+		testid="ui-language"
+	/>
 	<p id="theme-l" class="font-medium">{t('settings.theme')}</p>
 	<ChoiceGroup
 		labelledby="theme-l"

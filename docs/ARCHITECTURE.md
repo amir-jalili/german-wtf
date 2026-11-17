@@ -168,6 +168,8 @@ Exhaustively unit-tested with a table of (item, answer, expected result) cases, 
 
 Input: due cards, mistake cards, settings, time budget, today's new-point quota, optional focus (book chapter / point / contrast). Output: an ordered item list. Rules: due first (oldest overdue first, capped so a session fits the time budget; overflow stays due), then mistake cards, then new points (prerequisites met, catalogue order); interleave so no two consecutive items share a point unless it's a lesson block; contrast items paired.
 
+**Built (P2.8):** Settings — session (minutes, new/day, typed vs choice via `engine/content/present.ts`, retention → `rebuildAllCards`, streak), look and sound (UI language EN/DE via `src/lib/i18n/messages-de.ts`, typed against the English keys; theme mirrored to localStorage for a flash-free start; TTS voice + rate through `setSpeechPrefs`), backup import. The settings store keeps values changed while it is still loading.
+
 **Built (P2.7):** `session/stats.ts` — `heatmap` (12 weeks, Monday-first, local days), `streak` (counts from yesterday if today isn't done), `accuracyByFamily` (near-misses count as correct), `masteryByLevel`, `forecast` (7 days, overdue on today), `weakest` (lowest current recall per point). Setting `showStreak` (toggle on Stats). The session summary sets `data-ready` once every answer is stored.
 
 **Built (P2.6):** `session/map.ts` — `buildMap` (per point: ready, mastery = weakest skill, due = due cards + due open mistakes, prerequisites with content not yet started) and `matchesSearch` (all query words in de/en title, id or family; case, umlaut and ß folded). Page `/map`: levels as `<details>` (open when they have ready points or while searching), families inside.

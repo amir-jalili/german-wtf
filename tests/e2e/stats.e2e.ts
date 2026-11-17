@@ -1,6 +1,6 @@
 /** Stats (ROADMAP P2.7): empty state, then numbers after a session; the streak can be hidden. */
 import { expect, test } from '@playwright/test';
-import { allItems, answer } from './helpers';
+import { allItems, answer, waitForSetting } from './helpers';
 
 test('stats are empty at first and fill up after a daily session', async ({ page }) => {
 	await page.goto('/stats');
@@ -29,27 +29,7 @@ test('stats are empty at first and fill up after a daily session', async ({ page
 
 	await page.getByTestId('streak-toggle').uncheck();
 	await expect(page.getByTestId('streak')).toHaveCount(0);
-	// wait until the setting is committed to IndexedDB, then reload
-	await expect
-		.poll(() =>
-			page.evaluate(
-				() =>
-					new Promise((done) => {
-						const open = indexedDB.open('grammatik-gym');
-						open.onsuccess = () => {
-							const get = open.result
-								.transaction('settings')
-								.objectStore('settings')
-								.get('showStreak');
-							get.onsuccess = () => {
-								done((get.result as { value?: unknown } | undefined)?.value);
-								open.result.close();
-							};
-						};
-					})
-			)
-		)
-		.toBe(false);
+	await waitForSetting(page, 'showStreak', false);
 	await page.reload();
 	await expect(page.getByTestId('streak-toggle')).not.toBeChecked();
 	await expect(page.getByTestId('streak')).toHaveCount(0);

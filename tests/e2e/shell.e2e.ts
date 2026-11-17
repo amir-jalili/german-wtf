@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { waitForSetting } from './helpers';
 
 const tabs = [
 	{ label: 'Today', path: '/', heading: 'Today' },
@@ -88,10 +89,28 @@ test('theme setting overrides the system and survives a reload', async ({ page }
 	await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 	const bg = () => page.evaluate(() => getComputedStyle(document.documentElement).backgroundColor);
 	expect(await bg()).toBe('rgb(23, 20, 17)');
+	await waitForSetting(page, 'theme', 'dark');
 	await page.reload();
 	// set before first paint from the localStorage mirror
 	await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 	await page.getByTestId('theme').getByRole('radio', { name: 'System' }).click();
 	await expect(page.locator('html')).not.toHaveAttribute('data-theme', /./);
 	expect(await bg()).not.toBe('rgb(23, 20, 17)');
+});
+
+test('the UI can switch to German and remembers it', async ({ page }) => {
+	await page.goto('/settings');
+	await page.getByTestId('ui-language').getByRole('radio', { name: 'Deutsch' }).click();
+	const nav = page.getByRole('navigation', { name: 'Main' });
+	await expect(nav.getByRole('link', { name: 'Heute' })).toBeVisible();
+	await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Einstellungen');
+	await nav.getByRole('link', { name: 'Karte' }).click();
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Grammatikkarte');
+	await waitForSetting(page, 'uiLanguage', 'de');
+	await page.reload();
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Grammatikkarte');
+	await nav.getByRole('link', { name: 'Einstellungen' }).click();
+	await page.getByTestId('ui-language').getByRole('radio', { name: 'English' }).click();
+	await expect(nav.getByRole('link', { name: 'Today' })).toBeVisible();
 });

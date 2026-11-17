@@ -98,19 +98,6 @@ test('with "Choosing", cloze gaps with distractors become multiple choice', asyn
 	await expect(
 		page.getByTestId('answer-mode').getByRole('radio', { name: 'Choosing' })
 	).toHaveAttribute('aria-checked', 'true');
-	const res = await page.request.get('/content/A2.json');
-	const bundle = (await res.json()) as {
-		points: {
-			id: string;
-			items: {
-				id: string;
-				type: string;
-				accepted?: string[][];
-				distractorNotes?: Record<string, string>;
-			}[];
-		}[];
-	};
-	const items = new Map(bundle.points.flatMap((p) => p.items).map((i) => [i.id, i]));
 	const all = await allItems(page);
 	await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Map' }).click();
 	await page.locator('[data-point-id="dative-articles"] a').click();
@@ -118,16 +105,13 @@ test('with "Choosing", cloze gaps with distractors become multiple choice', asyn
 	let converted = 0;
 	for (let i = 0; i < 10; i++) {
 		const exercise = page.getByTestId('exercise');
-		const item = items.get((await exercise.getAttribute('data-item-id'))!)!;
-		const convertible =
-			item.type === 'cloze' &&
-			item.accepted!.length === 1 &&
-			Object.keys(item.distractorNotes ?? {}).length > 0;
-		if (convertible) {
+		const item = all.get((await exercise.getAttribute('data-item-id'))!)!;
+		// which cloze items convert is unit-tested on all content (present-content.test.ts);
+		// here: the setting takes effect, and a converted item is answered by tapping
+		if (item.type === 'cloze' && (await page.getByLabel('Gap 1').count()) === 0) {
 			converted++;
-			await expect(page.getByLabel('Gap 1')).toHaveCount(0);
-			await exercise.getByRole('button', { name: new RegExp(`${item.accepted![0]![0]}$`) }).click();
-			await expect(page.getByTestId('feedback')).toContainText(/Correct|Richtig|✅/);
+			await exercise.getByRole('button', { name: new RegExp(`${item.accepted[0]![0]}$`) }).click();
+			await expect(page.getByTestId('feedback')).toContainText('Correct');
 		} else {
 			await answer(page, all, 'right');
 		}

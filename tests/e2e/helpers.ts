@@ -68,3 +68,26 @@ export async function allItems(page: Page): Promise<Map<string, Item>> {
 	}
 	return all;
 }
+
+/** Waits until a setting is committed to IndexedDB (before a full reload). */
+export async function waitForSetting(page: Page, key: string, value: unknown): Promise<void> {
+	const { expect } = await import('@playwright/test');
+	await expect
+		.poll(() =>
+			page.evaluate(
+				(k) =>
+					new Promise((done) => {
+						const open = indexedDB.open('grammatik-gym');
+						open.onsuccess = () => {
+							const get = open.result.transaction('settings').objectStore('settings').get(k);
+							get.onsuccess = () => {
+								done((get.result as { value?: unknown } | undefined)?.value);
+								open.result.close();
+							};
+						};
+					}),
+				key
+			)
+		)
+		.toBe(value);
+}

@@ -10,6 +10,7 @@
 	import { setSpeechPrefs } from '#lib/audio/tts.js';
 	import { settings } from '#lib/stores/settings.svelte.js';
 	import { applyTheme } from '#lib/ui/theme.js';
+	import { i18n } from '#lib/i18n/index.svelte.js';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
@@ -22,6 +23,10 @@
 	// Theme and speech follow the settings (P2.8c).
 	$effect(() => {
 		if (settings.loaded) applyTheme(settings.value.theme);
+	});
+	$effect(() => {
+		i18n.locale = settings.value.uiLanguage;
+		document.documentElement.lang = settings.value.uiLanguage;
 	});
 	$effect(() => {
 		setSpeechPrefs({ rate: settings.value.ttsRate, voiceName: settings.value.ttsVoice });

@@ -46,12 +46,12 @@ Goal: open the app, tap one button, get today's right mix.
 - [x] **P2.5** Today screen: start button with counts and minutes, end-of-session summary ("came back today", new mastery).
 - [x] **P2.6** Grammar map: A1–C2 sections, families, mastery colours, due badges, prerequisite hints, search; points without content show "coming soon".
 - [x] **P2.7** Stats: 12-week heatmap, streak (toggle), accuracy per family, mastery bars per level, 7-day forecast, weakest 5.
-- [ ] **P2.8** Settings: daily minutes, new/day, typed vs choice, retention, streak, theme, TTS voice/rate, UI language EN/DE (i18n setup). Import JSON backup with validation.
+- [x] **P2.8** Settings: daily minutes, new/day, typed vs choice, retention, streak, theme, TTS voice/rate, UI language EN/DE (i18n setup). Import JSON backup with validation.
   - [x] **P2.8a** Import JSON backup: validate (`parseBackup`, v1–v3), confirm, replace all tables in one transaction, rebuild cards from the log; a broken file changes nothing.
   - [x] **P2.8b** Session settings: daily minutes, new points/day, target retention, streak.
   - [x] **P2.8c** Theme (system/light/dark) and TTS voice/rate.
   - [x] **P2.8d** Typed vs choice preference (cloze can be served as choice when the item has options).
-  - [ ] **P2.8e** UI language EN/DE (i18n setup, German strings).
+  - [x] **P2.8e** UI language EN/DE (i18n setup, German strings).
 - [ ] **P2.9** Book packs (ARCHITECTURE §8): private repo `german-wtf-books` cloned into git-ignored `content/books/` (ask AJ before creating), `origin` schema, `books:validate`, `books:pack`, CI guard against book items in the public build, _Import book pack_ in Settings, _My books_ tab with mastery per chapter, "Practise chapter X" on Today. First pack: one chapter AJ chooses, made with `/book`.
 - [ ] **P2.10** E2E for a 2-day simulated schedule (clock mocked) and a book-pack import. Deploy. 🛑 **Stop.**
 
