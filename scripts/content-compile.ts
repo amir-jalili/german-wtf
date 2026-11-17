@@ -4,6 +4,7 @@
  *   static/content/index.json       { schemaVersion, hash, levels: { A1: {file, hash, points, items} … } }
  *   static/content/catalogue.json   catalogue entries + hasLesson/itemCount per point
  *   static/content/<level>.json     { level, hash, points: [ grammar points with servable items only ] }
+ *   static/content/fun.json         { messages, memes } from content/fun/ (THEME_AND_FUN.md)
  * Draft/flagged/retired items are never written (CONTENT_GUIDE §6). Runs before every build.
  */
 import { createHash } from 'node:crypto';
@@ -12,6 +13,7 @@ import path from 'node:path';
 import { LEVELS } from '#lib/engine/content/levels.js';
 import { CONTENT_SCHEMA_VERSION, type GrammarPoint } from '#lib/engine/content/schema.js';
 import { parseCurriculum } from './lib/curriculum-md.ts';
+import { readFun } from './lib/fun.ts';
 import { readCatalogue, readPointFiles } from './lib/load-content.ts';
 import { isServable, validateCatalogue, validatePoints } from './lib/validate.ts';
 
@@ -20,10 +22,12 @@ const OUT_DIR = path.join('static', 'content');
 const catalogue = readCatalogue();
 const curriculum = parseCurriculum(readFileSync('docs/CURRICULUM.md', 'utf8'));
 const { files, problems: parseProblems } = await readPointFiles();
+const fun = readFun();
 const problems = [
 	...validateCatalogue(catalogue, curriculum),
 	...parseProblems,
-	...validatePoints(files, catalogue)
+	...validatePoints(files, catalogue),
+	...fun.problems
 ];
 if (problems.length) {
 	for (const p of problems) console.error(`  ✗ ${p.where}: ${p.message}`);
@@ -65,6 +69,7 @@ const catalogueJson = {
 	})
 };
 writeFileSync(path.join(OUT_DIR, 'catalogue.json'), JSON.stringify(catalogueJson));
+writeFileSync(path.join(OUT_DIR, 'fun.json'), JSON.stringify(fun.content));
 
 const index = {
 	schemaVersion: CONTENT_SCHEMA_VERSION,

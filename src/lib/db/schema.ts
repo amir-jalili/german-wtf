@@ -30,6 +30,14 @@ export interface SettingRow {
 	value: unknown;
 }
 
+/** One fun pick that was shown (THEME_AND_FUN.md §2). Used to avoid repeats. */
+export interface FunSeenEntry {
+	id?: number;
+	funId: string;
+	event: string;
+	timestamp: number;
+}
+
 export interface MetaRow {
 	key: string;
 	value: unknown;
@@ -38,12 +46,13 @@ export interface MetaRow {
 /** Storage key — deliberately unchanged by the rename to German WTF (ADR 0006). Never change it. */
 export const DB_NAME = 'grammatik-gym';
 /** The newest Dexie schema version. */
-export const DB_VERSION = 1;
+export const DB_VERSION = 2 as const;
 
 export class GymDB extends Dexie {
 	reviewLog!: EntityTable<ReviewLogEntry, 'id'>;
 	settings!: EntityTable<SettingRow, 'key'>;
 	meta!: EntityTable<MetaRow, 'key'>;
+	funSeen!: EntityTable<FunSeenEntry, 'id'>;
 
 	constructor(name = DB_NAME) {
 		super(name);
@@ -51,6 +60,10 @@ export class GymDB extends Dexie {
 			reviewLog: '++id, itemId, pointId, cardKey, timestamp',
 			settings: '&key',
 			meta: '&key'
+		});
+		// v2 (P1.12): fun-system seen-history. New empty table; no data to migrate.
+		this.version(2).stores({
+			funSeen: '++id, funId, timestamp'
 		});
 		this.on('populate', (tx) => {
 			void tx.table('meta').add({ key: 'createdAt', value: Date.now() });

@@ -8,6 +8,15 @@ export function getDb(): GymDB {
 	return instance;
 }
 
-export { exportBackup, backupFileName, BackupV1Schema, type Backup } from './backup.js';
+export {
+	exportBackup,
+	backupFileName,
+	parseBackup,
+	BackupV1Schema,
+	BackupV2Schema,
+	type Backup
+} from './backup.js';
+export { recordFunSeen, recentFunIds } from './fun-seen.js';
+export { loadSettings, saveSetting, DEFAULT_SETTINGS, type Settings } from './settings.js';
 export { logAnswer, countAnswers, type AnswerToLog } from './review-log.js';
 export { DB_VERSION, type ReviewLogEntry, type Verdict } from './schema.js';
