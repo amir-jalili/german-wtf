@@ -10,6 +10,11 @@
  * `data-theme="light|dark"` on <html> overrides the system preference (Settings, P2.8).
  */
 :root {
+	/* Layout: phone bottom nav height (without the home-indicator inset) and that inset.
+	   --safe-bottom is a token so tests can fake iPhone's 34 px inset in Chromium. */
+	--nav-h: 4rem;
+	--safe-bottom: env(safe-area-inset-bottom, 0px);
+
 	--bg: #fbf6ee;
 	--surface: #fffdf9;
 	--surface-2: #f3eadc;

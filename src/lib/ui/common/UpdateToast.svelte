@@ -14,7 +14,7 @@
 	<div
 		role="status"
 		aria-live="polite"
-		class="card fixed inset-x-4 bottom-24 z-50 mx-auto flex max-w-md items-center gap-3 shadow-lg md:right-6 md:bottom-6 md:left-auto"
+		class="card fixed inset-x-4 bottom-[calc(var(--nav-h)+var(--safe-bottom)+1rem)] z-50 mx-auto flex max-w-md items-center gap-3 shadow-lg md:right-6 md:bottom-6 md:left-auto"
 	>
 		<p class="flex-1 text-sm font-medium">{t('update.available')}</p>
 		<button type="button" class="btn-secondary" onclick={() => (dismissed = true)}>

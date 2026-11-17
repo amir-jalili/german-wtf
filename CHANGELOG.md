@@ -4,6 +4,12 @@ All notable changes to German WTF. Format: [Keep a Changelog](https://keepachang
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-17
+
+### Fixed
+
+- On iPhone the bottom bar no longer hides the end of a page: the lesson's "Practise" button is fully visible again.
+
 ## [0.2.0] - 2026-11-17
 
 ### Changed

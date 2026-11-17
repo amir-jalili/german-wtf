@@ -16,8 +16,10 @@
 
 <div class="md:flex md:min-h-dvh">
 	<BottomNav />
-	<!-- Bottom padding keeps content clear of the fixed nav on phones. -->
-	<main class="mx-auto w-full max-w-2xl flex-1 px-4 pt-4 pb-24 md:pb-8">
+	<!-- Bottom padding = nav height + home-indicator inset + breathing room (phones only). -->
+	<main
+		class="mx-auto w-full max-w-2xl flex-1 px-4 pt-4 pb-[calc(var(--nav-h)+var(--safe-bottom)+1.5rem)] md:pb-8"
+	>
 		{#if navigating.to}
 			<div class="fixed top-3 right-3 z-50"><TailSpinner /></div>
 		{/if}

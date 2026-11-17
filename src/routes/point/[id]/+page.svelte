@@ -62,7 +62,7 @@
 	{/if}
 
 	<div
-		class="fixed inset-x-0 bottom-16 z-30 bg-bg/90 px-4 py-3 backdrop-blur md:static md:bg-transparent md:p-0"
+		class="sticky bottom-[calc(var(--nav-h)+var(--safe-bottom))] z-30 -mx-4 bg-bg/90 px-4 py-3 backdrop-blur md:static md:mx-0 md:bg-transparent md:p-0"
 	>
 		<a class="btn-primary w-full md:w-auto" href={resolve('/practice/[id]', { id: point.id })}>
 			Practise ({point.items.length} exercises)

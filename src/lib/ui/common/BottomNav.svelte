@@ -38,9 +38,9 @@
 
 <nav
 	aria-label="Main"
-	class="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-surface pb-[env(safe-area-inset-bottom)] md:sticky md:top-0 md:h-screen md:w-56 md:border-t-0 md:border-r md:pb-0"
+	class="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-surface pb-(--safe-bottom) md:sticky md:top-0 md:h-screen md:w-56 md:border-t-0 md:border-r md:pb-0"
 >
-	<ul class="flex justify-around md:flex-col md:gap-1 md:p-3">
+	<ul class="flex h-(--nav-h) justify-around md:h-auto md:flex-col md:gap-1 md:p-3">
 		{#each items as item (item.href)}
 			{@const current = isCurrent(item.href)}
 			<li class="flex-1 md:flex-none">
