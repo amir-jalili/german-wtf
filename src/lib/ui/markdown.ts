@@ -23,6 +23,7 @@ export function inlineMarkdown(text: string): string {
 export function markdown(text: string): string {
 	const blocks: string[] = [];
 	let list: string[] | null = null;
+	let paragraphOpen = false;
 	const flushList = (): void => {
 		if (list) blocks.push(`<ul>${list.map((li) => `<li>${li}</li>`).join('')}</ul>`);
 		list = null;
@@ -31,22 +32,28 @@ export function markdown(text: string): string {
 		const line = rawLine.trimEnd();
 		const item = /^\s*[-*]\s+(.*)$/.exec(line);
 		if (item) {
+			paragraphOpen = false;
 			(list ??= []).push(inlineMarkdown(item[1] ?? ''));
 			continue;
 		}
 		flushList();
-		if (!line.trim()) continue;
+		if (!line.trim()) {
+			paragraphOpen = false;
+			continue;
+		}
 		const heading = /^(#{1,6})\s+(.*)$/.exec(line);
 		if (heading) {
 			const level = Math.min(heading[1]!.length + 2, 6);
 			blocks.push(`<h${level}>${inlineMarkdown(heading[2] ?? '')}</h${level}>`);
+			paragraphOpen = false;
 			continue;
 		}
-		const last = blocks[blocks.length - 1];
-		if (last?.startsWith('<p>') && !last.endsWith('</p>\n')) {
-			blocks[blocks.length - 1] = `${last.slice(0, -4)} ${inlineMarkdown(line)}</p>`;
+		if (paragraphOpen) {
+			blocks[blocks.length - 1] =
+				`${blocks[blocks.length - 1]!.slice(0, -4)} ${inlineMarkdown(line)}</p>`;
 		} else {
 			blocks.push(`<p>${inlineMarkdown(line)}</p>`);
+			paragraphOpen = true;
 		}
 	}
 	flushList();

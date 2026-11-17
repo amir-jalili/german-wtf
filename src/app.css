@@ -139,3 +139,27 @@
 		@apply rounded-2xl border border-border bg-surface p-4;
 	}
 }
+
+/* Rendered Markdown from content (Md block). */
+.prose-gg p {
+	margin: 0.5rem 0;
+}
+.prose-gg ul {
+	list-style: disc;
+	padding-left: 1.25rem;
+	margin: 0.5rem 0;
+}
+.prose-gg li {
+	margin: 0.25rem 0;
+}
+.prose-gg h3,
+.prose-gg h4,
+.prose-gg h5 {
+	font-weight: 600;
+	margin: 0.75rem 0 0.25rem;
+}
+.prose-gg code {
+	background: var(--surface-2);
+	border-radius: 0.25rem;
+	padding: 0 0.25rem;
+}

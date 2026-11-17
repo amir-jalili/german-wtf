@@ -19,4 +19,8 @@ describe('markdown', () => {
 	it('joins consecutive lines into one paragraph', () => {
 		expect(markdown('one\ntwo')).toBe('<p>one two</p>');
 	});
+	it('starts a new paragraph after a blank line and after a list', () => {
+		expect(markdown('one\n\ntwo')).toBe('<p>one</p>\n<p>two</p>');
+		expect(markdown('- a\nafter')).toBe('<ul><li>a</li></ul>\n<p>after</p>');
+	});
 });
