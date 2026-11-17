@@ -17,6 +17,10 @@ export const messages = {
 		'stats.title': 'Stats',
 		'settings.title': 'Settings',
 		'settings.version': 'Version',
+		'settings.backup': 'Backup',
+		'settings.backupBody': 'Your progress lives only on this device. Export a backup now and then.',
+		'settings.answersSaved': 'answers saved on this device',
+		'settings.export': 'Export backup (JSON)',
 		'settings.whatsNew': 'What’s new in',
 		'error.title': 'Something went wrong',
 		'error.body':

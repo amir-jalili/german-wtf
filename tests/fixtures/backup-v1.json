@@ -1,0 +1,45 @@
+{
+	"app": "grammatik-gym",
+	"dbVersion": 1,
+	"appVersion": "0.1.0",
+	"exportedAt": "2026-11-17T12:00:00.000Z",
+	"tables": {
+		"reviewLog": [
+			{
+				"id": 1,
+				"itemId": "accusative-articles/001",
+				"pointId": "accusative-articles",
+				"cardKey": "accusative-articles:form",
+				"verdict": "correct",
+				"answer": { "type": "cloze", "gaps": ["den"] },
+				"ms": 3120,
+				"timestamp": 1794915600000,
+				"mode": "practice"
+			},
+			{
+				"id": 2,
+				"itemId": "two-way-prepositions/013",
+				"pointId": "two-way-prepositions",
+				"cardKey": "two-way-prepositions:form",
+				"verdict": "wrong",
+				"answer": { "type": "choice", "option": "der" },
+				"ms": 5480,
+				"timestamp": 1794915660000,
+				"mode": "practice"
+			},
+			{
+				"id": 3,
+				"itemId": "subordinate-weil-dass/001",
+				"pointId": "subordinate-weil-dass",
+				"cardKey": "subordinate-weil-dass:syntax",
+				"verdict": "near-miss",
+				"answer": { "type": "order", "tiles": ["weil", "ich", "krank", "bin"] },
+				"ms": 7010,
+				"timestamp": 1794915720000,
+				"mode": "practice"
+			}
+		],
+		"settings": [{ "key": "theme", "value": "system" }],
+		"meta": [{ "key": "createdAt", "value": 1794915500000 }]
+	}
+}

@@ -4,6 +4,7 @@
 	 * Every outcome is reported through `onOutcome` (review log, P1.9).
 	 */
 	import { resolve } from '$app/paths';
+	import { getDb, logAnswer } from '#lib/db/index.js';
 	import { pickPracticeItems, summarise } from '#lib/engine/session/index.js';
 	import { mulberry32 } from '#lib/engine/util/rng.js';
 	import Exercise, { type ExerciseOutcome } from '#lib/ui/exercises/Exercise.svelte';
@@ -21,6 +22,10 @@
 	const done = $derived(items.length > 0 && index >= items.length);
 
 	function onresult(outcome: ExerciseOutcome): void {
+		// Every answer is logged (P1.9). Never block the session on storage.
+		logAnswer(getDb(), { ...outcome, pointId: point.id }).catch((error: unknown) =>
+			console.warn('Could not log answer', error)
+		);
 		outcomes = [...outcomes, outcome];
 		index += 1;
 	}

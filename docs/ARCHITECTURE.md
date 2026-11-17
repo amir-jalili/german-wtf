@@ -176,7 +176,7 @@ Examples (and optionally items) carry spans: `{ text, role: 'subj'|'akk-obj'|'da
 
 ## 6. Storage (Dexie)
 
-Tables (v1): `cards` (key, pointId, skill, fsrs state, mastery), `mistakeCards`, `reviewLog` (append-only: itemId, cardKey, verdict, answer, ms, timestamp), `settings`, `bookPacks` (imported book packs: items + chapter → points mapping), `selfStudy` (user sentences), `bookmarks`, `meta` (schema/content versions). Content is **not** stored in IDB; it's fetched from `/content/<level>.json` and cached by the service worker. Export/import = JSON of all tables + versions.
+Tables — **v1 (built, `src/lib/db/schema.ts`)**: `reviewLog` (append-only: itemId, pointId, cardKey `pointId:skill`, verdict, answer, ms, timestamp, mode), `settings` (key/value), `meta` (key/value, e.g. `createdAt`). **Planned**, each in its own new Dexie version with a migration test: `cards` (key, pointId, skill, fsrs state, mastery) and `mistakeCards` (v2, P2.3), `funSeen` (fun-system history, THEME_AND_FUN §2), `bookPacks` (P2.9), `selfStudy`, `bookmarks`. Content is **not** stored in IDB; it's fetched from `/content/<level>.json` and cached by the service worker. Export/import = JSON of all tables + versions (`src/lib/db/backup.ts`, Zod-validated; one fixture per version in `tests/fixtures/backup-vN.json`).
 
 ## 7. Build & deploy
 
