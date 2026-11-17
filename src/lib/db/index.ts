@@ -29,6 +29,7 @@ export {
 export {
 	loadAnswers,
 	loadSrsState,
+	rebuildAllCards,
 	refreshCardsForPoint,
 	startOfLocalDay,
 	type SrsState

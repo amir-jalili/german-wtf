@@ -5,7 +5,7 @@ import { ItemSchema } from '#lib/engine/content/schema.js';
 import { logAnswer } from './review-log';
 import { GymDB } from './schema';
 import { loadSettings } from './settings';
-import { loadSrsState, refreshCardsForPoint, startOfLocalDay } from './srs';
+import { loadSrsState, rebuildAllCards, refreshCardsForPoint, startOfLocalDay } from './srs';
 
 const item = (n: number) =>
 	ItemSchema.parse({
@@ -92,6 +92,17 @@ describe('SRS storage', () => {
 		const empty = await loadSrsState(fresh, NOW);
 		expect(empty).toMatchObject({ cards: [], recentItemIds: [], newToday: 0 });
 		await fresh.delete();
+	});
+
+	it('rebuildAllCards uses the new retention: higher retention → due sooner', async () => {
+		await answer(1, 'dem', NOW.getTime() - 3 * 86_400_000);
+		await answer(2, 'dem', NOW.getTime());
+		await rebuildAllCards(db, 0.8);
+		const loose = (await db.cards.toArray())[0]!.fsrs.dueAt.getTime();
+		await rebuildAllCards(db, 0.95);
+		const strict = (await db.cards.toArray())[0]!.fsrs.dueAt.getTime();
+		expect(strict).toBeLessThan(loose);
+		expect(await db.cards.count()).toBe(1);
 	});
 
 	it('session settings have defaults and reject bad values', async () => {

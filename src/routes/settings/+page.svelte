@@ -8,9 +8,13 @@
 		countAnswers,
 		exportBackup,
 		getDb,
+		DAILY_MINUTES,
 		importBackup,
-		readBackupText
+		MAX_NEW_PER_DAY,
+		readBackupText,
+		rebuildAllCards
 	} from '#lib/db/index.js';
+	import ChoiceGroup from '#lib/ui/common/ChoiceGroup.svelte';
 	import { settings } from '#lib/stores/settings.svelte.js';
 	import { CHAOS_LEVELS, type ChaosLevel } from '#lib/engine/fun/pick.js';
 	import Mascot from '#lib/ui/fun/Mascot.svelte';
@@ -30,6 +34,25 @@
 	let importError = $state<string | undefined>();
 	let imported = $state<number | undefined>();
 	let importing = $state(false);
+
+	const minuteOptions = DAILY_MINUTES.map((m) => ({ value: m as number, label: `${m}` }));
+	const newOptions = Array.from({ length: MAX_NEW_PER_DAY + 1 }, (_, n) => ({
+		value: n,
+		label: `${n}`
+	}));
+	const retentionOptions = [
+		{ value: 0.85, label: t('settings.retentionRelaxed') },
+		{ value: 0.9, label: t('settings.retentionNormal') },
+		{ value: 0.95, label: t('settings.retentionStrict') }
+	];
+
+	async function setRetention(value: number): Promise<void> {
+		await settings.set('targetRetention', value);
+		// Cards are a cache of the log under the current retention (ADR 0007).
+		await rebuildAllCards(getDb(), value).catch((error: unknown) =>
+			console.warn('Could not rebuild cards', error)
+		);
+	}
 
 	async function chooseFile(event: Event & { currentTarget: HTMLInputElement }): Promise<void> {
 		importError = undefined;
@@ -92,6 +115,44 @@
 <svelte:head><title>{t('settings.title')} · {t('app.name')}</title></svelte:head>
 
 <h1 class="text-2xl font-bold">{t('settings.title')}</h1>
+
+<section class="card mt-4 space-y-3 text-sm" aria-labelledby="session-h">
+	<h2 id="session-h" class="text-base font-semibold">{t('settings.session')}</h2>
+	<p id="minutes-l" class="font-medium">{t('settings.minutes')}</p>
+	<ChoiceGroup
+		labelledby="minutes-l"
+		options={minuteOptions}
+		selected={settings.value.dailyMinutes}
+		onselect={(v) => settings.set('dailyMinutes', v)}
+		testid="minutes"
+	/>
+	<p id="new-l" class="font-medium">{t('settings.newPerDay')}</p>
+	<ChoiceGroup
+		labelledby="new-l"
+		options={newOptions}
+		selected={settings.value.newPerDay}
+		onselect={(v) => settings.set('newPerDay', v)}
+		testid="new-per-day"
+	/>
+	<p id="retention-l" class="font-medium">{t('settings.retention')}</p>
+	<ChoiceGroup
+		labelledby="retention-l"
+		options={retentionOptions}
+		selected={settings.value.targetRetention}
+		onselect={setRetention}
+		testid="retention"
+	/>
+	<p class="text-muted">{t('settings.retentionHint')}</p>
+	<label class="flex tap items-center gap-2">
+		<input
+			type="checkbox"
+			class="h-5 w-5 accent-accent"
+			checked={settings.value.showStreak}
+			onchange={(e) => settings.set('showStreak', e.currentTarget.checked)}
+		/>
+		{t('stats.showStreak')}
+	</label>
+</section>
 
 <section class="card mt-4 space-y-3 text-sm" aria-labelledby="chaos-h">
 	<div class="flex items-center justify-between gap-3">

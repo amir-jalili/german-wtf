@@ -61,3 +61,33 @@ test('a wrong answer in the session creates a mistake card that the next session
 	await page.getByRole('button', { name: 'Continue' }).click();
 	await expect(page.getByTestId('step-source')).toHaveText('Mistake');
 });
+
+test('session settings change what Today offers', async ({ page }) => {
+	await page.goto('/settings');
+	await page.getByTestId('new-per-day').getByRole('radio', { name: '2' }).click();
+	await expect(page.getByTestId('new-per-day').getByRole('radio', { name: '2' })).toHaveAttribute(
+		'aria-checked',
+		'true'
+	);
+	await page.getByTestId('minutes').getByRole('radio', { name: '5', exact: true }).click();
+	await page.getByTestId('retention').getByRole('radio', { name: /Exam/ }).click();
+	await expect(page.getByTestId('retention').getByRole('radio', { name: /Exam/ })).toHaveAttribute(
+		'aria-checked',
+		'true'
+	);
+	// in-app navigation, like a user (a full reload could race the pending settings write)
+	await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Today' }).click();
+	await expect(page.getByTestId('start-session')).toContainText('Start · 6 exercises');
+	await page
+		.getByRole('navigation', { name: 'Main' })
+		.getByRole('link', { name: 'Settings' })
+		.click();
+	await page.getByTestId('new-per-day').getByRole('radio', { name: '0' }).click();
+	await expect(page.getByTestId('new-per-day').getByRole('radio', { name: '0' })).toHaveAttribute(
+		'aria-checked',
+		'true'
+	);
+	// in-app navigation, like a user (a full reload could race the pending settings write)
+	await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Today' }).click();
+	await expect(page.getByTestId('nothing-due')).toBeVisible();
+});

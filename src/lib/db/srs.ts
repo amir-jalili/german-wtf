@@ -78,3 +78,15 @@ export async function loadAnswers(
 	const rows = await db.reviewLog.orderBy('timestamp').toArray();
 	return rows.map(({ pointId, verdict, timestamp }) => ({ pointId, verdict, timestamp }));
 }
+
+/** Rebuilds every card from the whole log (after the target retention changed). */
+export async function rebuildAllCards(db: GymDB, retention: number): Promise<void> {
+	await db.transaction('rw', [db.reviewLog, db.cards, db.mistakeCards], async () => {
+		const answers = await db.reviewLog.toArray();
+		const { cards, mistakeCards } = replayAnswers(createScheduler(retention), answers);
+		await db.cards.clear();
+		await db.mistakeCards.clear();
+		await db.cards.bulkPut(cards);
+		await db.mistakeCards.bulkPut(mistakeCards);
+	});
+}
