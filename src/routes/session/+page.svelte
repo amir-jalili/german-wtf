@@ -143,7 +143,7 @@
 		<a class="btn-secondary" href={resolve('/')}>{t('session.again')}</a>
 	</section>
 {:else if done}
-	<section class="card space-y-3" data-testid="summary">
+	<section class="card space-y-3" data-testid="summary" data-ready={progress ? 'true' : 'false'}>
 		<h2 class="text-xl font-bold">{t('session.done')}</h2>
 		{#if endFun}<MascotBubble pick={endFun} />{/if}
 		<p class="text-3xl font-bold">{Math.round(summary.accuracy * 100)}%</p>

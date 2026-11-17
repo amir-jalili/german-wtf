@@ -95,7 +95,11 @@ describe('SRS storage', () => {
 	});
 
 	it('session settings have defaults and reject bad values', async () => {
-		expect(await loadSettings(db)).toMatchObject({ dailyMinutes: 15, newPerDay: 1 });
+		expect(await loadSettings(db)).toMatchObject({
+			dailyMinutes: 15,
+			newPerDay: 1,
+			showStreak: true
+		});
 		await db.settings.bulkPut([
 			{ key: 'dailyMinutes', value: 25 },
 			{ key: 'newPerDay', value: 9 }

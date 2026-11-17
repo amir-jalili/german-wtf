@@ -13,6 +13,8 @@ export interface Settings {
 	dailyMinutes: number;
 	/** New grammar points per day, 0–3. */
 	newPerDay: number;
+	/** Show the day streak on Stats (some people find streaks stressful). */
+	showStreak: boolean;
 }
 
 export const DAILY_MINUTES = [5, 10, 15, 25] as const;
@@ -22,7 +24,8 @@ export const DEFAULT_SETTINGS: Settings = {
 	catChaos: 'some',
 	targetRetention: DEFAULT_RETENTION,
 	dailyMinutes: 15,
-	newPerDay: 1
+	newPerDay: 1,
+	showStreak: true
 };
 
 function intIn(value: unknown, min: number, max: number, fallback: number): number {
@@ -44,7 +47,11 @@ export async function loadSettings(db: GymDB): Promise<Settings> {
 				? clampRetention(map.get('targetRetention') as number)
 				: DEFAULT_SETTINGS.targetRetention,
 		dailyMinutes: intIn(map.get('dailyMinutes'), 1, 120, DEFAULT_SETTINGS.dailyMinutes),
-		newPerDay: intIn(map.get('newPerDay'), 0, MAX_NEW_PER_DAY, DEFAULT_SETTINGS.newPerDay)
+		newPerDay: intIn(map.get('newPerDay'), 0, MAX_NEW_PER_DAY, DEFAULT_SETTINGS.newPerDay),
+		showStreak:
+			typeof map.get('showStreak') === 'boolean'
+				? (map.get('showStreak') as boolean)
+				: DEFAULT_SETTINGS.showStreak
 	};
 }
 

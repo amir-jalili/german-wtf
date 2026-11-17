@@ -26,3 +26,18 @@ export {
 	type SessionProgress
 } from './progress';
 export { buildMap, matchesSearch, searchKey, type MapEntry } from './map';
+export {
+	accuracyByFamily,
+	addDays,
+	dayStart,
+	forecast,
+	heatmap,
+	masteryByLevel,
+	streak,
+	weakest,
+	type FamilyAccuracy,
+	type HeatDay,
+	type MasteryCounts,
+	type StatAnswer,
+	type WeakPoint
+} from './stats';

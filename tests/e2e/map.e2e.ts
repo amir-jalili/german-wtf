@@ -34,7 +34,8 @@ test('after a daily session the new point shows its mastery on the map', async (
 		await answer(page, items, 'right');
 		await page.getByRole('button', { name: 'Continue' }).click();
 	}
-	await expect(page.getByTestId('summary')).toBeVisible();
+	// all answers are stored once the summary is ready
+	await expect(page.getByTestId('summary')).toHaveAttribute('data-ready', 'true');
 	await page.goto('/map');
 	const point = page.locator(`[data-testid="map-point"][data-point-id="${pointId}"]`);
 	await expect(point.getByTestId('mastery')).not.toHaveAttribute('data-mastery', 'new');

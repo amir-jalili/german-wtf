@@ -26,6 +26,12 @@ export {
 	MAX_NEW_PER_DAY,
 	type Settings
 } from './settings.js';
-export { loadSrsState, refreshCardsForPoint, startOfLocalDay, type SrsState } from './srs.js';
+export {
+	loadAnswers,
+	loadSrsState,
+	refreshCardsForPoint,
+	startOfLocalDay,
+	type SrsState
+} from './srs.js';
 export { logAnswer, countAnswers, type AnswerToLog } from './review-log.js';
 export { DB_VERSION, type AnswerMode, type ReviewLogEntry, type Verdict } from './schema.js';

@@ -9,7 +9,7 @@ import {
 	type MistakeCard,
 	type PointCard
 } from '#lib/engine/scheduler/index.js';
-import type { GymDB } from './schema.js';
+import type { GymDB, ReviewLogEntry } from './schema.js';
 
 /** Rebuilds all cards and mistake cards of one point from its answers. */
 export async function refreshCardsForPoint(
@@ -69,4 +69,12 @@ export async function loadSrsState(db: GymDB, now: Date, recent = 20): Promise<S
 		const newToday = [...firstAnswer.values()].filter((t) => t >= today).length;
 		return { cards, mistakeCards, lastSeen, recentItemIds, newToday, lastAnswerAt };
 	});
+}
+
+/** Every answer, oldest first, reduced to what Stats needs. */
+export async function loadAnswers(
+	db: GymDB
+): Promise<{ pointId: string; verdict: ReviewLogEntry['verdict']; timestamp: number }[]> {
+	const rows = await db.reviewLog.orderBy('timestamp').toArray();
+	return rows.map(({ pointId, verdict, timestamp }) => ({ pointId, verdict, timestamp }));
 }
