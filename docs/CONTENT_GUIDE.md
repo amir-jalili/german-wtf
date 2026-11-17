@@ -90,6 +90,8 @@ generators:
 
 All items share: `id, type, level, skill, explanation, errorTags, review, source`, optional `prompt, hint, distractorNotes, audio`.
 
+**`distractorNotes` keys double as multiple-choice options (P2.8d).** When AJ prefers *Choosing*, a one-gap cloze item is shown as a choice: the canonical answer plus up to 3 `distractorNotes` keys that the typed checker marks plainly wrong (near-misses like a capitalised answer are never offered). So write distractor keys that are realistic wrong forms. `tests/unit/present-content.test.ts` checks every real item.
+
 **cloze** — typed gap(s). Gaps are `{{answer}}` in `text`; the first listed answer in `accepted` per gap is canonical. One gap → `accepted` is a flat list; multiple gaps → a list of lists (one list per gap). The validator normalises both shapes.
 
 ```yaml

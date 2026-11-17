@@ -91,3 +91,47 @@ test('session settings change what Today offers', async ({ page }) => {
 	await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Today' }).click();
 	await expect(page.getByTestId('nothing-due')).toBeVisible();
 });
+
+test('with "Choosing", cloze gaps with distractors become multiple choice', async ({ page }) => {
+	await page.goto('/settings');
+	await page.getByTestId('answer-mode').getByRole('radio', { name: 'Choosing' }).click();
+	await expect(
+		page.getByTestId('answer-mode').getByRole('radio', { name: 'Choosing' })
+	).toHaveAttribute('aria-checked', 'true');
+	const res = await page.request.get('/content/A2.json');
+	const bundle = (await res.json()) as {
+		points: {
+			id: string;
+			items: {
+				id: string;
+				type: string;
+				accepted?: string[][];
+				distractorNotes?: Record<string, string>;
+			}[];
+		}[];
+	};
+	const items = new Map(bundle.points.flatMap((p) => p.items).map((i) => [i.id, i]));
+	const all = await allItems(page);
+	await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Map' }).click();
+	await page.locator('[data-point-id="dative-articles"] a').click();
+	await page.getByRole('link', { name: /Practise/ }).click();
+	let converted = 0;
+	for (let i = 0; i < 10; i++) {
+		const exercise = page.getByTestId('exercise');
+		const item = items.get((await exercise.getAttribute('data-item-id'))!)!;
+		const convertible =
+			item.type === 'cloze' &&
+			item.accepted!.length === 1 &&
+			Object.keys(item.distractorNotes ?? {}).length > 0;
+		if (convertible) {
+			converted++;
+			await expect(page.getByLabel('Gap 1')).toHaveCount(0);
+			await exercise.getByRole('button', { name: new RegExp(`${item.accepted![0]![0]}$`) }).click();
+			await expect(page.getByTestId('feedback')).toContainText(/Correct|Richtig|✅/);
+		} else {
+			await answer(page, all, 'right');
+		}
+		await page.getByRole('button', { name: 'Continue' }).click();
+	}
+	expect(converted).toBeGreaterThan(0);
+});

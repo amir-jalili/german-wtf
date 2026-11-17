@@ -156,6 +156,18 @@
 		onselect={(v) => settings.set('newPerDay', v)}
 		testid="new-per-day"
 	/>
+	<p id="answer-l" class="font-medium">{t('settings.answerMode')}</p>
+	<ChoiceGroup
+		labelledby="answer-l"
+		options={[
+			{ value: 'typed', label: t('settings.answerTyped') },
+			{ value: 'choice', label: t('settings.answerChoice') }
+		]}
+		selected={settings.value.answerPreference}
+		onselect={(v) => settings.set('answerPreference', v)}
+		testid="answer-mode"
+	/>
+	<p class="text-muted">{t('settings.answerHint')}</p>
 	<p id="retention-l" class="font-medium">{t('settings.retention')}</p>
 	<ChoiceGroup
 		labelledby="retention-l"

@@ -2,6 +2,7 @@
 import type { ChaosLevel } from '#lib/engine/fun/pick.js';
 import { CHAOS_LEVELS } from '#lib/engine/fun/pick.js';
 import { clampRetention, DEFAULT_RETENTION } from '#lib/engine/scheduler/retention.js';
+import { ANSWER_MODES, type AnswerPreference } from '#lib/engine/content/present.js';
 import type { GymDB } from './schema.js';
 
 export interface Settings {
@@ -20,6 +21,8 @@ export interface Settings {
 	ttsRate: number;
 	/** Preferred German voice name; '' = pick automatically. */
 	ttsVoice: string;
+	/** Typed answers (default, better for learning) or multiple choice where possible. */
+	answerPreference: AnswerPreference;
 }
 
 export const THEMES = ['system', 'light', 'dark'] as const;
@@ -37,7 +40,8 @@ export const DEFAULT_SETTINGS: Settings = {
 	showStreak: true,
 	theme: 'system',
 	ttsRate: 0.95,
-	ttsVoice: ''
+	ttsVoice: '',
+	answerPreference: 'typed'
 };
 
 function intIn(value: unknown, min: number, max: number, fallback: number): number {
@@ -73,7 +77,10 @@ export async function loadSettings(db: GymDB): Promise<Settings> {
 			(map.get('ttsRate') as number) <= 1.5
 				? (map.get('ttsRate') as number)
 				: DEFAULT_SETTINGS.ttsRate,
-		ttsVoice: typeof map.get('ttsVoice') === 'string' ? (map.get('ttsVoice') as string) : ''
+		ttsVoice: typeof map.get('ttsVoice') === 'string' ? (map.get('ttsVoice') as string) : '',
+		answerPreference: ANSWER_MODES.includes(map.get('answerPreference') as AnswerPreference)
+			? (map.get('answerPreference') as AnswerPreference)
+			: DEFAULT_SETTINGS.answerPreference
 	};
 }
 

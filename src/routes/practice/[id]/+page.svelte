@@ -10,6 +10,7 @@
 	import { endsWithWrongStreak, sessionEndEvents, type FunPick } from '#lib/engine/fun/pick.js';
 	import { pickPracticeItems, summarise } from '#lib/engine/session/index.js';
 	import { mulberry32 } from '#lib/engine/util/rng.js';
+	import { presentItem } from '#lib/engine/content/present.js';
 	import { FunSession } from '#lib/stores/fun.svelte.js';
 	import { settings } from '#lib/stores/settings.svelte.js';
 	import Exercise, { type ExerciseOutcome } from '#lib/ui/exercises/Exercise.svelte';
@@ -26,6 +27,9 @@
 	let index = $state(0);
 	let outcomes = $state<ExerciseOutcome[]>([]);
 	const current = $derived(items[index]);
+	const shown = $derived(
+		current ? presentItem(current, settings.value.answerPreference) : undefined
+	);
 	const verdicts = $derived(outcomes.map((o) => o.check.result.verdict));
 	const summary = $derived(summarise(verdicts));
 	const done = $derived(items.length > 0 && index >= items.length);
@@ -38,6 +42,7 @@
 	let checked = $state<string[]>([]);
 
 	onMount(() => {
+		void settings.load();
 		countAnswers(getDb())
 			.then((n) => (firstSession = n === 0))
 			.catch(() => undefined);
@@ -142,7 +147,7 @@
 	</section>
 {:else if current}
 	<div class="mb-4"><PawProgress done={index} total={items.length} label="Exercises done" /></div>
-	<Exercise item={current} pointId={point.id} {onresult} {onchecked}>
+	<Exercise item={shown ?? current} pointId={point.id} {onresult} {onchecked}>
 		{#snippet aside()}
 			{#if itemFun}<MascotBubble pick={itemFun} size={64} />{/if}
 		{/snippet}

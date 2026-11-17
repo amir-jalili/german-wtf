@@ -18,6 +18,7 @@
 	} from '#lib/engine/session/index.js';
 	import type { MessageKey } from '#lib/i18n/messages.js';
 	import { t } from '#lib/i18n/index.svelte.js';
+	import { presentItem } from '#lib/engine/content/present.js';
 	import { prepareToday, recordStepAnswer, takePlan, type TodayData } from '#lib/srs/daily.js';
 	import { FunSession } from '#lib/stores/fun.svelte.js';
 	import Exercise, { type ExerciseOutcome } from '#lib/ui/exercises/Exercise.svelte';
@@ -53,6 +54,9 @@
 
 	const steps = $derived(today?.plan.steps ?? []);
 	const current = $derived(steps[index]);
+	const shown = $derived(
+		current && today ? presentItem(current.item, today.settings.answerPreference) : undefined
+	);
 	const done = $derived(steps.length > 0 && index >= steps.length);
 	const summary = $derived(summarise(answered.map((a) => a.verdict)));
 	const title = (pointId: string) => today?.points.get(pointId)?.title.de ?? pointId;
@@ -201,7 +205,7 @@
 		</p>
 	{/if}
 	{#key index}
-		<Exercise item={current.item} pointId={current.pointId} {onresult} {onchecked}>
+		<Exercise item={shown ?? current.item} pointId={current.pointId} {onresult} {onchecked}>
 			{#snippet aside()}
 				{#if itemFun}<MascotBubble pick={itemFun} size={64} />{/if}
 			{/snippet}

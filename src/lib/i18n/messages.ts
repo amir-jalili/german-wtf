@@ -75,6 +75,11 @@ export const messages = {
 		'settings.session': 'Daily session',
 		'settings.minutes': 'Minutes per day',
 		'settings.newPerDay': 'New grammar points per day',
+		'settings.answerMode': 'Answer gaps by',
+		'settings.answerTyped': 'Typing',
+		'settings.answerChoice': 'Choosing',
+		'settings.answerHint':
+			'Typing makes you recall the form, which sticks better. Choosing is faster on a bumpy bus.',
 		'settings.retention': 'How much to remember',
 		'settings.retentionHint': 'Higher means more reviews. 90% is the sweet spot for most people.',
 		'settings.retentionRelaxed': 'Relaxed 85%',
