@@ -1,0 +1,331 @@
+id: dative-articles
+title: { en: "Dativ: articles and nouns (Dativ plural -n)", de: "Dativ: Artikel und Nomen (Dativ-Plural -n)" }
+level: A2
+family: cases
+prerequisites: [dative-basic-mit-bei-zu]
+compareWith: [accusative-articles, genitive-articles]
+version: 1
+lesson:
+  summary: "In the Dativ every article changes: dem, der, dem, den. In the plural the noun adds -n too: mit den Kindern."
+  rule: |
+    The **Dativ** answers *Wem?* (to/for whom?). You need it after the prepositions **mit, bei, nach, aus, zu, von, seit** and after verbs like **helfen, danken, gehören, gefallen, schmecken, antworten, gratulieren**. With *geben, schenken, zeigen, schreiben* the person who receives something is in the Dativ.
+
+    The articles:
+    - masculine and neuter: **dem** / **einem**
+    - feminine: **der** / **einer**
+    - plural: **den** (no indefinite article)
+
+    **Dativ plural adds -n to the noun**: *die Kinder → mit den Kinder**n***. Nouns whose plural already ends in **-n** add nothing (*den Blumen*), and plurals in **-s** never take -n (*mit den Autos*).
+  table:
+    columns: [m, f, n, pl]
+    rows:
+      "Nominativ": ["der / ein Mann", "die / eine Frau", "das / ein Kind", "die Kinder"]
+      "Akkusativ": ["den / einen Mann", "die / eine Frau", "das / ein Kind", "die Kinder"]
+      "Dativ": ["dem / einem Mann", "der / einer Frau", "dem / einem Kind", "den Kindern"]
+  examples:
+    - de: "Ich fahre mit dem Bus."
+      en: "I'm going by bus."
+      xray:
+        - { text: "Ich", role: subj, case: nom }
+        - { text: "mit dem Bus", role: prep-obj, case: dat, gender: m, note: "mit + Dativ" }
+    - de: "Murat hilft der Nachbarin."
+      en: "Murat helps the neighbour."
+      xray:
+        - { text: "Murat", role: subj, case: nom }
+        - { text: "der Nachbarin", role: dat-obj, case: dat, gender: f, note: "helfen + Dativ" }
+    - de: "Lena gibt dem Kind einen Apfel."
+      en: "Lena gives the child an apple."
+      xray:
+        - { text: "Lena", role: subj, case: nom }
+        - { text: "dem Kind", role: dat-obj, case: dat, gender: n, note: "who receives: Dativ" }
+        - { text: "einen Apfel", role: akk-obj, case: akk, gender: m, note: "what is given: Akkusativ" }
+    - de: "Wir spielen mit den Kindern."
+      en: "We're playing with the children."
+      xray:
+        - { text: "Wir", role: subj, case: nom }
+        - { text: "mit den Kindern", role: prep-obj, case: dat, gender: pl, note: "Dativ plural: den + noun -n" }
+  pitfalls:
+    - "Feminine Dativ is *der*, which looks like masculine Nominativ: *mit der Freundin*, not *mit die Freundin*."
+    - "Don't forget the **-n** in the Dativ plural: *mit den Freunde**n***."
+    - "Plurals in **-s** never get -n: *mit den Handys*, *in den Hotels*."
+items:
+  - id: dative-articles/001
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich fahre mit {{dem}} Bus zur Uni."
+    hint: "(der Bus)"
+    accepted: [dem]
+    explanation: "*mit* always takes the Dativ; masculine *der* → *dem*."
+    errorTags: [article-form, preposition-case]
+    distractorNotes:
+      den: "*den* is Akkusativ. *mit* always takes the Dativ → *dem*."
+      der: "*der* is the Nominativ form of *der Bus*. After *mit* → Dativ *dem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/002
+    type: cloze
+    level: A2
+    skill: form
+    text: "Murat hilft {{der}} Nachbarin."
+    hint: "(die Nachbarin)"
+    accepted: [der]
+    explanation: "*helfen* takes the Dativ; feminine *die* → *der*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      die: "*die* is Nominativ/Akkusativ. *helfen* takes the Dativ → feminine *der*."
+      dem: "*dem* is masculine/neuter. *Nachbarin* is feminine → *der*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/003
+    type: cloze
+    level: A2
+    skill: form
+    text: "Das Fahrrad gehört {{dem}} Kind."
+    hint: "(das Kind)"
+    accepted: [dem]
+    explanation: "*gehören* takes the Dativ; neuter *das* → *dem*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      das: "*das* is Nominativ/Akkusativ. *gehören* takes the Dativ → *dem*."
+      den: "*den* is masculine Akkusativ or Dativ plural. *Kind* is neuter singular → *dem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/004
+    type: cloze
+    level: A2
+    skill: form
+    text: "Sie spielt mit {{den}} {{Kindern}}."
+    hint: "(die Kinder)"
+    accepted: [[den], [Kindern]]
+    explanation: "*mit* + Dativ. Dativ plural: article *den* and the noun adds *-n*."
+    errorTags: [article-form, noun-ending]
+    distractorNotes:
+      Kinder: "Dativ plural adds *-n* to the noun: *den Kindern*."
+      die: "*die* is Nominativ/Akkusativ plural. After *mit* → *den*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/005
+    type: cloze
+    level: A2
+    skill: form
+    text: "Wir danken {{den}} {{Lehrern}}."
+    hint: "(die Lehrer)"
+    accepted: [[den], [Lehrern]]
+    explanation: "*danken* takes the Dativ. Dativ plural: *den* + noun with *-n*."
+    errorTags: [article-form, noun-ending]
+    distractorNotes:
+      Lehrer: "Dativ plural adds *-n*: *den Lehrern*."
+      die: "*die* is Nominativ/Akkusativ plural. *danken* takes the Dativ → *den*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/006
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich wohne bei {{einer}} Familie."
+    hint: "(eine Familie)"
+    accepted: [einer]
+    explanation: "*bei* always takes the Dativ; feminine *eine* → *einer*."
+    errorTags: [article-form, preposition-case]
+    distractorNotes:
+      eine: "*eine* is Nominativ/Akkusativ. *bei* takes the Dativ → *einer*."
+      einem: "*einem* is masculine/neuter. *Familie* is feminine → *einer*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/007
+    type: cloze
+    level: A2
+    skill: form
+    text: "Lena schreibt {{einem}} Freund eine E-Mail."
+    hint: "(ein Freund)"
+    accepted: [einem]
+    explanation: "The person who receives something (*wem?*) is in the Dativ; masculine *ein* → *einem*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      einen: "*einen* is Akkusativ. The e-mail is the Akkusativ object; the receiver is Dativ → *einem*."
+      einer: "*einer* is feminine. *Freund* is masculine → *einem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/008
+    type: cloze
+    level: A2
+    skill: form
+    text: "Nach {{dem}} Essen trinken wir Kaffee."
+    hint: "(das Essen)"
+    accepted: [dem]
+    explanation: "*nach* always takes the Dativ; neuter *das* → *dem*."
+    errorTags: [article-form, preposition-case]
+    distractorNotes:
+      das: "*das* is Nominativ/Akkusativ. *nach* takes the Dativ → *dem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/009
+    type: cloze
+    level: A2
+    skill: form
+    text: "Seit {{einem}} Jahr lerne ich Deutsch."
+    hint: "(ein Jahr)"
+    accepted: [einem]
+    explanation: "*seit* always takes the Dativ; neuter *ein* → *einem*."
+    errorTags: [article-form, preposition-case]
+    distractorNotes:
+      ein: "*ein* is Nominativ/Akkusativ. *seit* takes the Dativ → *einem*."
+      einen: "*einen* is masculine Akkusativ. *seit* + Dativ, *Jahr* is neuter → *einem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/010
+    type: cloze
+    level: A2
+    skill: form
+    text: "Kofi kommt gerade aus {{der}} Apotheke."
+    hint: "(die Apotheke)"
+    accepted: [der]
+    explanation: "*aus* always takes the Dativ; feminine *die* → *der*."
+    errorTags: [article-form, preposition-case]
+    distractorNotes:
+      die: "*die* is Nominativ/Akkusativ. *aus* takes the Dativ → *der*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/011
+    type: cloze
+    level: A2
+    skill: form
+    text: "Gibst du {{dem}} Hund Wasser?"
+    hint: "(der Hund)"
+    accepted: [dem]
+    explanation: "The receiver (*wem?*) is in the Dativ; masculine *der* → *dem*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      den: "*den* is Akkusativ. The dog receives the water → Dativ *dem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/012
+    type: cloze
+    level: A2
+    skill: form
+    text: "Die Kinder spielen mit den {{Handys}}."
+    hint: "(das Handy, Plural: die Handys)"
+    accepted: [Handys]
+    explanation: "Dativ plural adds *-n*, except for plurals in *-s*: *mit den Handys*."
+    errorTags: [noun-ending]
+    distractorNotes:
+      Handysn: "Plurals in *-s* never take the Dativ *-n*: *den Handys*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/013
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich gebe den {{Blumen}} Wasser."
+    hint: "(die Blumen)"
+    accepted: [Blumen]
+    explanation: "Dativ plural ends in *-n*; *Blumen* already does, so nothing is added."
+    errorTags: [noun-ending]
+    distractorNotes:
+      Blumenn: "*Blumen* already ends in *-n*; the Dativ plural adds nothing more."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/014
+    type: choice
+    level: A2
+    skill: form
+    text: "Der Kaffee schmeckt ___ Gast nicht."
+    hint: "(der Gast)"
+    options: [dem, den, der, des]
+    answer: dem
+    explanation: "*schmecken* takes the Dativ (it tastes good *to whom?*); masculine → *dem*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      den: "Akkusativ. *schmecken* takes the Dativ → *dem*."
+      der: "Nominativ masculine (or Dativ feminine). *Gast* is masculine → *dem*."
+      des: "Genitiv. *schmecken* takes the Dativ → *dem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/015
+    type: choice
+    level: A2
+    skill: form
+    text: "Wir gratulieren ___ Kollegin."
+    hint: "(die Kollegin)"
+    options: [der, die, dem, den]
+    answer: der
+    explanation: "*gratulieren* takes the Dativ; feminine *die* → *der*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      die: "Nominativ/Akkusativ. *gratulieren* takes the Dativ → *der*."
+      dem: "Masculine/neuter. *Kollegin* is feminine → *der*."
+      den: "Masculine Akkusativ or Dativ plural. One feminine colleague → *der*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/016
+    type: choice
+    level: A2
+    skill: form
+    text: "Ich helfe ___ Kindern bei den Hausaufgaben."
+    hint: "(die Kinder)"
+    options: [den, die, dem, der]
+    answer: den
+    explanation: "*helfen* takes the Dativ; Dativ plural → *den Kindern*."
+    errorTags: [article-form, number]
+    distractorNotes:
+      die: "Nominativ/Akkusativ plural. *helfen* takes the Dativ → *den*."
+      dem: "Singular masculine/neuter. *Kindern* is plural → *den*."
+      der: "Feminine singular Dativ. *Kindern* is plural → *den*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/017
+    type: choice
+    level: A2
+    skill: form
+    text: "Das Buch gefällt ___ Lehrer."
+    hint: "(der Lehrer, Singular)"
+    options: [dem, den, der, die]
+    answer: dem
+    explanation: "*gefallen* takes the Dativ; masculine singular → *dem*."
+    errorTags: [article-form, case]
+    distractorNotes:
+      den: "Akkusativ singular (or Dativ plural, which would be *den Lehrern*). *gefallen* + Dativ singular → *dem*."
+      der: "Nominativ. The teacher is the one who likes it (*wem* gefällt es?) → *dem*."
+      die: "Plural/feminine. *Lehrer* here is one masculine teacher → *dem*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/018
+    type: order
+    level: A2
+    skill: syntax
+    prompt: "Build the sentence: I'm going by train."
+    tiles: [ich, fahre, mit, dem, Zug]
+    accepted: ["Ich fahre mit dem Zug", "Mit dem Zug fahre ich"]
+    suffix: "."
+    fields: { vorfeld: "Ich", leftBracket: "fahre", mittelfeld: "mit dem Zug" }
+    explanation: "Verb second; *mit dem Zug* (Dativ after *mit*) may also start the sentence."
+    errorTags: [v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/019
+    type: order
+    level: A2
+    skill: syntax
+    prompt: "Build the sentence: The car belongs to the teacher."
+    tiles: [das, Auto, gehört, dem, Lehrer]
+    accepted: ["Das Auto gehört dem Lehrer", "Dem Lehrer gehört das Auto"]
+    suffix: "."
+    fields: { vorfeld: "Das Auto", leftBracket: "gehört", mittelfeld: "dem Lehrer" }
+    explanation: "Verb second; the Dativ object *dem Lehrer* may also stand first."
+    errorTags: [v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: dative-articles/020
+    type: order
+    level: A2
+    skill: syntax
+    prompt: "Build the sentence: We help the children."
+    tiles: [wir, helfen, den, Kindern]
+    accepted: ["Wir helfen den Kindern", "Den Kindern helfen wir"]
+    suffix: "."
+    fields: { vorfeld: "Wir", leftBracket: "helfen", mittelfeld: "den Kindern" }
+    explanation: "Verb second; *den Kindern* is Dativ plural (*helfen* + Dativ)."
+    errorTags: [v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original

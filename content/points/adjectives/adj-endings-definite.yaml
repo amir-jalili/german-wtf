@@ -1,0 +1,296 @@
+id: adj-endings-definite
+title: { en: "Adjective endings after the definite article", de: "Adjektivdeklination nach bestimmtem Artikel" }
+level: A2
+family: adjectives
+prerequisites: [dative-articles]
+compareWith: [adj-endings-indefinite]
+version: 1
+lesson:
+  summary: "After der/die/das the article already shows the case, so the adjective only takes -e or -en."
+  rule: |
+    After the definite article (and *dies-, jed-, welch-*), adjectives before a noun take the **weak** endings:
+
+    - **-e** in the five "easy" spots: **Nominativ singular** (all genders) and **Akkusativ singular feminine and neuter**.
+    - **-en** everywhere else: all **Dativ**, all **Genitiv**, all **plural**, and **Akkusativ masculine**.
+
+    Memory trick: count the five *-e* spots — **der** Mann (Nom.), **die** Frau and **das** Haus (Nom. and Akk.). Everything else is *-en*, including Dativ feminine *der* (*mit der alten Frau*) and plural *die* (*die alten Häuser*).
+  table:
+    columns: [m, f, n, pl]
+    rows:
+      nom: ["der alte Mann", "die alte Frau", "das alte Haus", "die alten Häuser"]
+      akk: ["den alten Mann", "die alte Frau", "das alte Haus", "die alten Häuser"]
+      dat: ["dem alten Mann", "der alten Frau", "dem alten Haus", "den alten Häusern"]
+      gen: ["des alten Mannes", "der alten Frau", "des alten Hauses", "der alten Häuser"]
+  examples:
+    - de: "Ich helfe dem alten Mann."
+      en: "I'm helping the old man."
+      xray:
+        - { text: "Ich", role: subj, case: nom }
+        - { text: "dem alten Mann", role: dat-obj, case: dat, gender: m, note: "Dativ → -en" }
+    - de: "Die neue Wohnung ist hell."
+      en: "The new flat is bright."
+      xray:
+        - { text: "Die neue Wohnung", role: subj, case: nom, gender: f, note: "Nominativ singular → -e" }
+    - de: "Ich nehme den roten Pullover."
+      en: "I'll take the red jumper."
+      xray:
+        - { text: "Ich", role: subj, case: nom }
+        - { text: "den roten Pullover", role: akk-obj, case: akk, gender: m, note: "Akkusativ masculine → -en" }
+    - de: "Die jungen Leute tanzen."
+      en: "The young people are dancing."
+      xray:
+        - { text: "Die jungen Leute", role: subj, case: nom, gender: pl, note: "plural → -en" }
+  pitfalls:
+    - "Akkusativ masculine is *-en*, not *-e*: *den neuen Tisch*."
+    - "Plural is always *-en* after the article: *die neuen Schuhe*."
+    - "Adjectives after *sein/werden* take no ending: *Die Wohnung ist neu.*"
+items:
+  - id: adj-endings-definite/001
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich helfe dem {{alten}} Mann."
+    hint: "(alt)"
+    accepted: [alten]
+    explanation: "Dativ after the definite article → always *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      alte: "*-e* only in Nom. singular and Akk. singular f/n. *helfen* takes the Dativ → *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/002
+    type: cloze
+    level: A2
+    skill: form
+    text: "Die {{neue}} Wohnung ist sehr hell."
+    hint: "(neu)"
+    accepted: [neue]
+    explanation: "Nominativ singular after the definite article → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      neuen: "*-en* is for Dativ, plural and Akk. masculine. This is Nominativ singular → *neue*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/003
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich nehme den {{roten}} Pullover."
+    hint: "(rot)"
+    accepted: [roten]
+    explanation: "Akkusativ masculine (*den*) → *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      rote: "Akkusativ masculine is the one Akkusativ form with *-en*: *den roten Pullover*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/004
+    type: cloze
+    level: A2
+    skill: form
+    text: "Das {{kleine}} Kind schläft."
+    hint: "(klein)"
+    accepted: [kleine]
+    explanation: "Nominativ singular after the definite article → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      kleines: "After *das* the article already shows neuter, so the adjective takes only *-e*."
+      kleinen: "*-en* is for Dativ, plural and Akk. masculine. Nominativ singular → *-e*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/005
+    type: cloze
+    level: A2
+    skill: form
+    text: "Wir kaufen das {{große}} Sofa."
+    hint: "(groß)"
+    accepted: [große]
+    explanation: "Akkusativ neuter after *das* → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      großen: "Akkusativ neuter keeps *-e*: *das große Sofa*. Only masculine (*den*) takes *-en*."
+      großes: "After *das* the adjective takes only *-e*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/006
+    type: cloze
+    level: A2
+    skill: form
+    text: "Sie wohnt in der {{schönen}} Altstadt."
+    hint: "(schön)"
+    accepted: [schönen]
+    explanation: "*wohnen in* → Dativ; Dativ after the definite article → *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      schöne: "*der* here is Dativ feminine (*wohnen in* → wo?). Dativ → *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/007
+    type: cloze
+    level: A2
+    skill: form
+    text: "Die {{jungen}} Leute tanzen."
+    hint: "(jung)"
+    accepted: [jungen]
+    explanation: "Plural after the definite article → always *-en*."
+    errorTags: [adj-ending, number]
+    distractorNotes:
+      junge: "*Leute* is plural. Plural after *die* → *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/008
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich mag die {{frischen}} Brötchen hier."
+    hint: "(frisch, Plural)"
+    accepted: [frischen]
+    explanation: "Plural after the definite article → *-en*."
+    errorTags: [adj-ending, number]
+    distractorNotes:
+      frische: "*Brötchen* is plural here. Plural → *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/009
+    type: cloze
+    level: A2
+    skill: form
+    text: "Er spricht mit dem {{netten}} Arzt."
+    hint: "(nett)"
+    accepted: [netten]
+    explanation: "*mit* → Dativ; Dativ after the definite article → *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      nette: "*mit* takes the Dativ, and Dativ is always *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/010
+    type: cloze
+    level: A2
+    skill: form
+    text: "Kennst du die {{neue}} Kollegin?"
+    hint: "(neu)"
+    accepted: [neue]
+    explanation: "Akkusativ feminine after *die* → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      neuen: "Akkusativ feminine keeps *-e*: *die neue Kollegin*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/011
+    type: cloze
+    level: A2
+    skill: form
+    text: "Der {{alte}} Zug hat Verspätung."
+    hint: "(alt)"
+    accepted: [alte]
+    explanation: "Nominativ singular after the definite article → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      alter: "After *der* the article already shows masculine, so the adjective takes only *-e*."
+      alten: "Nominativ singular → *-e*, not *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/012
+    type: cloze
+    level: A2
+    skill: form
+    text: "Ich warte vor dem {{großen}} Bahnhof."
+    hint: "(groß)"
+    accepted: [großen]
+    explanation: "*warten vor* → wo? → Dativ; Dativ → *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      große: "*dem* is Dativ, and Dativ is always *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/013
+    type: choice
+    level: A2
+    skill: form
+    text: "Das ist der ___ Laptop von Jonas."
+    hint: "(neu)"
+    options: [neue, neuen, neuer, neues]
+    answer: neue
+    explanation: "Nominativ singular after *der* → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      neuen: "Nominativ singular → *-e*."
+      neuer: "*-er* is the strong ending (*ein neuer Laptop*). After *der* → *-e*."
+      neues: "*-es* is neuter strong. *Laptop* is masculine and follows *der* → *-e*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/014
+    type: choice
+    level: A2
+    skill: form
+    text: "Ich suche den ___ Schlüssel."
+    hint: "(klein)"
+    options: [kleinen, kleine, kleiner, kleines]
+    answer: kleinen
+    explanation: "Akkusativ masculine (*den*) → *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      kleine: "Akkusativ masculine is *-en*: *den kleinen Schlüssel*."
+      kleiner: "*-er* is Nominativ masculine strong. Here: *den* → *-en*."
+      kleines: "*-es* is neuter. *Schlüssel* is masculine → *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/015
+    type: choice
+    level: A2
+    skill: form
+    text: "Sie gibt den ___ Kindern Schokolade."
+    hint: "(müde)"
+    options: [müden, müde, müder, müdes]
+    answer: müden
+    explanation: "Dativ plural after *den* → *-en*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      müde: "*den Kindern* is Dativ plural → *-en* (*müde* + *n*)."
+      müder: "Dativ plural → *-en*."
+      müdes: "Dativ plural → *-en*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/016
+    type: choice
+    level: A2
+    skill: form
+    text: "Wir besuchen das ___ Museum."
+    hint: "(neu)"
+    options: [neue, neuen, neues, neuer]
+    answer: neue
+    explanation: "Akkusativ neuter after *das* → *-e*."
+    errorTags: [adj-ending]
+    distractorNotes:
+      neuen: "Only Akkusativ masculine takes *-en*. *Museum* is neuter → *-e*."
+      neues: "*-es* comes without an article or after *ein*. After *das* → *-e*."
+      neuer: "*-er* is masculine strong. → *-e*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/017
+    type: order
+    level: A2
+    skill: syntax
+    prompt: "Build the sentence: The old man is reading."
+    tiles: [der, alte, Mann, liest]
+    accepted: ["Der alte Mann liest"]
+    suffix: "."
+    fields: { vorfeld: "Der alte Mann", leftBracket: "liest" }
+    explanation: "Article + adjective + noun stay together as one block; the verb comes second."
+    errorTags: [v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: adj-endings-definite/018
+    type: order
+    level: A2
+    skill: syntax
+    prompt: "Build the sentence: I'm buying the green jacket."
+    tiles: [ich, kaufe, die, grüne, Jacke]
+    accepted: ["Ich kaufe die grüne Jacke", "Die grüne Jacke kaufe ich"]
+    suffix: "."
+    fields: { vorfeld: "Ich", leftBracket: "kaufe", mittelfeld: "die grüne Jacke" }
+    explanation: "Verb second; the block *die grüne Jacke* (Akk. feminine → *-e*) may also start the sentence."
+    errorTags: [v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original

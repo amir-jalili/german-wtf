@@ -1,0 +1,260 @@
+id: subordinate-weil-dass
+title: { en: "Subordinate clauses with weil and dass (verb last)", de: "Nebensätze mit weil und dass (Verb am Ende)" }
+level: A2
+family: clauses
+prerequisites: [word-order-v2]
+compareWith: [conjunctions-aduso, adverbial-connectors]
+version: 1
+lesson:
+  summary: "After weil (because) and dass (that) the conjugated verb goes to the very end of the clause."
+  rule: |
+    **weil** gives a reason (*warum?*), **dass** introduces what someone says, thinks or knows (*Ich glaube, dass …*).
+
+    Both start a **subordinate clause** (*Nebensatz*): the **conjugated verb moves to the end**.
+    - *Ich bleibe zu Hause. Ich **bin** krank.* → *Ich bleibe zu Hause, **weil** ich krank **bin**.*
+    - With two verbs, the conjugated one is last: *…, weil ich arbeiten **muss**.* · *…, weil er lange gearbeitet **hat**.*
+
+    The subject usually comes right after *weil/dass*. A **comma** always separates the clauses.
+
+    Compare **denn** (also "because"): it does *not* move the verb — *…, denn ich **bin** krank.*
+  examples:
+    - de: "Ich bleibe zu Hause, weil ich krank bin."
+      en: "I'm staying at home because I'm ill."
+      xray:
+        - { text: "Ich", role: subj, case: nom }
+        - { text: "bleibe", role: verb }
+        - { text: "bin", role: verb, note: "conjugated verb at the end" }
+    - de: "Ich glaube, dass der Bus Verspätung hat."
+      en: "I think the bus is late."
+      xray:
+        - { text: "der Bus", role: subj, case: nom, gender: m }
+        - { text: "hat", role: verb, note: "verb last after dass" }
+    - de: "Lena lernt Deutsch, weil sie in Berlin arbeiten will."
+      en: "Lena is learning German because she wants to work in Berlin."
+      xray:
+        - { text: "arbeiten", role: verb-part }
+        - { text: "will", role: verb, note: "the conjugated modal goes last" }
+  pitfalls:
+    - "Not *weil ich bin krank* — the verb goes last: *weil ich krank bin*."
+    - "*dass* (conjunction, double s) ≠ *das* (article/pronoun)."
+    - "*denn* keeps normal word order: *denn ich bin krank*."
+items:
+  - id: subordinate-weil-dass/001
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Ich bleibe heute zu Hause, "
+    tiles: [weil, ich, krank, bin]
+    accepted: ["weil ich krank bin"]
+    suffix: "."
+    fields: { connector: "weil", mittelfeld: "ich krank", rightBracket: "bin" }
+    explanation: "After *weil* the conjugated verb goes to the end: *weil ich krank bin*."
+    errorTags: [verb-final]
+    distractorNotes:
+      "weil ich bin krank": "In a *weil* clause the verb goes last: *weil ich krank bin*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/002
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Ich glaube, "
+    tiles: [dass, der, Bus, Verspätung, hat]
+    accepted: ["dass der Bus Verspätung hat"]
+    suffix: "."
+    fields: { connector: "dass", mittelfeld: "der Bus Verspätung", rightBracket: "hat" }
+    explanation: "After *dass* the conjugated verb goes to the end."
+    errorTags: [verb-final]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/003
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Lena lernt Deutsch, "
+    tiles: [weil, sie, in, Berlin, arbeiten, will]
+    accepted: ["weil sie in Berlin arbeiten will"]
+    suffix: "."
+    fields: { connector: "weil", mittelfeld: "sie in Berlin", rightBracket: "arbeiten will" }
+    explanation: "With a modal verb the infinitive comes before it, and the conjugated modal is last: *arbeiten will*."
+    errorTags: [verb-final, verb-cluster]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/004
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Es ist schön, "
+    tiles: [dass, du, heute, kommst]
+    accepted: ["dass du heute kommst"]
+    suffix: "."
+    fields: { connector: "dass", mittelfeld: "du heute", rightBracket: "kommst" }
+    explanation: "After *dass* the verb goes to the end: *dass du heute kommst*."
+    errorTags: [verb-final]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/005
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Murat ist müde, "
+    tiles: [weil, er, lange, gearbeitet, hat]
+    accepted: ["weil er lange gearbeitet hat"]
+    suffix: "."
+    fields: { connector: "weil", mittelfeld: "er lange", rightBracket: "gearbeitet hat" }
+    explanation: "Perfekt in a *weil* clause: participle, then the conjugated auxiliary last."
+    errorTags: [verb-final, verb-cluster]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/006
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Weißt du, "
+    tiles: [dass, Amir, morgen, Geburtstag, hat]
+    accepted: ["dass Amir morgen Geburtstag hat", "dass morgen Amir Geburtstag hat"]
+    suffix: "?"
+    fields: { connector: "dass", mittelfeld: "Amir morgen Geburtstag", rightBracket: "hat" }
+    explanation: "After *dass* the verb goes last. A noun subject may follow a time word in the middle."
+    errorTags: [verb-final]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/007
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Ich rufe dich an, "
+    tiles: [weil, ich, eine, Frage, habe]
+    accepted: ["weil ich eine Frage habe"]
+    suffix: "."
+    fields: { connector: "weil", mittelfeld: "ich eine Frage", rightBracket: "habe" }
+    explanation: "After *weil* the conjugated verb goes to the end."
+    errorTags: [verb-final]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/008
+    type: order
+    level: A2
+    skill: syntax
+    prefix: "Sophie sagt, "
+    tiles: [dass, das, Essen, sehr, gut, ist]
+    accepted: ["dass das Essen sehr gut ist"]
+    suffix: "."
+    fields: { connector: "dass", mittelfeld: "das Essen sehr gut", rightBracket: "ist" }
+    explanation: "*dass* (conjunction) + verb last; *das Essen* is the subject."
+    errorTags: [verb-final]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/009
+    type: choice
+    level: A2
+    skill: syntax
+    text: "Ich hoffe, ___ das Wetter morgen schön ist."
+    options: [dass, weil, denn, das]
+    answer: dass
+    explanation: "After *hoffen* (what you hope) → *dass* + verb last."
+    errorTags: [connector-choice]
+    distractorNotes:
+      weil: "*weil* gives a reason. Here the clause says *what* you hope → *dass*."
+      denn: "*denn* needs normal word order and gives a reason → *dass*."
+      das: "*das* is an article/pronoun. The conjunction is spelled *dass*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/010
+    type: choice
+    level: A2
+    skill: syntax
+    text: "Wir bleiben drinnen, ___ es sehr stark regnet."
+    options: [weil, denn, dass, das]
+    answer: weil
+    explanation: "A reason with the verb at the end (*regnet*) → *weil*."
+    errorTags: [connector-choice, verb-final]
+    distractorNotes:
+      denn: "After *denn* the verb would stay second: *denn es regnet sehr stark*. The verb is last here → *weil*."
+      dass: "*dass* introduces what someone says or thinks. Here it's a reason → *weil*."
+      das: "*das* is an article/pronoun, not a conjunction."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/011
+    type: choice
+    level: A2
+    skill: syntax
+    text: "Ich weiß, ___ du recht hast."
+    options: [dass, weil, denn, das]
+    answer: dass
+    explanation: "*wissen* + what you know → *dass* + verb last."
+    errorTags: [connector-choice]
+    distractorNotes:
+      weil: "*weil* gives a reason. The clause says *what* I know → *dass*."
+      denn: "*denn* gives a reason and keeps V2 → *dass*."
+      das: "The conjunction is *dass* with double s."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/012
+    type: choice
+    level: A2
+    skill: syntax
+    text: "Sie lernt viel, ___ sie die Prüfung bestehen will."
+    options: [weil, dass, denn, das]
+    answer: weil
+    explanation: "A reason with the verb at the end (*will*) → *weil*."
+    errorTags: [connector-choice, verb-final]
+    distractorNotes:
+      dass: "*dass* says *what* someone thinks or says. This clause gives the reason → *weil*."
+      denn: "After *denn* the verb would stay second: *denn sie will die Prüfung bestehen*."
+      das: "*das* is an article/pronoun."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/013
+    type: cloze
+    level: A2
+    skill: syntax
+    text: "Ich komme nicht mit, {{weil}} ich keine Zeit habe."
+    hint: "(because)"
+    accepted: [weil, da]
+    explanation: "A reason with the verb at the end → *weil* (or the more formal *da*)."
+    errorTags: [connector-choice]
+    distractorNotes:
+      denn: "*denn* keeps V2: *denn ich habe keine Zeit*. With the verb at the end → *weil*."
+      dass: "*dass* doesn't give a reason → *weil*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/014
+    type: cloze
+    level: A2
+    skill: syntax
+    text: "Ich denke, {{dass}} der Film gut ist."
+    hint: "(that)"
+    accepted: [dass]
+    explanation: "*denken* + what you think → *dass* + verb last."
+    errorTags: [connector-choice, spelling]
+    distractorNotes:
+      das: "The conjunction \"that\" is spelled *dass* with double s."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/015
+    type: cloze
+    level: A2
+    skill: syntax
+    text: "Kofi sagt, dass er heute keine Zeit {{hat}}."
+    hint: "(haben)"
+    accepted: [hat]
+    explanation: "After *dass* the conjugated verb stands at the end: *hat*."
+    errorTags: [verb-conjugation, verb-final]
+    distractorNotes:
+      haben: "Conjugate for *er*: *er hat*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: subordinate-weil-dass/016
+    type: cloze
+    level: A2
+    skill: syntax
+    text: "Ich lerne Deutsch, weil ich in Deutschland {{lebe}}."
+    hint: "(leben)"
+    accepted: [lebe]
+    explanation: "After *weil* the conjugated verb stands at the end: *lebe*."
+    errorTags: [verb-conjugation, verb-final]
+    distractorNotes:
+      leben: "Conjugate for *ich*: *ich lebe*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original

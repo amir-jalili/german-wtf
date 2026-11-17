@@ -1,0 +1,313 @@
+id: perfect-sein
+title: { en: "Perfekt with sein", de: "Perfekt mit sein" }
+level: A1
+family: tenses
+prerequisites: [perfect-haben]
+compareWith: [perfect-haben]
+version: 1
+lesson:
+  summary: "Verbs of movement from A to B and of change of state build the Perfekt with sein: Ich bin gefahren."
+  rule: |
+    Most verbs build the Perfekt with **haben**. A smaller group uses **sein**:
+
+    - **movement from one place to another**: *gehen, fahren, fliegen, kommen, laufen, springen, wandern, reisen* · *Ich **bin** nach Berlin **gefahren**.*
+    - **change of state**: *aufstehen, aufwachen, einschlafen, werden, sterben, wachsen* · *Er **ist** eingeschlafen.*
+    - and three you just memorise: **sein, bleiben, passieren** · *Ich **bin** zu Hause **geblieben**.*
+
+    Form: **sein** (conjugated, position 2) + **Partizip II** (at the end).
+  table:
+    columns: [Präsens von sein, Beispiel]
+    rows:
+      ich: ["bin", "Ich bin gekommen."]
+      du: ["bist", "Du bist gekommen."]
+      "er/sie/es": ["ist", "Sie ist gekommen."]
+      wir: ["sind", "Wir sind gekommen."]
+      ihr: ["seid", "Ihr seid gekommen."]
+      "sie/Sie": ["sind", "Sie sind gekommen."]
+  examples:
+    - de: "Gestern bin ich nach Berlin gefahren."
+      en: "Yesterday I went to Berlin."
+      xray:
+        - { text: "bin", role: verb, note: "sein: movement A → B" }
+        - { text: "ich", role: subj, case: nom }
+        - { text: "gefahren", role: verb-part, note: "Partizip II at the end" }
+    - de: "Lena ist um sieben Uhr aufgestanden."
+      en: "Lena got up at seven."
+      xray:
+        - { text: "Lena", role: subj, case: nom }
+        - { text: "ist", role: verb, note: "sein: change of state" }
+        - { text: "aufgestanden", role: verb-part }
+    - de: "Wir haben den Zug genommen."
+      en: "We took the train."
+      xray:
+        - { text: "Wir", role: subj, case: nom }
+        - { text: "haben", role: verb, note: "nehmen has an object → haben" }
+        - { text: "den Zug", role: akk-obj, case: akk, gender: m }
+        - { text: "genommen", role: verb-part }
+  pitfalls:
+    - "Moving is not enough: it must be *to* somewhere or a change. *Ich habe getanzt* (haben), but *Ich bin nach Hause gegangen* (sein)."
+    - "*bleiben* and *sein* take *sein* although nothing moves: *Ich bin geblieben. Ich bin gewesen.*"
+    - "A verb with an Akkusativ object almost always takes *haben*: *Ich habe den Bus genommen.*"
+items:
+  - id: perfect-sein/001
+    type: cloze
+    level: A1
+    skill: form
+    text: "Gestern {{bin}} ich nach Hamburg {{gefahren}}."
+    hint: "(fahren, Perfekt)"
+    accepted: [[bin], [gefahren]]
+    explanation: "*fahren* nach … is movement from A to B → *sein*: *ich bin gefahren*."
+    errorTags: [aux-haben-sein, participle]
+    distractorNotes:
+      habe: "*fahren* to a place is movement A → B → Perfekt with *sein*: *bin*."
+      gefahrt: "*fahren* is irregular: Partizip II *gefahren*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/002
+    type: cloze
+    level: A1
+    skill: form
+    text: "Wir {{sind}} ins Kino gegangen."
+    hint: "(gehen, Perfekt)"
+    accepted: [sind]
+    explanation: "*gehen* → movement → *sein*; for *wir*: *sind*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      haben: "*gehen* is movement → *sein*: *wir sind gegangen*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/003
+    type: cloze
+    level: A1
+    skill: form
+    text: "Lena {{ist}} um sieben Uhr aufgestanden."
+    hint: "(aufstehen, Perfekt)"
+    accepted: [ist]
+    explanation: "*aufstehen* is a change of state (lying → standing) → *sein*: *ist*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      hat: "*aufstehen* is a change of state → *sein*: *sie ist aufgestanden*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/004
+    type: cloze
+    level: A1
+    skill: form
+    text: "Wann {{bist}} du nach Hause gekommen?"
+    hint: "(kommen, Perfekt)"
+    accepted: [bist]
+    explanation: "*kommen* → movement → *sein*; for *du*: *bist*."
+    errorTags: [aux-haben-sein, verb-conjugation]
+    distractorNotes:
+      hast: "*kommen* is movement → *sein*: *du bist gekommen*."
+      ist: "Conjugate *sein* for *du*: *bist*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/005
+    type: cloze
+    level: A1
+    skill: form
+    text: "Ich {{bin}} zwei Wochen in Spanien geblieben."
+    hint: "(bleiben, Perfekt)"
+    accepted: [bin]
+    explanation: "*bleiben* always takes *sein*, even though nothing moves."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      habe: "*bleiben* is one of the exceptions with *sein*: *ich bin geblieben*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/006
+    type: cloze
+    level: A1
+    skill: form
+    text: "Was {{ist}} passiert?"
+    hint: "(passieren, Perfekt)"
+    accepted: [ist]
+    explanation: "*passieren* always takes *sein*: *Was ist passiert?*"
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      hat: "*passieren* takes *sein*: *Was ist passiert?*"
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/007
+    type: cloze
+    level: A1
+    skill: form
+    text: "Murat {{ist}} letztes Jahr Vater geworden."
+    hint: "(werden, Perfekt)"
+    accepted: [ist]
+    explanation: "*werden* is a change of state → *sein*: *er ist geworden*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      hat: "*werden* is a change of state → *sein*: *ist geworden*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/008
+    type: cloze
+    level: A1
+    skill: form
+    text: "Sie ist nach Wien {{geflogen}}."
+    hint: "(fliegen)"
+    accepted: [geflogen]
+    explanation: "*fliegen* is irregular: Partizip II *geflogen*."
+    errorTags: [participle]
+    distractorNotes:
+      gefliegt: "*fliegen* is irregular: *geflogen*."
+      gefliegen: "The vowel changes: *fliegen → geflogen*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/009
+    type: cloze
+    level: A1
+    skill: form
+    text: "Wir sind am Sonntag {{gewandert}}."
+    hint: "(wandern)"
+    accepted: [gewandert]
+    explanation: "*wandern* is regular: *ge- + wander + -t*; movement → *sein*."
+    errorTags: [participle]
+    distractorNotes:
+      gewandern: "*wandern* is regular: *gewandert*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/010
+    type: cloze
+    level: A1
+    skill: form
+    text: "{{Bist}} du schon einmal in München {{gewesen}}?"
+    hint: "(sein, Perfekt)"
+    accepted: [[Bist], [gewesen]]
+    explanation: "*sein* builds its Perfekt with *sein*: *Bist du … gewesen?*"
+    errorTags: [aux-haben-sein, participle]
+    distractorNotes:
+      Hast: "*sein* takes *sein* in the Perfekt: *Bist du … gewesen?*"
+      geseid: "Partizip II of *sein* is *gewesen*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/011
+    type: cloze
+    level: A1
+    skill: form
+    text: "Ich {{bin}} heute sehr früh {{aufgewacht}}."
+    hint: "(aufwachen, Perfekt)"
+    accepted: [[bin], [aufgewacht]]
+    explanation: "*aufwachen* is a change of state → *sein*; separable: *auf-ge-wacht*."
+    errorTags: [aux-haben-sein, participle, separable-prefix]
+    distractorNotes:
+      habe: "*aufwachen* is a change of state (sleeping → awake) → *sein*."
+      geaufwacht: "With separable verbs *ge-* goes after the prefix: *aufgewacht*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/012
+    type: choice
+    level: A1
+    skill: form
+    text: "Ich ___ gestern viel gelaufen."
+    options: [bin, habe, hat, ist]
+    answer: bin
+    explanation: "*laufen* → movement → *sein*; for *ich*: *bin*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      habe: "*laufen* is movement → *sein*: *ich bin gelaufen*."
+      hat: "*laufen* takes *sein*, and *ich* needs *bin*."
+      ist: "Right auxiliary, wrong person: *ich bin*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/013
+    type: choice
+    level: A1
+    skill: form
+    text: "Er ___ im Park eingeschlafen."
+    options: [ist, hat, bin, habe]
+    answer: ist
+    explanation: "*einschlafen* is a change of state (awake → asleep) → *sein*: *er ist*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      hat: "*einschlafen* is a change of state → *sein*: *er ist eingeschlafen*."
+      bin: "Right auxiliary, wrong person: *er ist*."
+      habe: "*einschlafen* → *sein*, and *er* → *ist*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/014
+    type: choice
+    level: A1
+    skill: form
+    text: "Wir ___ den Zug genommen."
+    options: [haben, sind, hat, ist]
+    answer: haben
+    explanation: "*nehmen* has an Akkusativ object and no movement of the subject → *haben*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      sind: "*nehmen* has an Akkusativ object (*den Zug*) → *haben*, even though you travel."
+      hat: "Right auxiliary, wrong person: *wir haben*."
+      ist: "*nehmen* → *haben*, and *wir* → *haben*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/015
+    type: choice
+    level: A1
+    skill: form
+    text: "Die Kinder ___ ins Wasser gesprungen."
+    options: [sind, haben, ist, hat]
+    answer: sind
+    explanation: "*springen* into something → movement → *sein*; plural: *sind*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      haben: "*springen* is movement → *sein*: *sie sind gesprungen*."
+      ist: "Right auxiliary, wrong person: *die Kinder* (plural) → *sind*."
+      hat: "*springen* → *sein*, plural → *sind*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/016
+    type: choice
+    level: A1
+    skill: form
+    text: "Ich ___ einen Kaffee getrunken."
+    options: [habe, bin, hat, ist]
+    answer: habe
+    explanation: "*trinken* has an Akkusativ object, no movement → *haben*."
+    errorTags: [aux-haben-sein]
+    distractorNotes:
+      bin: "*trinken* is not movement or change of state → *haben*."
+      hat: "Right auxiliary, wrong person: *ich habe*."
+      ist: "*trinken* → *haben*, and *ich* → *habe*."
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/017
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the sentence: I went to Cologne."
+    tiles: [ich, bin, nach, Köln, gefahren]
+    accepted: ["Ich bin nach Köln gefahren", "Nach Köln bin ich gefahren"]
+    suffix: "."
+    fields: { vorfeld: "Ich", leftBracket: "bin", mittelfeld: "nach Köln", rightBracket: "gefahren" }
+    explanation: "*sein* in position 2, the participle at the very end (sentence bracket)."
+    errorTags: [verb-cluster, v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/018
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the question: When did you arrive?"
+    tiles: [wann, bist, du, angekommen]
+    accepted: ["Wann bist du angekommen"]
+    suffix: "?"
+    fields: { vorfeld: "Wann", leftBracket: "bist", mittelfeld: "du", rightBracket: "angekommen" }
+    explanation: "W-question: question word, then *sein*, subject, participle last."
+    errorTags: [verb-cluster, v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
+  - id: perfect-sein/019
+    type: order
+    level: A1
+    skill: syntax
+    prompt: "Build the sentence: She stayed at home."
+    tiles: [sie, ist, zu, Hause, geblieben]
+    accepted: ["Sie ist zu Hause geblieben", "Zu Hause ist sie geblieben"]
+    suffix: "."
+    fields: { vorfeld: "Sie", leftBracket: "ist", mittelfeld: "zu Hause", rightBracket: "geblieben" }
+    explanation: "*bleiben* → *sein*; auxiliary second, participle last."
+    errorTags: [verb-cluster, v2-position]
+    review: { status: draft, by: claude, date: 2026-11-17 }
+    source: original
