@@ -21,7 +21,10 @@ export function toLogEntry(a: AnswerToLog, now = Date.now()): ReviewLogEntry {
 		answer: JSON.parse(JSON.stringify(a.answer)) as ItemAnswer,
 		ms: Math.round(a.ms),
 		timestamp: now,
-		mode: 'practice'
+		mode: 'practice',
+		...(a.check.result.verdict === 'wrong' && a.check.result.tags.length
+			? { errorTags: [...a.check.result.tags] }
+			: {})
 	};
 }
 

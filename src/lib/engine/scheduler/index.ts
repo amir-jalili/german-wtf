@@ -23,3 +23,13 @@ export {
 	type PointCard,
 	type ReviewEvents
 } from './cards';
+export {
+	gradeForSitting,
+	groupIntoSittings,
+	replayAnswers,
+	AGAIN_SHARE,
+	SITTING_GAP_MS,
+	type AnswerRecord,
+	type ReplayResult,
+	type Sitting
+} from './replay';

@@ -41,7 +41,7 @@ Goal: open the app, tap one button, get today's right mix.
 
 - [x] **P2.1** Scheduler: `ts-fsrs` wrapper, card keys `point:skill`, rating from verdict + time + "I guessed", target retention setting. Unit tests with fixed clock.
 - [x] **P2.2** Mistake cards per `point:errorTag` with resolve rule; leech detection.
-- [ ] **P2.3** Dexie v3 migration (`cards`, `mistakeCards`), migration test from v1 and v2 data (v2 was taken by `funSeen` in P1.12).
+- [x] **P2.3** Dexie v3 migration (`cards`, `mistakeCards`), migration test from v1 and v2 data (v2 was taken by `funSeen` in P1.12).
 - [ ] **P2.4** Session builder: due → mistakes → new (quota, prerequisites), time budget, interleaving, fresh-item picking. Property-style tests (no item twice in a row, budget respected).
 - [ ] **P2.5** Today screen: start button with counts and minutes, end-of-session summary ("came back today", new mastery).
 - [ ] **P2.6** Grammar map: A1–C2 sections, families, mastery colours, due badges, prerequisite hints, search; points without content show "coming soon".
