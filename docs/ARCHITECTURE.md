@@ -158,7 +158,8 @@ Exhaustively unit-tested with a table of (item, answer, expected result) cases, 
 
 - **Card** = `pointId × skill` (e.g. `adj-endings-definite:form`). A review picks an item of that point/skill not seen in the last N reviews, prefers types the user is weaker on.
 - **Mistake card** = `pointId × errorTag`, created on the first wrong answer with that tag, scheduled with FSRS from then on; resolved (archived) after 3 consecutive correct reviews with stability ≥ 21 days.
-- FSRS rating from the result: wrong → Again; near-miss or "I guessed" → Hard; correct → Good; correct and fast (< 40 % of the item's median time) → Easy. Target retention 0.9 (setting).
+- **Built (P2.1, ADR 0007):** `ts-fsrs` 6 with the FSRS-7 model, assembled synchronously (`fsrs.ts`), library-default learning steps, fuzz off; the FSRS `cardId` is the card key. `card-key.ts`, `rating.ts`, `mastery.ts`, `retention.ts` (kept free of ts-fsrs so Settings can import it).
+- FSRS rating from the result (`gradeFromAnswer`): wrong → Again; near-miss or "I guessed" → Hard; correct → Good; correct and fast (< 40 % of the item's median time, needs ≥ 3 earlier timings) → Easy. Target retention 0.9 (setting `targetRetention`, clamped 0.70–0.97).
 - **Mastery levels** per point (from stability): New → Learning (<3 d) → Familiar (<21 d) → Strong (<90 d) → Mastered (≥90 d).
 - Leech: ≥ 6 lapses → flag, suggest the lesson, show the scaffolded version for the next 3 reviews.
 
@@ -176,7 +177,7 @@ Examples (and optionally items) carry spans: `{ text, role: 'subj'|'akk-obj'|'da
 
 ## 6. Storage (Dexie)
 
-Tables — **v1 (built, `src/lib/db/schema.ts`)**: `reviewLog` (append-only: itemId, pointId, cardKey `pointId:skill`, verdict, answer, ms, timestamp, mode), `settings` (key/value), `meta` (key/value, e.g. `createdAt`). **v2 (built, P1.12)**: `funSeen` (fun-system history: funId, event, timestamp). Settings keys so far: `catChaos` (`off`/`some`/`maximum`). **Planned**, each in its own new Dexie version with a migration test (`src/lib/db/migration.test.ts`): `cards` (key, pointId, skill, fsrs state, mastery) and `mistakeCards` (v3, P2.3), `bookPacks` (P2.9), `selfStudy`, `bookmarks`. The IndexedDB name stays `grammatik-gym` forever (ADR 0006). Content is **not** stored in IDB; it's fetched from `/content/<level>.json` and cached by the service worker. Export/import = JSON of all tables + versions (`src/lib/db/backup.ts`, Zod-validated; one fixture per version in `tests/fixtures/backup-vN.json`).
+Tables — **v1 (built, `src/lib/db/schema.ts`)**: `reviewLog` (append-only: itemId, pointId, cardKey `pointId:skill`, verdict, answer, ms, timestamp, mode), `settings` (key/value), `meta` (key/value, e.g. `createdAt`). **v2 (built, P1.12)**: `funSeen` (fun-system history: funId, event, timestamp). Settings keys so far: `catChaos` (`off`/`some`/`maximum`), `targetRetention` (number). **Planned**, each in its own new Dexie version with a migration test (`src/lib/db/migration.test.ts`): `cards` (key, pointId, skill, fsrs state, mastery) and `mistakeCards` (v3, P2.3), `bookPacks` (P2.9), `selfStudy`, `bookmarks`. The IndexedDB name stays `grammatik-gym` forever (ADR 0006). Content is **not** stored in IDB; it's fetched from `/content/<level>.json` and cached by the service worker. Export/import = JSON of all tables + versions (`src/lib/db/backup.ts`, Zod-validated; one fixture per version in `tests/fixtures/backup-vN.json`).
 
 ## 7. Build & deploy
 

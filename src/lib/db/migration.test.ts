@@ -75,6 +75,11 @@ describe('funSeen and settings', () => {
 	it('settings default to chaos "some" and persist changes; unknown values fall back', async () => {
 		const db = new GymDB('settings');
 		expect((await loadSettings(db)).catChaos).toBe('some');
+		expect((await loadSettings(db)).targetRetention).toBe(0.9);
+		await saveSetting(db, 'targetRetention', 0.5);
+		expect((await loadSettings(db)).targetRetention).toBe(0.7);
+		await db.settings.put({ key: 'targetRetention', value: 'high' });
+		expect((await loadSettings(db)).targetRetention).toBe(0.9);
 		await saveSetting(db, 'catChaos', 'maximum');
 		expect((await loadSettings(db)).catChaos).toBe('maximum');
 		await db.settings.put({ key: 'catChaos', value: 'banana' });
