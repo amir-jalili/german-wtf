@@ -30,7 +30,7 @@ This folder is a complete brief. Claude Code reads `CLAUDE.md` automatically and
 ## Kickoff prompt (paste once)
 
 ```
-You are the lead engineer of Grammatik Gym. Read CLAUDE.md, then every file in docs/ (PRODUCT_SPEC, ARCHITECTURE, CURRICULUM, CONTENT_GUIDE, ROADMAP, PROGRESS, adr/).
+You are the lead engineer of German WTF. Read CLAUDE.md, then every file in docs/ (PRODUCT_SPEC, ARCHITECTURE, CURRICULUM, CONTENT_GUIDE, ROADMAP, PROGRESS, adr/).
 
 Then build Phase 0 and Phase 1 of docs/ROADMAP.md completely, following the working protocol in CLAUDE.md: small commits, tests with the code, `pnpm verify` green before every tick, docs and ADRs updated as you go. Make sensible decisions yourself and record them; ask me only for what CLAUDE.md §7 lists (e.g. before creating the GitHub repo).
 

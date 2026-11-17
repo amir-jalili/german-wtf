@@ -4,7 +4,8 @@
  */
 export const messages = {
 	en: {
-		'app.name': 'Grammatik Gym',
+		'app.name': 'German WTF',
+		'app.tagline': 'Was zur Katze?!',
 		'nav.today': 'Today',
 		'nav.map': 'Map',
 		'nav.mistakes': 'Mistakes',

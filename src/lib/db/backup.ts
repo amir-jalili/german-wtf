@@ -27,6 +27,7 @@ export const ReviewLogEntrySchema = z.object({
 const KeyValue = z.object({ key: z.string(), value: z.unknown() });
 
 export const BackupV1Schema = z.object({
+	// Storage identifier, deliberately NOT renamed with the app (ADR 0006).
 	app: z.literal('grammatik-gym'),
 	dbVersion: z.literal(1),
 	appVersion: z.string(),
@@ -59,5 +60,5 @@ export async function exportBackup(
 }
 
 export function backupFileName(now = new Date()): string {
-	return `grammatik-gym-backup-${now.toISOString().slice(0, 10)}.json`;
+	return `german-wtf-backup-${now.toISOString().slice(0, 10)}.json`;
 }

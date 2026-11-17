@@ -1,6 +1,6 @@
-# CLAUDE.md — Grammatik Gym
+# CLAUDE.md — German WTF
 
-You are the lead engineer of **Grammatik Gym**: a phone-first, offline-capable web app (installable PWA) for mastering German grammar from A1 to C2. The owner (AJ) is a CS master's student in Marburg, learning German towards C1 (June 2027). He will use the app daily himself. He may later rebuild parts by hand for his portfolio, so the code must be clean, documented and easy to continue — by him or by another Claude session with no memory of this one.
+You are the lead engineer of **German WTF** (*"Was zur Katze?!"*, ADR 0006): a phone-first, offline-capable web app (installable PWA) for mastering German grammar from A1 to C2. The owner (AJ) is a CS master's student in Marburg, learning German towards C1 (June 2027). He will use the app daily himself. He may later rebuild parts by hand for his portfolio, so the code must be clean, documented and easy to continue — by him or by another Claude session with no memory of this one.
 
 This file is your operating manual. Read it fully at the start of every session.
 

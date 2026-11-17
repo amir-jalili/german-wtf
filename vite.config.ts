@@ -9,8 +9,8 @@ const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 
 };
 
 /**
- * Base path for deployment. Empty locally; GitHub Actions sets BASE_PATH=/grammatik-gym
- * so the site works under https://<user>.github.io/grammatik-gym/ (ADR 0004).
+ * Base path for deployment. Empty locally; GitHub Actions sets BASE_PATH=/<repo name>
+ * so the site works under https://<user>.github.io/german-wtf/ (ADR 0004, 0006).
  */
 const base = parseBasePath(process.env.BASE_PATH);
 
@@ -49,9 +49,10 @@ export default defineConfig({
 				manifestFilename: 'manifest.webmanifest',
 				manifest: {
 					id: `${base}/`,
-					name: 'Grammatik Gym',
-					short_name: 'Grammatik',
-					description: 'Master German grammar from A1 to C2 in 15 minutes a day.',
+					name: 'German WTF',
+					short_name: 'German WTF',
+					description:
+						'Was zur Katze?! German grammar from A1 to C2, 15 minutes a day, with a cat.',
 					lang: 'en',
 					start_url: `${base}/`,
 					scope: `${base}/`,

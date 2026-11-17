@@ -1,6 +1,8 @@
-# Product Spec — Grammatik Gym
+# Product Spec — German WTF
 
 ## 1. Vision
+
+**Name:** *German WTF* — tagline **"Was zur Katze?!"** (a pun on *Was zur Hölle?!*; name chosen 17 Nov 2026, ADR 0006). The tagline sits under the mascot on the Today screen and in the install description; the home-screen icon is labelled *German WTF*.
 
 The app in which a motivated adult can **master German grammar from A1 to C2** in 15 minutes a day: learn a rule, use it actively, get told exactly _why_ an answer is wrong, and see every grammar point and every personal mistake come back exactly when it's about to be forgotten. Phone first, works offline, no ads, no noise.
 
@@ -65,7 +67,7 @@ The app in which a motivated adult can **master German grammar from A1 to C2** i
 - **Style trainers (C1/C2)**: Verbalstil ↔ Nominalstil, relative clause ↔ Partizipialattribut, direct ↔ indirect speech (Konjunktiv I), active ↔ passive ↔ Passiversatz.
 - **Exam-style mixed sets** per level (Goethe/telc _style_, our own items, no exam content, no trademark claims).
 - **Fehlerliste export**: Markdown lines in AJ's Obsidian format:
-  `- 2026-11-13 · Grammatik Gym · ~~wegen dem Regen~~ → wegen des Regens · wegen + Genitiv`
+  `- 2026-11-13 · German WTF · ~~wegen dem Regen~~ → wegen des Regens · wegen + Genitiv`
 - **Anki CSV export** of mistake cards (front: wrong sentence, back: correction + rule).
 - **Self-study sentences** (like Bunpro): paste a sentence from your reading, mark the gap, attach to a grammar point; it joins your reviews.
 - **Bookmarks** and "practise this point now" (cram, doesn't disturb SRS).

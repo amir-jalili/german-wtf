@@ -1,4 +1,4 @@
-Continue building Grammatik Gym.
+Continue building German WTF.
 
 1. Read CLAUDE.md, then the newest entry in docs/PROGRESS.md, then the current phase in docs/ROADMAP.md.
 2. Run `git status` and `pnpm verify` (skip verify if Phase 0 hasn't scaffolded the app yet).

@@ -1,6 +1,6 @@
-# Deploys main to GitHub Pages as a project site: https://<owner>.github.io/grammatik-gym/
+# Deploys main to GitHub Pages as a project site: https://<owner>.github.io/<repo>/ (now german-wtf)
 # (ADR 0004). The app is built with BASE_PATH so all URLs, the manifest and the service
-# worker live under /grammatik-gym.
+# worker live under /<repo>.
 name: Deploy
 
 on:

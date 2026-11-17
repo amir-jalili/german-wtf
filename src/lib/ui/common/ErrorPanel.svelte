@@ -16,7 +16,7 @@
 
 	function debugInfo(): string {
 		return [
-			`Grammatik Gym ${APP_VERSION}`,
+			`German WTF ${APP_VERSION}`,
 			`URL: ${location.href}`,
 			`Time: ${new Date().toISOString()}`,
 			`UA: ${navigator.userAgent}`,

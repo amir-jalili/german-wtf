@@ -1,4 +1,4 @@
-# Architecture — Grammatik Gym
+# Architecture — German WTF
 
 ## 1. Overview
 
@@ -41,7 +41,7 @@ Changing any of these needs an ADR.
 ## 3. Folder layout
 
 ```
-grammatik-gym/
+german-wtf/   (local folder may still be called grammatik-gym)
 ├── CLAUDE.md  README.md  START_HERE.md
 ├── docs/  (spec, architecture, curriculum, content guide, roadmap, progress, adr/)
 ├── .claude/commands/  (next, content, bug, review)
@@ -51,7 +51,7 @@ grammatik-gym/
 │   ├── lexicon/nouns.yaml verbs.yaml adjectives.yaml   # for generators
 │   ├── catalogue.yaml                      # machine version of CURRICULUM.md (ids, level, prereqs, family)
 │   ├── SOURCES.md                          # attribution for any open data used
-│   └── books/                              # GIT-IGNORED: clone of the private repo grammatik-gym-books (§8)
+│   └── books/                              # GIT-IGNORED: clone of the private repo german-wtf-books (§8)
 ├── scripts/
 │   ├── content-validate.ts  content-compile.ts  content-lint-de.ts  content-stats.ts
 ├── src/
@@ -185,7 +185,7 @@ Tables — **v1 (built, `src/lib/db/schema.ts`)**: `reviewLog` (append-only: ite
 
 ## 8. Book packs (AJ's books, private)
 
-- `content/books/` is git-ignored in this repo and holds a clone of a **private** repo `grammatik-gym-books`: `books/<book-slug>/book.yaml` (title, chapters → point ids) and `books/<book-slug>/<chapter>.yaml` (items, same schema plus `origin`). Optional page photos in `books/<book-slug>/scans/` (private repo only).
+- `content/books/` is git-ignored in this repo and holds a clone of a **private** repo `german-wtf-books`: `books/<book-slug>/book.yaml` (title, chapters → point ids) and `books/<book-slug>/<chapter>.yaml` (items, same schema plus `origin`). Optional page photos in `books/<book-slug>/scans/` (private repo only).
 - `pnpm books:validate` runs the normal content gates on it. `pnpm books:pack` writes `private-dist/book-pack-<date>.json` (git-ignored; never in `static/`, never deployed). A CI test fails the public build if any item with `origin` or a `book-*` source reaches `static/content/`.
 - App: Settings → _Import book pack_ (file picker; on iPhone from Files/iCloud Drive/AirDrop) → stored in IndexedDB `bookPacks`; re-import replaces by pack version, progress is keyed by item id so it survives. Book items join the session builder like any item; the Map gets a _My books_ tab (book → chapter → mastery); Today offers "Practise chapter X".
 - `pnpm dev` also loads `content/books/` directly, so AJ can test new book items on the laptop without importing.

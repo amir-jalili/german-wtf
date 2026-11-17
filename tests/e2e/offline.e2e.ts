@@ -27,7 +27,9 @@ test('web app manifest is served and installable', async ({ page, request }) => 
 	const response = await request.get(new URL(href!, page.url()).toString());
 	expect(response.ok()).toBe(true);
 	const manifest = await response.json();
-	expect(manifest.name).toBe('Grammatik Gym');
+	expect(manifest.name).toBe('German WTF');
+	expect(manifest.short_name).toBe('German WTF');
+	expect(manifest.description).toContain('Was zur Katze?!');
 	expect(manifest.display).toBe('standalone');
 	expect(manifest.icons.length).toBeGreaterThanOrEqual(2);
 });

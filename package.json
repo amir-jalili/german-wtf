@@ -1,6 +1,6 @@
 {
-	"name": "grammatik-gym",
-	"version": "0.1.0",
+	"name": "german-wtf",
+	"version": "0.2.0",
 	"private": true,
 	"description": "Master German grammar from A1 to C2 — phone-first, offline-capable PWA.",
 	"type": "module",

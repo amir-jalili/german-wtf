@@ -1,4 +1,4 @@
-Turn exercises from AJ's grammar books into Grammatik Gym items: $ARGUMENTS
+Turn exercises from AJ's grammar books into German WTF items: $ARGUMENTS
 (expected: book, chapter, exercise(s), mode `variant` (default) / `exact` / `remix`; text typed or page photos attached or given as file paths).
 
 Follow docs/CONTENT_GUIDE.md §1 and the gates in §6:

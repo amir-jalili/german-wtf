@@ -12,7 +12,7 @@
 	const lesson = $derived(point.lesson);
 </script>
 
-<svelte:head><title>{point.title.de} · Grammatik Gym</title></svelte:head>
+<svelte:head><title>{point.title.de} · German WTF</title></svelte:head>
 
 <article class="space-y-6 pb-20">
 	<header>

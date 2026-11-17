@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Grammatik Gym: Dativ the cat">
-<!-- Original Grammatik Gym icon: Dativ, the deadpan ginger cat (docs/THEME_AND_FUN.md). Same drawing as src/lib/ui/fun/Mascot.svelte. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="German WTF: Dativ the cat">
+<!-- Original German WTF icon: Dativ, the deadpan ginger cat (docs/THEME_AND_FUN.md). Same drawing as src/lib/ui/fun/Mascot.svelte. -->
 <rect width="512" height="512" fill="#fbf6ee"/>
 <g transform="translate(256 290) scale(3.2)">
 <path d="M -38 -12 L -34 -58 L -6 -34 Z M 38 -12 L 34 -58 L 6 -34 Z" fill="#e8843a" stroke="#2a2118" stroke-width="3" stroke-linejoin="round"/>

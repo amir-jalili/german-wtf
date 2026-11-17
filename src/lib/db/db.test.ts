@@ -70,7 +70,7 @@ describe('GymDB v1', () => {
 		expect(BackupV1Schema.parse(backup).tables.reviewLog).toHaveLength(1);
 		expect(backup.tables.settings).toEqual([{ key: 'theme', value: 'dark' }]);
 		expect(backupFileName(new Date('2026-11-17T12:00:00Z'))).toBe(
-			'grammatik-gym-backup-2026-11-17.json'
+			'german-wtf-backup-2026-11-17.json'
 		);
 	});
 

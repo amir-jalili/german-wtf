@@ -1,6 +1,6 @@
 # 0004 — Hosting on GitHub Pages (project site)
 
-- **Status:** accepted · 2026-11-16
+- **Status:** accepted · 2026-11-16 · amended by 0006 (repo and path renamed to `german-wtf`)
 - **Context:** The app is a static PWA (ADR 0002). It needs free hosting with HTTPS (required for service workers and "Add to Home Screen"), automatic deploys from `main`, and no ops. AJ already uses GitHub (`gh` is logged in).
 - **Decision:** GitHub Actions builds `main` and deploys `build/` to **GitHub Pages** as a project site, `https://<owner>.github.io/grammatik-gym/`.
   - The build runs with `BASE_PATH=/grammatik-gym`; `vite.config.ts` feeds it to `paths.base`, the web manifest (`start_url`, `scope`, `id`) and the service-worker scope. Locally `BASE_PATH` is empty, so dev and e2e run at `/`.

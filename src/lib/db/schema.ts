@@ -35,6 +35,7 @@ export interface MetaRow {
 	value: unknown;
 }
 
+/** Storage key — deliberately unchanged by the rename to German WTF (ADR 0006). Never change it. */
 export const DB_NAME = 'grammatik-gym';
 /** The newest Dexie schema version. */
 export const DB_VERSION = 1;

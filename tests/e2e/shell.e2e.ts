@@ -74,3 +74,9 @@ test('the update toast appears when a new version is ready and can be dismissed'
 	await toast.getByRole('button', { name: 'Later' }).click();
 	await expect(toast).toBeHidden();
 });
+
+test('Today shows the mascot and the tagline', async ({ page }) => {
+	await page.goto('/');
+	await expect(page.getByRole('img', { name: /Dativ the cat/ })).toBeVisible();
+	await expect(page.getByTestId('tagline')).toHaveText('Was zur Katze?!');
+});

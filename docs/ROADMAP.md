@@ -13,7 +13,7 @@ Goal: an empty but real, deployed, installable app with CI.
 - [x] **P0.3** ESLint boundary rule: `src/lib/engine/**` may not import svelte, `$app/*`, dexie, DOM globals or `src/lib/{ui,db,stores}`. A test file proves the rule fires.
 - [x] **P0.4** PWA: manifest, icons (simple original logo), service worker precaching the shell; Lighthouse "installable" passes; offline reload of `/` works (Playwright offline test).
 - [x] **P0.5** App shell: bottom nav (Today · Map · Mistakes · Stats · Settings), dark mode, theme tokens incl. case colours N/A/D/G with letter badges, error boundary.
-- [x] **P0.6** GitHub repo `grammatik-gym` (ask AJ before creating; free GitHub Pages needs a public repo unless he has Pro — free with the GitHub Student Developer Pack; fine either way, because book content lives in a separate private repo) + Actions: verify + e2e on PR/push; deploy `main` to GitHub Pages. README with live URL.
+- [x] **P0.6** GitHub repo `grammatik-gym` (renamed `german-wtf` in P1.13) (ask AJ before creating; free GitHub Pages needs a public repo unless he has Pro — free with the GitHub Student Developer Pack; fine either way, because book content lives in a separate private repo) + Actions: verify + e2e on PR/push; deploy `main` to GitHub Pages. README with live URL.
 - [x] **P0.7** ADR 0004 hosting choice, plus anything decided in P0.
 - [x] **P0.8** Release plumbing: semver version shown in Settings, `CHANGELOG.md` (Keep a Changelog), "New version — reload" toast from the service worker, `src/lib/flags.ts` for feature flags, `tests/fixtures/` for backup fixtures (CLAUDE.md §9).
 
@@ -32,6 +32,7 @@ Goal: learn and practise 6 real grammar points on the phone with excellent check
 - [x] **P1.9** Dexie v1: `reviewLog`, `settings`, `meta`; every answer logged. Export JSON button in Settings.
 - [x] **P1.11** Cat theme (docs/THEME_AND_FUN.md §1, AJ's request 17 Nov): re-skin the shell with the cat palette (ginger accent, cream/oat, "night cat" dark mode), original SVG mascot *Dativ* with at least `loaf`, `smug`, `flat-on-keyboard`, `crying-thumbs-up`, `sleeping`; paw-print progress, cat-tail spinner, cat favicon + PWA icons. Contrast still AA; case colours unchanged. Install `setup/meme.md` as `.claude/commands/meme.md` (then remove `setup/`).
 - [ ] **P1.12** Fun system v1 (THEME_AND_FUN.md §2): schema + validation for `content/fun/`, pure `pickFun` with tests, triggers `session-done`, `perfect-session`, `wrong-streak-3`, `near-miss`, `late-night`, mascot bubble on the end-of-session screen, "Cat chaos level" setting (off / some / maximum). Remaining triggers come with the features that emit them (Phase 2: mastery, streaks, comeback, nothing-due).
+- [x] **P1.13** Rename to **German WTF**, tagline "Was zur Katze?!" (AJ, 17 Nov, ADR 0006): all user-visible names, manifest name/short name/description, tagline under the mascot on Today, docs, package name; repo renamed to `german-wtf`, Pages at `/german-wtf/`. Storage ids unchanged. *Acceptance:* e2e checks title, manifest and tagline; live site served from the new URL.
 - [ ] **P1.10** E2E: open lesson → practise → answer right/near/wrong → summary; works offline after first load. Deploy. 🛑 **Stop: PROGRESS entry with phone install steps + what to test.**
 
 ## Phase 2 — Learning engine
@@ -46,7 +47,7 @@ Goal: open the app, tap one button, get today's right mix.
 - [ ] **P2.6** Grammar map: A1–C2 sections, families, mastery colours, due badges, prerequisite hints, search; points without content show "coming soon".
 - [ ] **P2.7** Stats: 12-week heatmap, streak (toggle), accuracy per family, mastery bars per level, 7-day forecast, weakest 5.
 - [ ] **P2.8** Settings: daily minutes, new/day, typed vs choice, retention, streak, theme, TTS voice/rate, UI language EN/DE (i18n setup). Import JSON backup with validation.
-- [ ] **P2.9** Book packs (ARCHITECTURE §8): private repo `grammatik-gym-books` cloned into git-ignored `content/books/` (ask AJ before creating), `origin` schema, `books:validate`, `books:pack`, CI guard against book items in the public build, _Import book pack_ in Settings, _My books_ tab with mastery per chapter, "Practise chapter X" on Today. First pack: one chapter AJ chooses, made with `/book`.
+- [ ] **P2.9** Book packs (ARCHITECTURE §8): private repo `german-wtf-books` cloned into git-ignored `content/books/` (ask AJ before creating), `origin` schema, `books:validate`, `books:pack`, CI guard against book items in the public build, _Import book pack_ in Settings, _My books_ tab with mastery per chapter, "Practise chapter X" on Today. First pack: one chapter AJ chooses, made with `/book`.
 - [ ] **P2.10** E2E for a 2-day simulated schedule (clock mocked) and a book-pack import. Deploy. 🛑 **Stop.**
 
 ## Phase 3 — All exercise types and visual grammar

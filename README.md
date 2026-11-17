@@ -1,4 +1,6 @@
-# Grammatik Gym
+# German WTF
+
+**Was zur Katze?!** — a cat-themed app for German grammar.
 
 Master German grammar from **A1 to C2** in 15 minutes a day. Phone-first, works offline, no ads, no tracking.
 
@@ -11,7 +13,7 @@ Master German grammar from **A1 to C2** in 15 minutes a day. Phone-first, works 
 
 > Status: in development. See `docs/PROGRESS.md`.
 >
-> **Live app:** https://amir-jalili.github.io/grammatik-gym/ (deployed from `main` by GitHub Actions)
+> **Live app:** https://amir-jalili.github.io/german-wtf/ (deployed from `main` by GitHub Actions)
 
 ## Develop
 
