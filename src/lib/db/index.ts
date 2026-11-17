@@ -34,4 +34,5 @@ export {
 	type SrsState
 } from './srs.js';
 export { logAnswer, countAnswers, type AnswerToLog } from './review-log.js';
+export { importBackup, readBackupText, BackupImportError, type ImportSummary } from './import.js';
 export { DB_VERSION, type AnswerMode, type ReviewLogEntry, type Verdict } from './schema.js';

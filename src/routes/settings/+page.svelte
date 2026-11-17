@@ -3,7 +3,14 @@
 	import { t } from '#lib/i18n/index.svelte.js';
 	import { APP_VERSION } from '#lib/version.js';
 	import { latestRelease } from '#lib/changelog.js';
-	import { backupFileName, countAnswers, exportBackup, getDb } from '#lib/db/index.js';
+	import {
+		backupFileName,
+		countAnswers,
+		exportBackup,
+		getDb,
+		importBackup,
+		readBackupText
+	} from '#lib/db/index.js';
 	import { settings } from '#lib/stores/settings.svelte.js';
 	import { CHAOS_LEVELS, type ChaosLevel } from '#lib/engine/fun/pick.js';
 	import Mascot from '#lib/ui/fun/Mascot.svelte';
@@ -18,6 +25,45 @@
 	const release = latestRelease(changelog);
 	let answers = $state<number | undefined>();
 	let exportError = $state<string | undefined>();
+	/** A validated file waiting for "Replace" (nothing is written before that). */
+	let pending = $state<{ text: string; answers: number; exportedAt: string } | undefined>();
+	let importError = $state<string | undefined>();
+	let imported = $state<number | undefined>();
+	let importing = $state(false);
+
+	async function chooseFile(event: Event & { currentTarget: HTMLInputElement }): Promise<void> {
+		importError = undefined;
+		imported = undefined;
+		pending = undefined;
+		const file = event.currentTarget.files?.[0];
+		event.currentTarget.value = '';
+		if (!file) return;
+		try {
+			const text = await file.text();
+			const { backup } = readBackupText(text);
+			pending = { text, answers: backup.tables.reviewLog.length, exportedAt: backup.exportedAt };
+		} catch (error) {
+			importError = error instanceof Error ? error.message : String(error);
+		}
+	}
+
+	async function replaceProgress(): Promise<void> {
+		if (!pending) return;
+		importing = true;
+		try {
+			const summary = await importBackup(getDb(), pending.text);
+			imported = summary.answers;
+			answers = summary.answers;
+			pending = undefined;
+			// Settings came from the backup too.
+			settings.reset();
+			await settings.load();
+		} catch (error) {
+			importError = error instanceof Error ? error.message : String(error);
+		} finally {
+			importing = false;
+		}
+	}
 
 	onMount(() => {
 		void settings.load();
@@ -84,6 +130,49 @@
 		>{t('settings.export')}</button
 	>
 	{#if exportError}<p class="text-danger" role="alert">{exportError}</p>{/if}
+	<label
+		class="btn-secondary cursor-pointer focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-accent"
+	>
+		{t('settings.import')}
+		<input
+			type="file"
+			accept="application/json,.json"
+			class="sr-only"
+			onchange={chooseFile}
+			data-testid="import-file"
+		/>
+	</label>
+	{#if pending}
+		<div
+			class="space-y-2 rounded-xl border border-warn p-3"
+			role="alertdialog"
+			aria-labelledby="import-q"
+			data-testid="import-confirm"
+		>
+			<p id="import-q">
+				{t('settings.importFound')}: {pending.answers}
+				{t('settings.importAnswers')}, {new Date(pending.exportedAt).toLocaleString('en-GB')}.
+				<strong>{t('settings.importWarning')}</strong>
+			</p>
+			<div class="flex flex-wrap gap-2">
+				<button type="button" class="btn-primary" disabled={importing} onclick={replaceProgress}>
+					{t('settings.importReplace')}
+				</button>
+				<button type="button" class="btn-secondary" onclick={() => (pending = undefined)}>
+					{t('settings.importCancel')}
+				</button>
+			</div>
+		</div>
+	{/if}
+	{#if importError}<p class="text-danger" role="alert" data-testid="import-error">
+			{importError}
+		</p>{/if}
+	{#if imported !== undefined}
+		<p class="text-success" role="status" data-testid="import-done">
+			{t('settings.importDone')}: {imported}
+			{t('settings.importAnswers')}
+		</p>
+	{/if}
 </section>
 
 <section class="card mt-4 text-sm">

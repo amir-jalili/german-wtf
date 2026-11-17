@@ -27,6 +27,11 @@ class SettingsStore {
 		return this.#loading;
 	}
 
+	/** Forget the loaded values so the next load() reads the database again (after an import). */
+	reset(): void {
+		this.#loading = undefined;
+	}
+
 	async set<K extends keyof Settings>(key: K, value: Settings[K]): Promise<void> {
 		this.value = { ...this.value, [key]: value };
 		await saveSetting(getDb(), key, value);

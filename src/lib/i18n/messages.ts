@@ -76,6 +76,14 @@ export const messages = {
 		'settings.backupBody': 'Your progress lives only on this device. Export a backup now and then.',
 		'settings.answersSaved': 'answers saved on this device',
 		'settings.export': 'Export backup (JSON)',
+		'settings.import': 'Import backup…',
+		'settings.importFound': 'Backup found',
+		'settings.importAnswers': 'answers',
+		'settings.importWarning':
+			'Importing replaces all progress on this device. Export a backup first if you want to keep it.',
+		'settings.importReplace': 'Replace my progress',
+		'settings.importCancel': 'Cancel',
+		'settings.importDone': 'Imported',
 		'settings.whatsNew': 'What’s new in',
 		'error.title': 'Something went wrong',
 		'error.body':
