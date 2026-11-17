@@ -5,6 +5,7 @@
 	 */
 	import { checkItem, type ItemAnswer, type ItemCheck } from '#lib/engine/checker/index.js';
 	import type { Item } from '#lib/engine/content/schema.js';
+	import type { Snippet } from 'svelte';
 	import ChoiceExercise from './ChoiceExercise.svelte';
 	import ClozeExercise from './ClozeExercise.svelte';
 	import FeedbackPanel from './FeedbackPanel.svelte';
@@ -22,12 +23,18 @@
 		item,
 		pointId,
 		showLessonLink = true,
-		onresult
+		onresult,
+		onchecked,
+		aside
 	}: {
 		item: Item;
 		pointId: string;
 		showLessonLink?: boolean;
 		onresult: (outcome: ExerciseOutcome) => void;
+		/** Called as soon as the answer is checked (before "Continue"). */
+		onchecked?: (outcome: ExerciseOutcome) => void;
+		/** Shown under the feedback panel, never instead of it (fun, THEME_AND_FUN.md). */
+		aside?: Snippet;
 	} = $props();
 
 	let outcome = $state<ExerciseOutcome | undefined>();
@@ -43,6 +50,7 @@
 	function submit(answer: ItemAnswer): void {
 		if (outcome) return;
 		outcome = { item, answer, check: checkItem(item, answer), ms: performance.now() - started };
+		onchecked?.(outcome);
 	}
 
 	function next(): void {
@@ -63,5 +71,6 @@
 		{/key}
 	{:else}
 		<FeedbackPanel {item} check={outcome.check} {pointId} {showLessonLink} oncontinue={next} />
+		{@render aside?.()}
 	{/if}
 </div>

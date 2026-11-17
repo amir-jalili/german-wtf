@@ -31,7 +31,7 @@ Goal: learn and practise 6 real grammar points on the phone with excellent check
 - [x] **P1.8** Practice session (no SRS yet): pick a point → 10 items, interleaved types, summary screen.
 - [x] **P1.9** Dexie v1: `reviewLog`, `settings`, `meta`; every answer logged. Export JSON button in Settings.
 - [x] **P1.11** Cat theme (docs/THEME_AND_FUN.md §1, AJ's request 17 Nov): re-skin the shell with the cat palette (ginger accent, cream/oat, "night cat" dark mode), original SVG mascot *Dativ* with at least `loaf`, `smug`, `flat-on-keyboard`, `crying-thumbs-up`, `sleeping`; paw-print progress, cat-tail spinner, cat favicon + PWA icons. Contrast still AA; case colours unchanged. Install `setup/meme.md` as `.claude/commands/meme.md` (then remove `setup/`).
-- [ ] **P1.12** Fun system v1 (THEME_AND_FUN.md §2): schema + validation for `content/fun/`, pure `pickFun` with tests, triggers `session-done`, `perfect-session`, `wrong-streak-3`, `near-miss`, `late-night`, mascot bubble on the end-of-session screen, "Cat chaos level" setting (off / some / maximum). Remaining triggers come with the features that emit them (Phase 2: mastery, streaks, comeback, nothing-due).
+- [x] **P1.12** Fun system v1 (THEME_AND_FUN.md §2): schema + validation for `content/fun/`, pure `pickFun` with tests, triggers `session-done`, `perfect-session`, `wrong-streak-3`, `near-miss`, `late-night`, mascot bubble on the end-of-session screen, "Cat chaos level" setting (off / some / maximum). Remaining triggers come with the features that emit them (Phase 2: mastery, streaks, comeback, nothing-due).
 - [x] **P1.13** Rename to **German WTF**, tagline "Was zur Katze?!" (AJ, 17 Nov, ADR 0006): all user-visible names, manifest name/short name/description, tagline under the mascot on Today, docs, package name; repo renamed to `german-wtf`, Pages at `/german-wtf/`. Storage ids unchanged. *Acceptance:* e2e checks title, manifest and tagline; live site served from the new URL.
 - [ ] **P1.10** E2E: open lesson → practise → answer right/near/wrong → summary; works offline after first load. Deploy. 🛑 **Stop: PROGRESS entry with phone install steps + what to test.**
 
@@ -41,7 +41,7 @@ Goal: open the app, tap one button, get today's right mix.
 
 - [ ] **P2.1** Scheduler: `ts-fsrs` wrapper, card keys `point:skill`, rating from verdict + time + "I guessed", target retention setting. Unit tests with fixed clock.
 - [ ] **P2.2** Mistake cards per `point:errorTag` with resolve rule; leech detection.
-- [ ] **P2.3** Dexie v2 migration (`cards`, `mistakeCards`), migration test from v1 data.
+- [ ] **P2.3** Dexie v3 migration (`cards`, `mistakeCards`), migration test from v1 and v2 data (v2 was taken by `funSeen` in P1.12).
 - [ ] **P2.4** Session builder: due → mistakes → new (quota, prerequisites), time budget, interleaving, fresh-item picking. Property-style tests (no item twice in a row, budget respected).
 - [ ] **P2.5** Today screen: start button with counts and minutes, end-of-session summary ("came back today", new mastery).
 - [ ] **P2.6** Grammar map: A1–C2 sections, families, mastery colours, due badges, prerequisite hints, search; points without content show "coming soon".

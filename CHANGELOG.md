@@ -15,6 +15,7 @@ All notable changes to German WTF. Format: [Keep a Changelog](https://keepachang
 - Cat theme: Dativ the cat in 7 moods, ginger and cream colours, night-cat dark mode, paw-print progress.
 - Six grammar points with lessons and 112 checked exercises: Akkusativ, Dativ, Wechselpräpositionen, adjective endings after der/die/das, weil/dass, Perfekt with sein.
 - Practice: 10 mixed exercises per point with instant feedback; every answer is saved on your phone; backup export in Settings.
+- Fun system: Dativ comments on near-misses, wrong streaks and the end of a session. "Cat chaos level" in Settings: off, some, maximum.
 
 ## [0.1.0] - 2026-11-17
 

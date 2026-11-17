@@ -5,6 +5,7 @@
 import { resolve } from '$app/paths';
 import { CONTENT_SCHEMA_VERSION, type GrammarPoint } from '#lib/engine/content/schema.js';
 import type { Level } from '#lib/engine/content/levels.js';
+import type { FunContent } from '#lib/engine/fun/schema.js';
 import type { CompiledCatalogue, CompiledLevel, ContentIndex } from './types.js';
 
 const cache = new Map<string, Promise<unknown>>();
@@ -49,4 +50,13 @@ export async function loadPoint(id: string): Promise<GrammarPoint | undefined> {
 	if (!entry) return undefined;
 	const bundle = await loadLevel(entry.level);
 	return bundle.points.find((p) => p.id === id);
+}
+
+/** Fun lines and memes (THEME_AND_FUN.md §2). Never throws: fun is optional. */
+export async function loadFun(): Promise<FunContent> {
+	try {
+		return await fetchJson<FunContent>('fun.json');
+	} catch {
+		return { messages: [], memes: [] };
+	}
 }

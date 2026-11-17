@@ -78,3 +78,19 @@
   lang: en
   by: claude
   added: 2026-11-17
+
+- id: claude-de-legt-sich-hin
+  text: "Wo oder wohin? Die Katze legt sich einfach hin. Akkusativ. Problem gelöst."
+  triggers: [session-done]
+  mood: loaf
+  lang: de
+  by: claude
+  added: 2026-11-17
+
+- id: claude-de-tischkante
+  text: "Fast! So knapp wie eine Tasse an der Tischkante. Die Katze ist beeindruckt."
+  triggers: [near-miss]
+  mood: smug
+  lang: de
+  by: claude
+  added: 2026-11-17

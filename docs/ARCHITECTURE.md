@@ -176,7 +176,7 @@ Examples (and optionally items) carry spans: `{ text, role: 'subj'|'akk-obj'|'da
 
 ## 6. Storage (Dexie)
 
-Tables — **v1 (built, `src/lib/db/schema.ts`)**: `reviewLog` (append-only: itemId, pointId, cardKey `pointId:skill`, verdict, answer, ms, timestamp, mode), `settings` (key/value), `meta` (key/value, e.g. `createdAt`). **Planned**, each in its own new Dexie version with a migration test: `cards` (key, pointId, skill, fsrs state, mastery) and `mistakeCards` (v2, P2.3), `funSeen` (fun-system history, THEME_AND_FUN §2), `bookPacks` (P2.9), `selfStudy`, `bookmarks`. Content is **not** stored in IDB; it's fetched from `/content/<level>.json` and cached by the service worker. Export/import = JSON of all tables + versions (`src/lib/db/backup.ts`, Zod-validated; one fixture per version in `tests/fixtures/backup-vN.json`).
+Tables — **v1 (built, `src/lib/db/schema.ts`)**: `reviewLog` (append-only: itemId, pointId, cardKey `pointId:skill`, verdict, answer, ms, timestamp, mode), `settings` (key/value), `meta` (key/value, e.g. `createdAt`). **v2 (built, P1.12)**: `funSeen` (fun-system history: funId, event, timestamp). Settings keys so far: `catChaos` (`off`/`some`/`maximum`). **Planned**, each in its own new Dexie version with a migration test (`src/lib/db/migration.test.ts`): `cards` (key, pointId, skill, fsrs state, mastery) and `mistakeCards` (v3, P2.3), `bookPacks` (P2.9), `selfStudy`, `bookmarks`. The IndexedDB name stays `grammatik-gym` forever (ADR 0006). Content is **not** stored in IDB; it's fetched from `/content/<level>.json` and cached by the service worker. Export/import = JSON of all tables + versions (`src/lib/db/backup.ts`, Zod-validated; one fixture per version in `tests/fixtures/backup-vN.json`).
 
 ## 7. Build & deploy
 
