@@ -66,7 +66,11 @@ test('lesson → practise → right, almost, wrong → summary, with the cat com
 	await setChaos(page, 'Maximum');
 	const items = await itemsOf(page, 'A1', 'accusative-articles');
 
-	await page.goto('/point/accusative-articles');
+	// Today → map → lesson, the way AJ gets there on the phone.
+	await page.goto('/');
+	await page.getByRole('link', { name: 'Open the grammar map' }).click();
+	await expect(page.getByRole('link', { name: /Wechselpräpositionen/ })).toBeVisible();
+	await page.getByRole('link', { name: /Akkusativ: Artikel/ }).click();
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Akkusativ: Artikel');
 	await page.getByRole('link', { name: /Practise/ }).click();
 	await expect(page.getByTestId('progress')).toHaveText('1 / 10');
