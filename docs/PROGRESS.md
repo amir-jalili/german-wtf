@@ -57,7 +57,7 @@ _(Update counts from `pnpm content:stats`; the catalogue counts above are the CU
   4. If you installed the old *Grammatik Gym* address, delete that icon: the address changed (ADR 0006).
 - **What to test (please report back):**
   1. **Typing on the phone:** cloze gaps + the ä ö ü ß bar. Does the keyboard cover the gap or the Check button? Does Enter submit?
-  2. **The checker:** try a typo in a long word (*gefahrn*), a missing umlaut (*Bruder* → fine, *Schluessel*), wrong capitals. These should be 🟡 "Almost", while *den/dem* should be ❌. Any answer you think is right but marked wrong → `/bug`.
+  2. **The checker:** in *Adjektivdeklination* type *schoenen* for *schönen* or *grosse* for *große*, in *Perfekt mit sein* a typo like *gefahrn*, or any answer in CAPITALS. These should be 🟡 "Almost", while *den/dem* should be ❌. Any answer you think is right but marked wrong → `/bug`.
   3. **Content:** any sentence that sounds odd, an explanation that confuses you, or an item with two right answers.
   4. **Sentence builder:** tapping tiles in and out. Is it comfortable at your phone's size?
   5. **Dativ:** set Settings → *Cat chaos level* → *Maximum* and make three mistakes in a row. Funny or annoying? Then try *Off*.
