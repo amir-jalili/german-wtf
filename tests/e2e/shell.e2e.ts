@@ -42,7 +42,7 @@ test('dark mode follows the system colour scheme', async ({ page }) => {
 		() => getComputedStyle(document.documentElement).backgroundColor
 	);
 	expect(light).not.toBe(dark);
-	expect(dark).toBe('rgb(15, 13, 23)');
+	expect(dark).toBe('rgb(23, 20, 17)');
 });
 
 test('settings shows the app version', async ({ page }) => {

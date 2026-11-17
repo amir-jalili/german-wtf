@@ -2,10 +2,21 @@
 	/** Style guide: tokens, badges and buttons in the current colour scheme. Dev only, unlisted. */
 	import CaseBadge from '#lib/ui/common/CaseBadge.svelte';
 	import { pwa } from '#lib/pwa/register.svelte.js';
+	import Mascot from '#lib/ui/fun/Mascot.svelte';
+	import { MOODS } from '#lib/ui/fun/mascot.js';
 	const cases = ['nom', 'akk', 'dat', 'gen'] as const;
 </script>
 
 <h1 class="text-2xl font-bold">Style guide</h1>
+
+<h2 class="mt-6 text-lg font-semibold">Mascot</h2>
+<ul class="mt-2 grid grid-cols-2 gap-3" data-testid="moods">
+	{#each MOODS as mood (mood)}
+		<li class="card flex flex-col items-center gap-1 text-xs">
+			<Mascot {mood} size={140} />{mood}
+		</li>
+	{/each}
+</ul>
 
 <h2 class="mt-6 text-lg font-semibold">Case colours</h2>
 <ul class="mt-2 flex flex-wrap gap-3">

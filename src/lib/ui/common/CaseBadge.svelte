@@ -19,7 +19,7 @@
 </script>
 
 <span
-	class="inline-flex items-center justify-center rounded-md font-bold text-white {colour[
+	class="inline-flex items-center justify-center rounded-md font-bold text-case-badge-text {colour[
 		kase
 	]} {size === 'md' ? 'h-7 min-w-7 px-1.5 text-sm' : 'h-5 min-w-5 px-1 text-xs'}"
 	role="img"

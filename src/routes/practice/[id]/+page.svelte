@@ -8,6 +8,7 @@
 	import { pickPracticeItems, summarise } from '#lib/engine/session/index.js';
 	import { mulberry32 } from '#lib/engine/util/rng.js';
 	import Exercise, { type ExerciseOutcome } from '#lib/ui/exercises/Exercise.svelte';
+	import PawProgress from '#lib/ui/fun/PawProgress.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -45,7 +46,9 @@
 		<h1 class="text-lg font-bold">{point.title.de}</h1>
 	</div>
 	{#if !done && items.length}
-		<p class="text-sm text-muted" data-testid="progress">{index + 1} / {items.length}</p>
+		<p class="shrink-0 text-sm whitespace-nowrap text-muted" data-testid="progress">
+			{index + 1} / {items.length}
+		</p>
 	{/if}
 </header>
 
@@ -80,11 +83,6 @@
 		</div>
 	</section>
 {:else if current}
-	<div class="mb-4 h-1 overflow-hidden rounded-full bg-border" aria-hidden="true">
-		<div
-			class="h-full bg-accent transition-all"
-			style="width: {(index / items.length) * 100}%"
-		></div>
-	</div>
+	<div class="mb-4"><PawProgress done={index} total={items.length} label="Exercises done" /></div>
 	<Exercise item={current} pointId={point.id} {onresult} />
 {/if}

@@ -1,19 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Grammatik Gym logo: an umlaut over a dumbbell">
-  <!-- Original Grammatik Gym mark: the two dots of an umlaut (ü) above a dumbbell. -->
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#7c3aed"/>
-      <stop offset="1" stop-color="#4c1d95"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <g fill="#ffffff">
-    <circle cx="196" cy="156" r="34"/>
-    <circle cx="316" cy="156" r="34"/>
-    <rect x="150" y="286" width="212" height="28" rx="14"/>
-    <rect x="88" y="236" width="40" height="128" rx="12"/>
-    <rect x="128" y="256" width="30" height="88" rx="10"/>
-    <rect x="354" y="256" width="30" height="88" rx="10"/>
-    <rect x="384" y="236" width="40" height="128" rx="12"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Grammatik Gym: Dativ the cat">
+<!-- Original Grammatik Gym icon: Dativ, the deadpan ginger cat (docs/THEME_AND_FUN.md). Same drawing as src/lib/ui/fun/Mascot.svelte. -->
+<rect width="512" height="512" rx="112" fill="#fbf6ee"/>
+<g transform="translate(256 290) scale(4.2)">
+<path d="M -38 -12 L -34 -58 L -6 -34 Z M 38 -12 L 34 -58 L 6 -34 Z" fill="#e8843a" stroke="#2a2118" stroke-width="3" stroke-linejoin="round"/>
+<path d="M -31 -22 L -30 -47 L -14 -34 Z M 31 -22 L 30 -47 L 14 -34 Z" fill="#f2a8a0"/>
+<ellipse cx="0" cy="0" rx="44" ry="36" fill="#e8843a" stroke="#2a2118" stroke-width="3"/>
+<path d="M -9 -35 L -6 -24 M 0 -36 L 0 -24 M 9 -35 L 6 -24" stroke="#b85a1c" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="0" cy="15" rx="18" ry="12" fill="#fde6c8"/>
+<path d="M -5 7 L 5 7 L 0 12 Z" fill="#d9706a"/>
+<path d="M 0 12 Q -5 19 -10 16 M 0 12 Q 5 19 10 16" stroke="#2a2118" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M -19 12 L -50 7 M -19 16 L -50 19 M 19 12 L 50 7 M 19 16 L 50 19" stroke="#2a2118" stroke-width="1.5" stroke-linecap="round"/>
+<ellipse cx="-16" cy="-5" rx="7" ry="3.5" fill="#2a2118"/><path d="M -24 -9 L -8 -9" stroke="#2a2118" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="16" cy="-5" rx="7" ry="3.5" fill="#2a2118"/><path d="M 8 -9 L 24 -9" stroke="#2a2118" stroke-width="2.5" stroke-linecap="round"/>
+</g>
 </svg>

@@ -12,6 +12,7 @@ export const messages = {
 		'nav.settings': 'Settings',
 		'today.title': 'Today',
 		'today.empty': 'Nothing scheduled yet. Pick a grammar point on the Map to start.',
+		'today.toMap': 'Open the grammar map',
 		'map.title': 'Grammar map',
 		'mistakes.title': 'Mistakes',
 		'stats.title': 'Stats',

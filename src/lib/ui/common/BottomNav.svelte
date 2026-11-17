@@ -51,18 +51,31 @@
 						? 'text-accent md:bg-accent-soft'
 						: 'text-muted hover:text-text'}"
 				>
-					<svg
-						class="h-6 w-6"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.8"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"
-					>
-						<path d={item.icon} />
-					</svg>
+					<span class="relative">
+						{#if current}
+							<!-- cat ears on the active tab (THEME_AND_FUN.md §1) -->
+							<svg
+								class="absolute -top-2.5 left-1/2 h-3 w-7 -translate-x-1/2"
+								viewBox="0 0 28 12"
+								aria-hidden="true"
+								data-testid="nav-ears"
+							>
+								<path d="M 3 12 L 6 1 L 12 8 Z M 25 12 L 22 1 L 16 8 Z" fill="currentColor" />
+							</svg>
+						{/if}
+						<svg
+							class="h-6 w-6"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path d={item.icon} />
+						</svg>
+					</span>
 					<span>{t(item.key)}</span>
 				</a>
 			</li>

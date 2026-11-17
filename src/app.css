@@ -1,43 +1,47 @@
 @import 'tailwindcss';
 
 /*
- * Theme tokens (PRODUCT_SPEC §6). Raw values live on :root per colour scheme;
+ * Theme tokens — cat theme (docs/THEME_AND_FUN.md §1): cream/oat light mode with a ginger
+ * accent, "night cat" dark mode with an amber-eyes accent. tests/unit/contrast.test.ts checks
+ * every text/background pair against WCAG AA.
+ * (PRODUCT_SPEC §6). Raw values live on :root per colour scheme;
  * Tailwind utilities (bg-surface, text-muted, text-case-dat …) read them through
  * @theme inline, so every component follows light/dark automatically.
  * `data-theme="light|dark"` on <html> overrides the system preference (Settings, P2.8).
  */
 :root {
-	--bg: #faf8ff;
-	--surface: #ffffff;
-	--surface-2: #f3f0fb;
-	--text: #1a1523;
-	--muted: #645c7a;
-	--border: #e3dff0;
-	--accent: #6d28d9;
+	--bg: #fbf6ee;
+	--surface: #fffdf9;
+	--surface-2: #f3eadc;
+	--text: #2a2118;
+	--muted: #6b5c4c;
+	--border: #e6d9c6;
+	--accent: #b9480f;
 	--accent-contrast: #ffffff;
-	--accent-soft: #ede9fe;
+	--accent-soft: #fbe3cf;
 	--success: #15803d;
-	--warn: #b45309;
+	--warn: #a15c07;
 	--danger: #b91c1c;
 	/* Case colours — always paired with a letter badge (N/A/D/G), never colour alone. */
 	--case-nom: #1d4ed8;
 	--case-akk: #be123c;
 	--case-dat: #047857;
 	--case-gen: #b45309;
+	--case-badge-text: #ffffff;
 	color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme='light']) {
-		--bg: #0f0d17;
-		--surface: #1a1726;
-		--surface-2: #241f33;
-		--text: #f1eefa;
-		--muted: #a79fbd;
-		--border: #2f2a42;
-		--accent: #a78bfa;
-		--accent-contrast: #15102a;
-		--accent-soft: #2e2550;
+		--bg: #171411;
+		--surface: #221e1a;
+		--surface-2: #2d2823;
+		--text: #f4ede4;
+		--muted: #b3a594;
+		--border: #3a332c;
+		--accent: #f5a524;
+		--accent-contrast: #1d1408;
+		--accent-soft: #3d2e1a;
 		--success: #4ade80;
 		--warn: #fbbf24;
 		--danger: #f87171;
@@ -45,20 +49,21 @@
 		--case-akk: #fb7185;
 		--case-dat: #34d399;
 		--case-gen: #fbbf24;
+		--case-badge-text: #171411;
 		color-scheme: dark;
 	}
 }
 
 :root[data-theme='dark'] {
-	--bg: #0f0d17;
-	--surface: #1a1726;
-	--surface-2: #241f33;
-	--text: #f1eefa;
-	--muted: #a79fbd;
-	--border: #2f2a42;
-	--accent: #a78bfa;
-	--accent-contrast: #15102a;
-	--accent-soft: #2e2550;
+	--bg: #171411;
+	--surface: #221e1a;
+	--surface-2: #2d2823;
+	--text: #f4ede4;
+	--muted: #b3a594;
+	--border: #3a332c;
+	--accent: #f5a524;
+	--accent-contrast: #1d1408;
+	--accent-soft: #3d2e1a;
 	--success: #4ade80;
 	--warn: #fbbf24;
 	--danger: #f87171;
@@ -66,6 +71,7 @@
 	--case-akk: #fb7185;
 	--case-dat: #34d399;
 	--case-gen: #fbbf24;
+	--case-badge-text: #171411;
 	color-scheme: dark;
 }
 
@@ -86,6 +92,7 @@
 	--color-case-akk: var(--case-akk);
 	--color-case-dat: var(--case-dat);
 	--color-case-gen: var(--case-gen);
+	--color-case-badge-text: var(--case-badge-text);
 	--font-sans:
 		ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
 		'Noto Sans', sans-serif;
