@@ -70,6 +70,8 @@ The app in which a motivated adult can **master German grammar from A1 to C2** i
 - **Self-study sentences** (like Bunpro): paste a sentence from your reading, mark the gap, attach to a grammar point; it joins your reviews.
 - **Bookmarks** and "practise this point now" (cram, doesn't disturb SRS).
 
+- **Fun system**: memes and sarcastic motivational lines on milestones, session ends, streaks and empty states; AJ adds his own with `/meme`, Claude adds some itself (THEME_AND_FUN.md).
+
 ### Could (later)
 
 - **AI tutor (bring your own API key, off by default)**: "explain more" on any item; free-writing tasks per grammar point with feedback focused on that point; generate extra items into a _local review queue_ (never served unreviewed).
@@ -93,7 +95,7 @@ Accounts, social features, leaderboards, paid plans, ads, tracking, vocabulary c
 ## 6. UI and visual design
 
 - Phone first (375 px), one column, thumb-reachable primary actions at the bottom; desktop gets a two-column layout and keyboard shortcuts (Enter = check/continue, 1–4 = choices).
-- Calm, typographic, high contrast; one accent colour; generous spacing; no confetti, a short subtle success animation (respect reduced motion).
+- **Cat theme with personality** (AJ's request): mascot *Dativ*, cat palette, memes and sarcastic motivational lines — full spec in `docs/THEME_AND_FUN.md`, which overrides anything here. Reading text stays clean and high-contrast; animations respect reduced motion.
 - **Case colours** (consistent everywhere, also in tables): Nominativ, Akkusativ, Dativ, Genitiv each a distinct colour _plus_ a letter badge (N/A/D/G) for colour-blind users. Gender markers: der/die/das with a small symbol, not only colour.
 - **Feldermodell strip** above sentence-builder items: five labelled zones; tiles snap into zones.
 - Dark mode from day one.

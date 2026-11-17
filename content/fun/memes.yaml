@@ -1,0 +1,8 @@
+# Meme images. Files go in static/fun/memes/. Only AJ adds images. Schema: docs/THEME_AND_FUN.md
+# Example (uncomment when the file exists):
+# - id: crying-cat
+#   file: crying-cat-thumbs-up.jpg
+#   alt: "A cat with teary eyes giving a thumbs up"
+#   triggers: [point-mastered, level-complete]
+#   by: aj
+[]

@@ -13,6 +13,7 @@ This file is your operating manual. Read it fully at the start of every session.
 | `docs/PRODUCT_SPEC.md`  | What the app does and why; UX rules; feature priorities.                                        |
 | `docs/ARCHITECTURE.md`  | Stack, folder layout, data model, engine design, layering rules.                                |
 | `docs/CURRICULUM.md`    | The A1–C2 grammar-point catalogue (IDs, levels, prerequisites).                                 |
+| `docs/THEME_AND_FUN.md` | The cat theme, mascot and fun system (memes, sarcastic lines). Overrides PRODUCT_SPEC on look and tone. |
 | `docs/CONTENT_GUIDE.md` | How to write grammar points and exercise items; schema; quality gates; content from AJ's books. |
 | `docs/adr/`             | Architecture Decision Records. Add one for every non-trivial decision.                          |
 
@@ -91,6 +92,7 @@ Ask (one short message) only when: a decision is hard to reverse (deleting user 
 - `/content <grammar-point-id or level>` — write or extend content for that point/level per CONTENT_GUIDE.
 - `/bug <description>` — reproduce with a failing test, fix, verify.
 - `/review` — senior review of recent work; fix the top issues.
+- `/meme <text or image> <when>` — add AJ's meme or sarcastic line to the fun system (docs/THEME_AND_FUN.md).
 - `/feature <idea>` — add a new feature or change to the spec and roadmap (and build it if AJ says so).
 - `/book <book, chapter, exercise, mode>` — turn exercises from AJ's books (typed or photos) into items in the private book repo.
 
@@ -106,3 +108,7 @@ The app will get features for years. These rules keep every update safe:
 - **Half-built features** sit behind a flag in `src/lib/flags.ts` so `main` is always releasable.
 - **New ideas** go through `/feature`: spec → roadmap → ADR if needed → build. Nothing gets built that isn't written down first.
 - **Keep the docs true.** A feature isn't done until PRODUCT_SPEC, ARCHITECTURE (if affected), ROADMAP and CHANGELOG say what the code does.
+
+## 10. Personality
+
+The app has AJ's personality: cats and sarcastic love for German grammar (docs/THEME_AND_FUN.md). When you finish a feature or a content batch and something genuinely funny comes to mind, add 1–3 lines to `content/fun/messages.yaml` (`by: claude`). The joke is always that German is hard, never that AJ is bad. Never download images from the web; meme images come only from AJ, you draw original SVG cats.

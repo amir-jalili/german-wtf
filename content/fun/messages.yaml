@@ -1,0 +1,80 @@
+# Sarcastic motivation, cat edition. Schema and rules: docs/THEME_AND_FUN.md
+- id: aj-1000-years
+  text: "Great job, you are really learning German grammar very well. You just have to do it for 1000 more years :))"
+  triggers: [point-mastered, level-complete]
+  mood: crying-thumbs-up
+  lang: en
+  by: aj
+  added: 2026-11-17
+
+- id: claude-four-cases
+  text: "Four cases, three genders, two numbers. Cats have nine lives. You'll need all of them."
+  triggers: [session-done]
+  mood: loaf
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-dativ-ate-it
+  text: "Wrong again? Don't worry, the Dativ eats everyone eventually."
+  triggers: [wrong-streak-3]
+  mood: flat-on-keyboard
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-perfect-suspicious
+  text: "A perfect session. Suspicious. The cat is watching you."
+  triggers: [perfect-session]
+  mood: judging
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-sleep
+  text: "It's late. The adjective endings will still be wrong tomorrow. Go to sleep."
+  triggers: [late-night]
+  mood: judging
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-nothing-due
+  text: "Nothing due. Enjoy it. The Konjunktiv II is just waiting outside."
+  triggers: [nothing-due]
+  mood: sleeping
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-comeback
+  text: "Oh, you're back. The articles didn't miss you. I did. A little."
+  triggers: [comeback]
+  mood: box
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-de-fast-geschafft
+  text: "Super! Nur noch 161 Grammatikpunkte. Fast geschafft. (Nein.)"
+  triggers: [point-mastered]
+  mood: crying-thumbs-up
+  lang: de
+  by: claude
+  added: 2026-11-17
+
+- id: claude-de-katze-dativ
+  text: "Mit der Katze, mit dem Hund, mit den Tieren. Dativ überall. Wie Katzenhaare."
+  triggers: [session-done, point-learned]
+  mood: smug
+  lang: de
+  by: claude
+  added: 2026-11-17
+
+- id: claude-near-miss
+  text: "So close. One umlaut away from greatness."
+  triggers: [near-miss]
+  mood: smug
+  lang: en
+  by: claude
+  added: 2026-11-17
