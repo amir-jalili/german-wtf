@@ -96,6 +96,34 @@ describe('replayAnswers', () => {
 		]);
 	});
 
+	it('answers served for a mistake card review it; a correct streak resolves it', () => {
+		const answers: AnswerRecord[] = [
+			answer({ timestamp: T0, verdict: 'wrong', errorTags: ['case'] })
+		];
+		let t = T0;
+		for (const gap of [1, 3, 8, 20, 45, 90]) {
+			t += gap * DAY;
+			answers.push(answer({ timestamp: t, mistakeKey: 'mistake:dative-articles:case' }));
+		}
+		const [card] = replayAnswers(s, answers).mistakeCards;
+		expect(card!.fsrs.reps).toBe(7);
+		expect(card!.correctStreak).toBe(6);
+		expect(card!.resolvedAt).toBeDefined();
+	});
+
+	it('a wrong answer on a mistake review records that tag even without stored tags', () => {
+		const { mistakeCards } = replayAnswers(s, [
+			answer({ timestamp: T0, verdict: 'wrong', errorTags: ['case'] }),
+			answer({
+				timestamp: T0 + DAY,
+				verdict: 'wrong',
+				mistakeKey: 'mistake:dative-articles:case'
+			})
+		]);
+		expect(mistakeCards[0]!.fsrs.reps).toBe(2);
+		expect(mistakeCards[0]!.correctStreak).toBe(0);
+	});
+
 	it('skips entries with unknown card keys', () => {
 		expect(replayAnswers(s, [answer({ timestamp: T0, cardKey: 'broken' })]).cards).toEqual([]);
 	});

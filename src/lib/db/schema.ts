@@ -15,6 +15,8 @@ import {
 import { clampRetention, DEFAULT_RETENTION } from '#lib/engine/scheduler/retention.js';
 
 export type Verdict = 'correct' | 'near-miss' | 'wrong';
+export const ANSWER_MODES = ['practice', 'due', 'mistake', 'new'] as const;
+export type AnswerMode = (typeof ANSWER_MODES)[number];
 
 /** One answered item. Append-only. */
 export interface ReviewLogEntry {
@@ -29,8 +31,10 @@ export interface ReviewLogEntry {
 	ms: number;
 	/** Unix ms. */
 	timestamp: number;
-	/** Where the answer came from. */
-	mode: 'practice';
+	/** Where the answer came from: point practice, or a daily-session step (P2.5). */
+	mode: AnswerMode;
+	/** Daily session: the mistake card this answer reviewed. */
+	mistakeKey?: string;
 	/** Diagnosed error tags of a wrong answer (v3+, P2.3). Older entries have none. */
 	errorTags?: ErrorTag[];
 }

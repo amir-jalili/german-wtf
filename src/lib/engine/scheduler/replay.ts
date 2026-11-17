@@ -4,15 +4,17 @@
  * Several answers to the same card in one sitting (practice mode serves 10 items of one
  * point) count as ONE FSRS review, graded by `gradeForSitting`; otherwise ten same-day
  * reviews would distort stability. `replayAnswers` rebuilds all cards from the append-only
- * review log. The Dexie v3 upgrade and old-backup import use it, so answers given before
- * the scheduler existed still count.
+ * review log. Cards are a cache of this replay (ADR 0007): the Dexie v3 upgrade, old-backup
+ * import and every live answer use it, so all three always agree.
  */
 import type { CheckResult } from '../checker/check';
 import type { ErrorTag } from '../content/schema';
 import { parseCardKey } from './card-key';
 import {
 	newPointCard,
+	parseMistakeKey,
 	recordMistake,
+	reviewMistakeCard,
 	reviewPointCard,
 	type MistakeCard,
 	type PointCard
@@ -36,6 +38,8 @@ export interface AnswerRecord {
 	timestamp: number;
 	errorTags?: readonly ErrorTag[];
 	guessed?: boolean;
+	/** Set when a daily session served this answer to review a mistake card. */
+	mistakeKey?: string;
 }
 
 /**
@@ -103,12 +107,23 @@ export function replayAnswers(s: Scheduler, answers: readonly AnswerRecord[]): R
 		cards.set(sitting.cardKey, reviewPointCard(s, card, grade, at).card);
 	}
 	const mistakes = new Map<string, MistakeCard>();
+	const mapKey = (pointId: string, tag: ErrorTag) => `${pointId}\u0000${tag}`;
 	for (const a of [...answers].sort((x, y) => x.timestamp - y.timestamp)) {
-		if (a.verdict !== 'wrong') continue;
-		for (const tag of new Set(a.errorTags ?? [])) {
-			const key = `${a.pointId}\u0000${tag}`;
-			const result = recordMistake(s, mistakes.get(key), a.pointId, tag, new Date(a.timestamp));
-			mistakes.set(key, result.card);
+		const at = new Date(a.timestamp);
+		const reviewed = a.mistakeKey ? parseMistakeKey(a.mistakeKey) : undefined;
+		if (a.verdict === 'wrong') {
+			const tags = new Set(a.errorTags ?? []);
+			if (reviewed) tags.add(reviewed.errorTag);
+			for (const tag of tags) {
+				const key = mapKey(a.pointId, tag);
+				mistakes.set(key, recordMistake(s, mistakes.get(key), a.pointId, tag, at).card);
+			}
+		} else if (reviewed) {
+			const key = mapKey(reviewed.pointId, reviewed.errorTag);
+			const card = mistakes.get(key);
+			if (!card) continue;
+			const grade = gradeFromAnswer({ verdict: a.verdict, ms: a.ms, guessed: a.guessed });
+			mistakes.set(key, reviewMistakeCard(s, card, grade, at).card);
 		}
 	}
 	return { cards: [...cards.values()], mistakeCards: [...mistakes.values()] };

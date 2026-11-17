@@ -14,9 +14,18 @@ export {
 	parseBackup,
 	BackupV1Schema,
 	BackupV2Schema,
+	BackupV3Schema,
 	type Backup
 } from './backup.js';
 export { recordFunSeen, recentFunIds } from './fun-seen.js';
-export { loadSettings, saveSetting, DEFAULT_SETTINGS, type Settings } from './settings.js';
+export {
+	loadSettings,
+	saveSetting,
+	DEFAULT_SETTINGS,
+	DAILY_MINUTES,
+	MAX_NEW_PER_DAY,
+	type Settings
+} from './settings.js';
+export { loadSrsState, refreshCardsForPoint, startOfLocalDay, type SrsState } from './srs.js';
 export { logAnswer, countAnswers, type AnswerToLog } from './review-log.js';
-export { DB_VERSION, type ReviewLogEntry, type Verdict } from './schema.js';
+export { DB_VERSION, type AnswerMode, type ReviewLogEntry, type Verdict } from './schema.js';

@@ -18,3 +18,10 @@ export {
 	type SessionStep,
 	type StepSource
 } from './daily';
+export {
+	pointMastery,
+	progressEvents,
+	sessionProgress,
+	type MasteryChange,
+	type SessionProgress
+} from './progress';

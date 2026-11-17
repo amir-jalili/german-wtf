@@ -94,3 +94,19 @@
   lang: de
   by: claude
   added: 2026-11-17
+
+- id: claude-mistake-fixed
+  text: "One mistake fixed for good. German has noticed and is preparing three new ones."
+  triggers: [mistake-resolved]
+  mood: smug
+  lang: en
+  by: claude
+  added: 2026-11-17
+
+- id: claude-leech-table
+  text: "This one keeps coming back like a cat to a closed door. Read the lesson once more, then we push it off the table together."
+  triggers: [leech]
+  mood: judging
+  lang: en
+  by: claude
+  added: 2026-11-17

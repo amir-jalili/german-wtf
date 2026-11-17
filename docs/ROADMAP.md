@@ -43,7 +43,7 @@ Goal: open the app, tap one button, get today's right mix.
 - [x] **P2.2** Mistake cards per `point:errorTag` with resolve rule; leech detection.
 - [x] **P2.3** Dexie v3 migration (`cards`, `mistakeCards`), migration test from v1 and v2 data (v2 was taken by `funSeen` in P1.12).
 - [x] **P2.4** Session builder: due → mistakes → new (quota, prerequisites), time budget, interleaving, fresh-item picking. Property-style tests (no item twice in a row, budget respected).
-- [ ] **P2.5** Today screen: start button with counts and minutes, end-of-session summary ("came back today", new mastery).
+- [x] **P2.5** Today screen: start button with counts and minutes, end-of-session summary ("came back today", new mastery).
 - [ ] **P2.6** Grammar map: A1–C2 sections, families, mastery colours, due badges, prerequisite hints, search; points without content show "coming soon".
 - [ ] **P2.7** Stats: 12-week heatmap, streak (toggle), accuracy per family, mastery bars per level, 7-day forecast, weakest 5.
 - [ ] **P2.8** Settings: daily minutes, new/day, typed vs choice, retention, streak, theme, TTS voice/rate, UI language EN/DE (i18n setup). Import JSON backup with validation.

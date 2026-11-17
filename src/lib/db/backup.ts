@@ -12,7 +12,7 @@ import {
 	type PointCard
 } from '#lib/engine/scheduler/index.js';
 import { clampRetention, DEFAULT_RETENTION } from '#lib/engine/scheduler/retention.js';
-import { DB_VERSION, type GymDB, type ReviewLogEntry } from './schema.js';
+import { ANSWER_MODES, DB_VERSION, type GymDB, type ReviewLogEntry } from './schema.js';
 
 const VerdictSchema = z.enum(['correct', 'near-miss', 'wrong']);
 const AnswerSchema = z.discriminatedUnion('type', [
@@ -109,7 +109,11 @@ export const BackupV3Schema = BackupV2Schema.extend({
 	dbVersion: z.literal(3),
 	tables: BackupV2Schema.shape.tables.extend({
 		reviewLog: z.array(
-			ReviewLogEntrySchema.extend({ errorTags: z.array(ErrorTagSchema).optional() })
+			ReviewLogEntrySchema.extend({
+				mode: z.enum(ANSWER_MODES),
+				errorTags: z.array(ErrorTagSchema).optional(),
+				mistakeKey: z.string().optional()
+			})
 		),
 		cards: z.array(PointCardSchema),
 		mistakeCards: z.array(MistakeCardSchema)

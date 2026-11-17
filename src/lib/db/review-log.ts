@@ -1,7 +1,7 @@
 /** Writing and reading the append-only review log. */
 import type { ItemCheck, ItemAnswer } from '#lib/engine/checker/index.js';
 import type { Item } from '#lib/engine/content/schema.js';
-import type { GymDB, ReviewLogEntry } from './schema.js';
+import type { AnswerMode, GymDB, ReviewLogEntry } from './schema.js';
 
 export interface AnswerToLog {
 	item: Item;
@@ -9,6 +9,9 @@ export interface AnswerToLog {
 	answer: ItemAnswer;
 	check: ItemCheck;
 	ms: number;
+	/** Default `practice`; daily-session steps pass their source (P2.5). */
+	mode?: AnswerMode;
+	mistakeKey?: string;
 }
 
 export function toLogEntry(a: AnswerToLog, now = Date.now()): ReviewLogEntry {
@@ -21,7 +24,8 @@ export function toLogEntry(a: AnswerToLog, now = Date.now()): ReviewLogEntry {
 		answer: JSON.parse(JSON.stringify(a.answer)) as ItemAnswer,
 		ms: Math.round(a.ms),
 		timestamp: now,
-		mode: 'practice',
+		mode: a.mode ?? 'practice',
+		...(a.mistakeKey ? { mistakeKey: a.mistakeKey } : {}),
 		...(a.check.result.verdict === 'wrong' && a.check.result.tags.length
 			? { errorTags: [...a.check.result.tags] }
 			: {})

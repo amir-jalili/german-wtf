@@ -6,11 +6,12 @@
 	 */
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
-	import { countAnswers, getDb, logAnswer } from '#lib/db/index.js';
+	import { countAnswers, getDb, logAnswer, refreshCardsForPoint } from '#lib/db/index.js';
 	import { endsWithWrongStreak, sessionEndEvents, type FunPick } from '#lib/engine/fun/pick.js';
 	import { pickPracticeItems, summarise } from '#lib/engine/session/index.js';
 	import { mulberry32 } from '#lib/engine/util/rng.js';
 	import { FunSession } from '#lib/stores/fun.svelte.js';
+	import { settings } from '#lib/stores/settings.svelte.js';
 	import Exercise, { type ExerciseOutcome } from '#lib/ui/exercises/Exercise.svelte';
 	import Mascot from '#lib/ui/fun/Mascot.svelte';
 	import MascotBubble from '#lib/ui/fun/MascotBubble.svelte';
@@ -60,10 +61,14 @@
 	}
 
 	function onresult(outcome: ExerciseOutcome): void {
-		// Every answer is logged (P1.9). Never block the session on storage.
-		logAnswer(getDb(), { ...outcome, pointId: point.id }).catch((error: unknown) =>
-			console.warn('Could not log answer', error)
-		);
+		// Every answer is logged (P1.9) and the point's SRS cards are rebuilt from the log
+		// (ADR 0007). Never block the session on storage.
+		const db = getDb();
+		const pointId = point.id;
+		logAnswer(db, { ...outcome, pointId })
+			.then(() => settings.load())
+			.then(() => refreshCardsForPoint(db, pointId, settings.value.targetRetention))
+			.catch((error: unknown) => console.warn('Could not log answer', error));
 		outcomes = [...outcomes, outcome];
 		itemFun = undefined;
 		index += 1;
