@@ -61,7 +61,7 @@ items:
     distractorNotes:
       habe: "*fahren* to a place is movement A → B → Perfekt with *sein*: *bin*."
       gefahrt: "*fahren* is irregular: Partizip II *gefahren*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/002
     type: cloze
@@ -74,7 +74,7 @@ items:
     errorTags: [aux-haben-sein]
     distractorNotes:
       haben: "*gehen* is movement → *sein*: *wir sind gegangen*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/003
     type: cloze
@@ -87,7 +87,7 @@ items:
     errorTags: [aux-haben-sein]
     distractorNotes:
       hat: "*aufstehen* is a change of state → *sein*: *sie ist aufgestanden*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/004
     type: cloze
@@ -101,7 +101,7 @@ items:
     distractorNotes:
       hast: "*kommen* is movement → *sein*: *du bist gekommen*."
       ist: "Conjugate *sein* for *du*: *bist*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/005
     type: cloze
@@ -114,7 +114,7 @@ items:
     errorTags: [aux-haben-sein]
     distractorNotes:
       habe: "*bleiben* is one of the exceptions with *sein*: *ich bin geblieben*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/006
     type: cloze
@@ -127,7 +127,7 @@ items:
     errorTags: [aux-haben-sein]
     distractorNotes:
       hat: "*passieren* takes *sein*: *Was ist passiert?*"
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/007
     type: cloze
@@ -140,34 +140,34 @@ items:
     errorTags: [aux-haben-sein]
     distractorNotes:
       hat: "*werden* is a change of state → *sein*: *ist geworden*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/008
     type: cloze
     level: A1
     skill: form
     text: "Sie ist nach Wien {{geflogen}}."
-    hint: "(fliegen)"
+    hint: "(fliegen, Partizip II)"
     accepted: [geflogen]
     explanation: "*fliegen* is irregular: Partizip II *geflogen*."
     errorTags: [participle]
     distractorNotes:
       gefliegt: "*fliegen* is irregular: *geflogen*."
       gefliegen: "The vowel changes: *fliegen → geflogen*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/009
     type: cloze
     level: A1
     skill: form
     text: "Wir sind am Sonntag {{gewandert}}."
-    hint: "(wandern)"
+    hint: "(wandern, Partizip II)"
     accepted: [gewandert]
     explanation: "*wandern* is regular: *ge- + wander + -t*; movement → *sein*."
     errorTags: [participle]
     distractorNotes:
       gewandern: "*wandern* is regular: *gewandert*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/010
     type: cloze
@@ -176,12 +176,12 @@ items:
     text: "{{Bist}} du schon einmal in München {{gewesen}}?"
     hint: "(sein, Perfekt)"
     accepted: [[Bist], [gewesen]]
-    explanation: "*sein* builds its Perfekt with *sein*: *Bist du … gewesen?*"
+    explanation: "*sein* builds its Perfekt with *sein*: *Bist du … gewesen?* (In the north people often use the Präteritum: *Warst du …?*)"
     errorTags: [aux-haben-sein, participle]
     distractorNotes:
       Hast: "*sein* takes *sein* in the Perfekt: *Bist du … gewesen?*"
       geseid: "Partizip II of *sein* is *gewesen*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/011
     type: cloze
@@ -195,22 +195,22 @@ items:
     distractorNotes:
       habe: "*aufwachen* is a change of state (sleeping → awake) → *sein*."
       geaufwacht: "With separable verbs *ge-* goes after the prefix: *aufgewacht*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/012
     type: choice
     level: A1
     skill: form
-    text: "Ich ___ gestern viel gelaufen."
+    text: "Ich ___ gestern nach Hause gelaufen."
     options: [bin, habe, hat, ist]
     answer: bin
-    explanation: "*laufen* → movement → *sein*; for *ich*: *bin*."
+    explanation: "*laufen* nach Hause → movement A → B → *sein*; for *ich*: *bin*."
     errorTags: [aux-haben-sein]
     distractorNotes:
       habe: "*laufen* is movement → *sein*: *ich bin gelaufen*."
       hat: "*laufen* takes *sein*, and *ich* needs *bin*."
       ist: "Right auxiliary, wrong person: *ich bin*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/013
     type: choice
@@ -225,7 +225,7 @@ items:
       hat: "*einschlafen* is a change of state → *sein*: *er ist eingeschlafen*."
       bin: "Right auxiliary, wrong person: *er ist*."
       habe: "*einschlafen* → *sein*, and *er* → *ist*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/014
     type: choice
@@ -240,7 +240,7 @@ items:
       sind: "*nehmen* has an Akkusativ object (*den Zug*) → *haben*, even though you travel."
       hat: "Right auxiliary, wrong person: *wir haben*."
       ist: "*nehmen* → *haben*, and *wir* → *haben*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/015
     type: choice
@@ -255,7 +255,7 @@ items:
       haben: "*springen* is movement → *sein*: *sie sind gesprungen*."
       ist: "Right auxiliary, wrong person: *die Kinder* (plural) → *sind*."
       hat: "*springen* → *sein*, plural → *sind*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/016
     type: choice
@@ -270,7 +270,7 @@ items:
       bin: "*trinken* is not movement or change of state → *haben*."
       hat: "Right auxiliary, wrong person: *ich habe*."
       ist: "*trinken* → *haben*, and *ich* → *habe*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/017
     type: order
@@ -283,7 +283,7 @@ items:
     fields: { vorfeld: "Ich", leftBracket: "bin", mittelfeld: "nach Köln", rightBracket: "gefahren" }
     explanation: "*sein* in position 2, the participle at the very end (sentence bracket)."
     errorTags: [verb-cluster, v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/018
     type: order
@@ -296,7 +296,7 @@ items:
     fields: { vorfeld: "Wann", leftBracket: "bist", mittelfeld: "du", rightBracket: "angekommen" }
     explanation: "W-question: question word, then *sein*, subject, participle last."
     errorTags: [verb-cluster, v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: perfect-sein/019
     type: order
@@ -309,5 +309,5 @@ items:
     fields: { vorfeld: "Sie", leftBracket: "ist", mittelfeld: "zu Hause", rightBracket: "geblieben" }
     explanation: "*bleiben* → *sein*; auxiliary second, participle last."
     errorTags: [verb-cluster, v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original

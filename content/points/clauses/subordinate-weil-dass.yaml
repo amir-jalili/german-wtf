@@ -52,7 +52,7 @@ items:
     errorTags: [verb-final]
     distractorNotes:
       "weil ich bin krank": "In a *weil* clause the verb goes last: *weil ich krank bin*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/002
     type: order
@@ -65,7 +65,7 @@ items:
     fields: { connector: "dass", mittelfeld: "der Bus Verspätung", rightBracket: "hat" }
     explanation: "After *dass* the conjugated verb goes to the end."
     errorTags: [verb-final]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/003
     type: order
@@ -78,7 +78,7 @@ items:
     fields: { connector: "weil", mittelfeld: "sie in Berlin", rightBracket: "arbeiten will" }
     explanation: "With a modal verb the infinitive comes before it, and the conjugated modal is last: *arbeiten will*."
     errorTags: [verb-final, verb-cluster]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/004
     type: order
@@ -91,7 +91,7 @@ items:
     fields: { connector: "dass", mittelfeld: "du heute", rightBracket: "kommst" }
     explanation: "After *dass* the verb goes to the end: *dass du heute kommst*."
     errorTags: [verb-final]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/005
     type: order
@@ -104,7 +104,7 @@ items:
     fields: { connector: "weil", mittelfeld: "er lange", rightBracket: "gearbeitet hat" }
     explanation: "Perfekt in a *weil* clause: participle, then the conjugated auxiliary last."
     errorTags: [verb-final, verb-cluster]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/006
     type: order
@@ -117,7 +117,7 @@ items:
     fields: { connector: "dass", mittelfeld: "Amir morgen Geburtstag", rightBracket: "hat" }
     explanation: "After *dass* the verb goes last. A noun subject may follow a time word in the middle."
     errorTags: [verb-final]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/007
     type: order
@@ -130,7 +130,7 @@ items:
     fields: { connector: "weil", mittelfeld: "ich eine Frage", rightBracket: "habe" }
     explanation: "After *weil* the conjugated verb goes to the end."
     errorTags: [verb-final]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/008
     type: order
@@ -143,7 +143,7 @@ items:
     fields: { connector: "dass", mittelfeld: "das Essen sehr gut", rightBracket: "ist" }
     explanation: "*dass* (conjunction) + verb last; *das Essen* is the subject."
     errorTags: [verb-final]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/009
     type: choice
@@ -158,7 +158,7 @@ items:
       weil: "*weil* gives a reason. Here the clause says *what* you hope → *dass*."
       denn: "*denn* needs normal word order and gives a reason → *dass*."
       das: "*das* is an article/pronoun. The conjunction is spelled *dass*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/010
     type: choice
@@ -173,7 +173,7 @@ items:
       denn: "After *denn* the verb would stay second: *denn es regnet sehr stark*. The verb is last here → *weil*."
       dass: "*dass* introduces what someone says or thinks. Here it's a reason → *weil*."
       das: "*das* is an article/pronoun, not a conjunction."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/011
     type: choice
@@ -188,7 +188,7 @@ items:
       weil: "*weil* gives a reason. The clause says *what* I know → *dass*."
       denn: "*denn* gives a reason and keeps V2 → *dass*."
       das: "The conjunction is *dass* with double s."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/012
     type: choice
@@ -203,7 +203,7 @@ items:
       dass: "*dass* says *what* someone thinks or says. This clause gives the reason → *weil*."
       denn: "After *denn* the verb would stay second: *denn sie will die Prüfung bestehen*."
       das: "*das* is an article/pronoun."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/013
     type: cloze
@@ -217,7 +217,7 @@ items:
     distractorNotes:
       denn: "*denn* keeps V2: *denn ich habe keine Zeit*. With the verb at the end → *weil*."
       dass: "*dass* doesn't give a reason → *weil*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/014
     type: cloze
@@ -230,7 +230,7 @@ items:
     errorTags: [connector-choice, spelling]
     distractorNotes:
       das: "The conjunction \"that\" is spelled *dass* with double s."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/015
     type: cloze
@@ -243,7 +243,7 @@ items:
     errorTags: [verb-conjugation, verb-final]
     distractorNotes:
       haben: "Conjugate for *er*: *er hat*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: subordinate-weil-dass/016
     type: cloze
@@ -256,5 +256,5 @@ items:
     errorTags: [verb-conjugation, verb-final]
     distractorNotes:
       leben: "Conjugate for *ich*: *ich lebe*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original

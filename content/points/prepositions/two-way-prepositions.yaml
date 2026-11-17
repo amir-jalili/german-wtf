@@ -13,7 +13,7 @@ lesson:
     - **Wo?** (where something *is*, no change of place) → **Dativ** · *Das Buch liegt auf **dem** Tisch.*
     - **Wohin?** (where something *goes*, movement to a new place) → **Akkusativ** · *Ich lege das Buch auf **den** Tisch.*
 
-    Verb pairs help: *liegen, stehen, sitzen, hängen (is hanging)* → Dativ; *legen, stellen, setzen, hängen (hang something)* → Akkusativ. Verbs of moving to a place (*gehen, fahren, bringen, springen*) usually take the Akkusativ.
+    Verb pairs help: *liegen, stehen, sitzen, hängen (is hanging)* → Dativ; *legen, stellen, setzen, hängen (hang something)* → Akkusativ. Verbs of moving to a place (*gehen, fahren, bringen*) usually take the Akkusativ — but some, like *springen* or *laufen*, can also describe movement *within* a place (*Die Katze springt auf dem Sofa herum* → Dativ).
 
     Contractions: *in dem → im*, *an dem → am*, *in das → ins*, *an das → ans*.
   table:
@@ -27,8 +27,8 @@ lesson:
       xray:
         - { text: "Die Katze", role: subj, case: nom, gender: f }
         - { text: "auf dem Sofa", role: prep-obj, case: dat, gender: n, note: "wo? → Dativ" }
-    - de: "Die Katze springt auf das Sofa."
-      en: "The cat jumps onto the sofa."
+    - de: "Die Katze legt sich auf das Sofa."
+      en: "The cat lies down on the sofa."
       xray:
         - { text: "Die Katze", role: subj, case: nom, gender: f }
         - { text: "auf das Sofa", role: prep-obj, case: akk, gender: n, note: "wohin? → Akkusativ" }
@@ -59,7 +59,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       den: "*den* is Akkusativ (wohin?). The book is already lying there (wo?) → Dativ *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/002
     type: cloze
@@ -72,7 +72,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       dem: "*dem* is Dativ (wo?). *legen* puts something somewhere (wohin?) → Akkusativ *den*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/003
     type: cloze
@@ -85,20 +85,20 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       das: "*das* is Akkusativ (wohin?). The cat stays under the bed (wo?) → *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/004
     type: cloze
     level: A2
     skill: form
-    text: "Die Katze springt auf {{das}} Sofa."
+    text: "Die Katze legt sich auf {{das}} Sofa."
     hint: "(das Sofa)"
     accepted: [das]
-    explanation: "Jumping onto something is a direction (wohin?) → Akkusativ; neuter *das*."
+    explanation: "*sich legen* → wohin? → Akkusativ; neuter *das*."
     errorTags: [preposition-case, article-form]
     distractorNotes:
-      dem: "*dem* is Dativ (wo?). The cat lands somewhere new (wohin?) → *das*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+      dem: "*dem* is Dativ (wo?). *sich legen* is a movement to a place (wohin?) → *das*."
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/005
     type: cloze
@@ -111,7 +111,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       die: "*die* is Akkusativ (wohin?). Living somewhere is a location → Dativ *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/006
     type: cloze
@@ -124,7 +124,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       den: "*den* is Dativ plural (wo?). We travel into the mountains (wohin?) → Akkusativ *die*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/007
     type: cloze
@@ -137,7 +137,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       die: "*die* is Akkusativ (wohin?). The picture is already hanging there → Dativ *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/008
     type: cloze
@@ -150,7 +150,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       der: "*der* is Dativ (wo?). He moves the clock onto the wall (wohin?) → Akkusativ *die*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/009
     type: cloze
@@ -163,7 +163,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       das: "*das* is Akkusativ (wohin?). *stehen* is a position → Dativ *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/010
     type: cloze
@@ -176,7 +176,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       dem: "*dem* is Dativ (wo?). *stellen* moves the bottle somewhere (wohin?) → *den*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/011
     type: cloze
@@ -189,7 +189,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       den: "*den* is Akkusativ (wohin?). The lamp is already hanging there → Dativ *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/012
     type: cloze
@@ -202,7 +202,7 @@ items:
     errorTags: [preposition-case, article-form]
     distractorNotes:
       den: "*den* (*den Kindern*) is Dativ (wo?). *sich setzen* is a movement to a place → Akkusativ *die*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/013
     type: choice
@@ -218,7 +218,7 @@ items:
       der: "Dativ (wo?). The plates go into the kitchen (wohin?) → *die*."
       den: "Masculine. *Küche* is feminine → *die*."
       dem: "Dativ masculine/neuter. *Küche* is feminine, wohin → *die*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/014
     type: choice
@@ -234,7 +234,7 @@ items:
       die: "Akkusativ (wohin?). The key is lying there (wo?) → Dativ *der*."
       dem: "Masculine/neuter. *Tasche* is feminine → *der*."
       den: "Akkusativ masculine. *Tasche* is feminine, wo → *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/015
     type: choice
@@ -250,7 +250,7 @@ items:
       die: "Akkusativ (wohin?). *sitzen* is a position → Dativ *der*."
       dem: "Masculine/neuter. *Tür* is feminine → *der*."
       den: "Akkusativ masculine. *Tür* is feminine → *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/016
     type: choice
@@ -266,7 +266,7 @@ items:
       dem: "Dativ (wo?). The letter moves into the box (wohin?) → *den*."
       der: "Nominativ masculine. Wohin → Akkusativ *den*."
       das: "*Briefkasten* is masculine → *den*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/017
     type: order
@@ -279,7 +279,7 @@ items:
     fields: { vorfeld: "Das Handy", leftBracket: "liegt", mittelfeld: "auf dem Bett" }
     explanation: "Verb second; *auf dem Bett* (wo? → Dativ) can also start the sentence."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: two-way-prepositions/018
     type: order
@@ -292,5 +292,5 @@ items:
     fields: { vorfeld: "Ich", leftBracket: "stelle", mittelfeld: "die Vase auf den Tisch" }
     explanation: "Verb second; *auf den Tisch* is wohin? → Akkusativ. Any one part can start the sentence."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original

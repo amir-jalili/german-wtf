@@ -56,7 +56,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       alte: "*-e* only in Nom. singular and Akk. singular f/n. *helfen* takes the Dativ → *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/002
     type: cloze
@@ -69,7 +69,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       neuen: "*-en* is for Dativ, plural and Akk. masculine. This is Nominativ singular → *neue*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/003
     type: cloze
@@ -82,7 +82,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       rote: "Akkusativ masculine is the one Akkusativ form with *-en*: *den roten Pullover*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/004
     type: cloze
@@ -96,7 +96,7 @@ items:
     distractorNotes:
       kleines: "After *das* the article already shows neuter, so the adjective takes only *-e*."
       kleinen: "*-en* is for Dativ, plural and Akk. masculine. Nominativ singular → *-e*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/005
     type: cloze
@@ -110,7 +110,7 @@ items:
     distractorNotes:
       großen: "Akkusativ neuter keeps *-e*: *das große Sofa*. Only masculine (*den*) takes *-en*."
       großes: "After *das* the adjective takes only *-e*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/006
     type: cloze
@@ -123,7 +123,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       schöne: "*der* here is Dativ feminine (*wohnen in* → wo?). Dativ → *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/007
     type: cloze
@@ -136,7 +136,7 @@ items:
     errorTags: [adj-ending, number]
     distractorNotes:
       junge: "*Leute* is plural. Plural after *die* → *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/008
     type: cloze
@@ -149,7 +149,7 @@ items:
     errorTags: [adj-ending, number]
     distractorNotes:
       frische: "*Brötchen* is plural here. Plural → *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/009
     type: cloze
@@ -162,7 +162,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       nette: "*mit* takes the Dativ, and Dativ is always *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/010
     type: cloze
@@ -175,7 +175,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       neuen: "Akkusativ feminine keeps *-e*: *die neue Kollegin*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/011
     type: cloze
@@ -189,7 +189,7 @@ items:
     distractorNotes:
       alter: "After *der* the article already shows masculine, so the adjective takes only *-e*."
       alten: "Nominativ singular → *-e*, not *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/012
     type: cloze
@@ -202,7 +202,7 @@ items:
     errorTags: [adj-ending]
     distractorNotes:
       große: "*dem* is Dativ, and Dativ is always *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/013
     type: choice
@@ -218,7 +218,7 @@ items:
       neuen: "Nominativ singular → *-e*."
       neuer: "*-er* is the strong ending (*ein neuer Laptop*). After *der* → *-e*."
       neues: "*-es* is neuter strong. *Laptop* is masculine and follows *der* → *-e*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/014
     type: choice
@@ -234,7 +234,7 @@ items:
       kleine: "Akkusativ masculine is *-en*: *den kleinen Schlüssel*."
       kleiner: "*-er* is Nominativ masculine strong. Here: *den* → *-en*."
       kleines: "*-es* is neuter. *Schlüssel* is masculine → *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/015
     type: choice
@@ -250,7 +250,7 @@ items:
       müde: "*den Kindern* is Dativ plural → *-en* (*müde* + *n*)."
       müder: "Dativ plural → *-en*."
       müdes: "Dativ plural → *-en*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/016
     type: choice
@@ -266,7 +266,7 @@ items:
       neuen: "Only Akkusativ masculine takes *-en*. *Museum* is neuter → *-e*."
       neues: "*-es* comes without an article or after *ein*. After *das* → *-e*."
       neuer: "*-er* is masculine strong. → *-e*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/017
     type: order
@@ -279,7 +279,7 @@ items:
     fields: { vorfeld: "Der alte Mann", leftBracket: "liest" }
     explanation: "Article + adjective + noun stay together as one block; the verb comes second."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: adj-endings-definite/018
     type: order
@@ -292,5 +292,5 @@ items:
     fields: { vorfeld: "Ich", leftBracket: "kaufe", mittelfeld: "die grüne Jacke" }
     explanation: "Verb second; the block *die grüne Jacke* (Akk. feminine → *-e*) may also start the sentence."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original

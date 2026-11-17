@@ -61,7 +61,7 @@ items:
     distractorNotes:
       den: "*den* is Akkusativ. *mit* always takes the Dativ → *dem*."
       der: "*der* is the Nominativ form of *der Bus*. After *mit* → Dativ *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/002
     type: cloze
@@ -75,7 +75,7 @@ items:
     distractorNotes:
       die: "*die* is Nominativ/Akkusativ. *helfen* takes the Dativ → feminine *der*."
       dem: "*dem* is masculine/neuter. *Nachbarin* is feminine → *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/003
     type: cloze
@@ -89,7 +89,7 @@ items:
     distractorNotes:
       das: "*das* is Nominativ/Akkusativ. *gehören* takes the Dativ → *dem*."
       den: "*den* is masculine Akkusativ or Dativ plural. *Kind* is neuter singular → *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/004
     type: cloze
@@ -103,7 +103,7 @@ items:
     distractorNotes:
       Kinder: "Dativ plural adds *-n* to the noun: *den Kindern*."
       die: "*die* is Nominativ/Akkusativ plural. After *mit* → *den*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/005
     type: cloze
@@ -117,7 +117,7 @@ items:
     distractorNotes:
       Lehrer: "Dativ plural adds *-n*: *den Lehrern*."
       die: "*die* is Nominativ/Akkusativ plural. *danken* takes the Dativ → *den*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/006
     type: cloze
@@ -131,7 +131,7 @@ items:
     distractorNotes:
       eine: "*eine* is Nominativ/Akkusativ. *bei* takes the Dativ → *einer*."
       einem: "*einem* is masculine/neuter. *Familie* is feminine → *einer*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/007
     type: cloze
@@ -145,7 +145,7 @@ items:
     distractorNotes:
       einen: "*einen* is Akkusativ. The e-mail is the Akkusativ object; the receiver is Dativ → *einem*."
       einer: "*einer* is feminine. *Freund* is masculine → *einem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/008
     type: cloze
@@ -158,7 +158,7 @@ items:
     errorTags: [article-form, preposition-case]
     distractorNotes:
       das: "*das* is Nominativ/Akkusativ. *nach* takes the Dativ → *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/009
     type: cloze
@@ -172,7 +172,7 @@ items:
     distractorNotes:
       ein: "*ein* is Nominativ/Akkusativ. *seit* takes the Dativ → *einem*."
       einen: "*einen* is masculine Akkusativ. *seit* + Dativ, *Jahr* is neuter → *einem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/010
     type: cloze
@@ -185,7 +185,7 @@ items:
     errorTags: [article-form, preposition-case]
     distractorNotes:
       die: "*die* is Nominativ/Akkusativ. *aus* takes the Dativ → *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/011
     type: cloze
@@ -198,7 +198,7 @@ items:
     errorTags: [article-form, case]
     distractorNotes:
       den: "*den* is Akkusativ. The dog receives the water → Dativ *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/012
     type: cloze
@@ -211,7 +211,7 @@ items:
     errorTags: [noun-ending]
     distractorNotes:
       Handysn: "Plurals in *-s* never take the Dativ *-n*: *den Handys*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/013
     type: cloze
@@ -224,7 +224,7 @@ items:
     errorTags: [noun-ending]
     distractorNotes:
       Blumenn: "*Blumen* already ends in *-n*; the Dativ plural adds nothing more."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/014
     type: choice
@@ -240,7 +240,7 @@ items:
       den: "Akkusativ. *schmecken* takes the Dativ → *dem*."
       der: "Nominativ masculine (or Dativ feminine). *Gast* is masculine → *dem*."
       des: "Genitiv. *schmecken* takes the Dativ → *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/015
     type: choice
@@ -256,7 +256,7 @@ items:
       die: "Nominativ/Akkusativ. *gratulieren* takes the Dativ → *der*."
       dem: "Masculine/neuter. *Kollegin* is feminine → *der*."
       den: "Masculine Akkusativ or Dativ plural. One feminine colleague → *der*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/016
     type: choice
@@ -272,7 +272,7 @@ items:
       die: "Nominativ/Akkusativ plural. *helfen* takes the Dativ → *den*."
       dem: "Singular masculine/neuter. *Kindern* is plural → *den*."
       der: "Feminine singular Dativ. *Kindern* is plural → *den*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/017
     type: choice
@@ -288,7 +288,7 @@ items:
       den: "Akkusativ singular (or Dativ plural, which would be *den Lehrern*). *gefallen* + Dativ singular → *dem*."
       der: "Nominativ. The teacher is the one who likes it (*wem* gefällt es?) → *dem*."
       die: "Plural/feminine. *Lehrer* here is one masculine teacher → *dem*."
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/018
     type: order
@@ -301,7 +301,7 @@ items:
     fields: { vorfeld: "Ich", leftBracket: "fahre", mittelfeld: "mit dem Zug" }
     explanation: "Verb second; *mit dem Zug* (Dativ after *mit*) may also start the sentence."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/019
     type: order
@@ -314,7 +314,7 @@ items:
     fields: { vorfeld: "Das Auto", leftBracket: "gehört", mittelfeld: "dem Lehrer" }
     explanation: "Verb second; the Dativ object *dem Lehrer* may also stand first."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
   - id: dative-articles/020
     type: order
@@ -327,5 +327,5 @@ items:
     fields: { vorfeld: "Wir", leftBracket: "helfen", mittelfeld: "den Kindern" }
     explanation: "Verb second; *den Kindern* is Dativ plural (*helfen* + Dativ)."
     errorTags: [v2-position]
-    review: { status: draft, by: claude, date: 2026-11-17 }
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-17 }
     source: original
