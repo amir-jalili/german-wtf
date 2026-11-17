@@ -161,7 +161,8 @@ Exhaustively unit-tested with a table of (item, answer, expected result) cases, 
 - **Built (P2.1, ADR 0007):** `ts-fsrs` 6 with the FSRS-7 model, assembled synchronously (`fsrs.ts`), library-default learning steps, fuzz off; the FSRS `cardId` is the card key. `card-key.ts`, `rating.ts`, `mastery.ts`, `retention.ts` (kept free of ts-fsrs so Settings can import it).
 - FSRS rating from the result (`gradeFromAnswer`): wrong → Again; near-miss or "I guessed" → Hard; correct → Good; correct and fast (< 40 % of the item's median time, needs ≥ 3 earlier timings) → Easy. Target retention 0.9 (setting `targetRetention`, clamped 0.70–0.97).
 - **Mastery levels** per point (from stability): New → Learning (<3 d) → Familiar (<21 d) → Strong (<90 d) → Mastered (≥90 d).
-- Leech: ≥ 6 lapses → flag, suggest the lesson, show the scaffolded version for the next 3 reviews.
+- Leech: ≥ 6 lapses → flag, suggest the lesson, show the scaffolded version for the next 3 reviews; flag again every 3 further lapses.
+- **Built (P2.2):** `cards.ts` — `PointCard` / `MistakeCard` (key `mistake:pointId:errorTag`) and pure transitions `reviewPointCard`, `recordMistake` (create, re-open or review Again; history is kept), `reviewMistakeCard` (streak counts every non-Again review, near-misses included), `needsScaffold`. Each returns `events` (`becameLeech`, `resolved`) for the UI and the fun system.
 
 ### 5.3 Session builder (`engine/session`)
 
