@@ -44,6 +44,27 @@ _(Update counts from `pnpm content:stats`; the catalogue counts above are the CU
 
 ## Entries
 
+### 2026-11-17 · Phase 1 done 🛑 · German WTF v0.2.0 live — 6 points, cat theme, fun system
+- **Done:** P1.8 picker fixed (greedy type interleaving) · P0.6 repo + Pages · P1.6 lesson page (rule, case-coloured table, tappable x-ray examples, TTS, Practise) · P1.7 five more points, 112 verified items in total · P1.9 Dexie v1 + answer log + backup export · P1.11 cat theme (palette, mascot *Dativ* in 7 moods, paw progress, tail spinner, cat icons, `/meme` command) · P1.13 rename to **German WTF** (AJ's `/feature`) · P1.12 fun system (schema, `pickFun`, Dexie v2 `funSeen`, Cat chaos level) · P1.10 e2e + deploy. Also a minimal Map (ready points by level) so Today → Map → lesson works. Commits 618d8a0…47ae88c.
+- **Content (gate 3):** each point was blind-solved in a fresh context. All 112 keys matched. The reviewers found one real ambiguity, *Die Katze springt auf ___ Sofa* (Dativ also possible), which I rewrote with *sich legen*. They also flagged a regional *habe gelaufen*, now fixed with a clear direction. Gate 2 (LanguageTool) arrives with P4.4.
+- **Decisions:** ADR 0006: the rename keeps internal storage ids (`grammatik-gym` IndexedDB name, backup `app` id) so no progress is lost. The Dexie v2 slot went to `funSeen`, so P2.3 becomes v3. The fun system falls back to the least recently seen line instead of going silent when all were seen in the last 20. *some* = milestones + 1 extra per session; milestones are first-session, perfect-session, point-learned/mastered, level-complete, streaks, comeback. The contrast test found white-on-light case badges in dark mode (≈2.5:1, from P0.5), now fixed.
+- **New dependencies:** `dexie` (IndexedDB with versioned migrations, ADR 0002) · `fake-indexeddb` (dev; DB and migration tests in Node).
+- **State:** `pnpm verify` green (209 unit tests, content 112/112 servable, 12 fun lines). e2e 28/28 (phone + desktop). CI and Deploy green. **Live: https://amir-jalili.github.io/german-wtf/ — v0.2.0.** First load 45 KB JS gzipped. Live smoke check passed, including an offline deep link.
+- **How to try it on the phone:**
+  1. iPhone: open **https://amir-jalili.github.io/german-wtf/** in **Safari** → Share → *Add to Home Screen* → it appears as **German WTF** with the cat icon. (Android: Chrome → ⋮ → *Install app*.)
+  2. Open it once **from the home-screen icon** while online, tap through Map → a lesson → Practise. This downloads everything for offline use.
+  3. Flight mode on → open the app again. Everything should still work.
+  4. If you installed the old *Grammatik Gym* address, delete that icon: the address changed (ADR 0006).
+- **What to test (please report back):**
+  1. **Typing on the phone:** cloze gaps + the ä ö ü ß bar. Does the keyboard cover the gap or the Check button? Does Enter submit?
+  2. **The checker:** try a typo in a long word (*gefahrn*), a missing umlaut (*Bruder* → fine, *Schluessel*), wrong capitals. These should be 🟡 "Almost", while *den/dem* should be ❌. Any answer you think is right but marked wrong → `/bug`.
+  3. **Content:** any sentence that sounds odd, an explanation that confuses you, or an item with two right answers.
+  4. **Sentence builder:** tapping tiles in and out. Is it comfortable at your phone's size?
+  5. **Dativ:** set Settings → *Cat chaos level* → *Maximum* and make three mistakes in a row. Funny or annoying? Then try *Off*.
+  6. **Lesson x-ray:** tap the coloured words in the examples. Are the colours and N/A/D/G letters clear in dark mode too?
+- **Known issues / debt:** CONTENT_GUIDE §5 asks ≥ 25 items for syntax points; `subordinate-weil-dass` has 16 (ROADMAP P1.7 required ≥ 15). Feldermodell tiles don't snap into zones yet (P3.3). The Map is a simple list (P2.6). Lighthouse not run yet (P8.1; manifest + offline covered by e2e). The fun-system triggers for mastery, streaks, comeback and nothing-due come with Phase 2. The CHANGELOG headline still lists "Grammatik Gym" once, on purpose (AJ's instruction). START_HERE keeps your local folder path and the "E9 Grammatik Gym" portfolio name, which I didn't rename.
+- **Next:** wait for AJ's feedback. Then Phase 2, starting with P2.1 (scheduler: `ts-fsrs` wrapper, card keys `point:skill`, tests with a fixed clock).
+
 ### 2026-11-17 · Phase 1 (paused mid-phase by AJ) · Foundations done, core loop half-built
 - **Done (Phase 0):** P0.1 toolchain (table above) · P0.2 SvelteKit 3 / Svelte 5 / Vite 8 / TS 6 / Tailwind 4 / Vitest 5 / Playwright scaffold, `pnpm verify` · P0.3 engine-purity ESLint rule + test · P0.4 PWA (manifest, original logo, precaching SW, offline e2e) · P0.5 app shell (bottom nav, light/dark tokens, case badges N/A/D/G, error panel with copy-debug-info) · P0.7 ADR 0004 (GitHub Pages) + ADR 0005 (SW strategy, Playwright on Chromium) · P0.8 version in Settings, CHANGELOG + in-app "What's new", update toast, `src/lib/flags.ts`, `tests/fixtures/`. Commits 472faaa…ec85696.
 - **Done (Phase 1):** P1.1 Zod schemas (cloze/choice/order) · P1.2 `content/catalogue.yaml` with all 162 points (English titles, families, compareWith written by hand) · P1.3 `content:validate` (ids, prereq cycles/levels, CURRICULUM sync, per-item checks, duplicate sentences, level word limits, x-ray spans, book guard) + `content:compile` → `static/content/*.json` (precached by the SW) · P1.4 checker (54 table-driven cases; conservative typo rule: only internal edits in 6+-letter words). Commits e6dbabe…9ae82ed.

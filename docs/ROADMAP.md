@@ -33,7 +33,7 @@ Goal: learn and practise 6 real grammar points on the phone with excellent check
 - [x] **P1.11** Cat theme (docs/THEME_AND_FUN.md §1, AJ's request 17 Nov): re-skin the shell with the cat palette (ginger accent, cream/oat, "night cat" dark mode), original SVG mascot *Dativ* with at least `loaf`, `smug`, `flat-on-keyboard`, `crying-thumbs-up`, `sleeping`; paw-print progress, cat-tail spinner, cat favicon + PWA icons. Contrast still AA; case colours unchanged. Install `setup/meme.md` as `.claude/commands/meme.md` (then remove `setup/`).
 - [x] **P1.12** Fun system v1 (THEME_AND_FUN.md §2): schema + validation for `content/fun/`, pure `pickFun` with tests, triggers `session-done`, `perfect-session`, `wrong-streak-3`, `near-miss`, `late-night`, mascot bubble on the end-of-session screen, "Cat chaos level" setting (off / some / maximum). Remaining triggers come with the features that emit them (Phase 2: mastery, streaks, comeback, nothing-due).
 - [x] **P1.13** Rename to **German WTF**, tagline "Was zur Katze?!" (AJ, 17 Nov, ADR 0006): all user-visible names, manifest name/short name/description, tagline under the mascot on Today, docs, package name; repo renamed to `german-wtf`, Pages at `/german-wtf/`. Storage ids unchanged. *Acceptance:* e2e checks title, manifest and tagline; live site served from the new URL.
-- [ ] **P1.10** E2E: open lesson → practise → answer right/near/wrong → summary; works offline after first load. Deploy. 🛑 **Stop: PROGRESS entry with phone install steps + what to test.**
+- [x] **P1.10** E2E: open lesson → practise → answer right/near/wrong → summary; works offline after first load. Deploy. 🛑 **Stop: PROGRESS entry with phone install steps + what to test.**
 
 ## Phase 2 — Learning engine
 
