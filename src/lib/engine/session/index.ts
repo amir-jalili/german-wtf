@@ -25,3 +25,4 @@ export {
 	type MasteryChange,
 	type SessionProgress
 } from './progress';
+export { buildMap, matchesSearch, searchKey, type MapEntry } from './map';

@@ -23,14 +23,25 @@ for (const path of pages) {
 		await page.goto(path);
 		await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 		await page.evaluate(() => document.documentElement.style.setProperty('--safe-bottom', '34px'));
-		await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-		await page.waitForTimeout(100);
+		// Content loads after the heading; scroll until the page stops growing.
+		await page.waitForLoadState('networkidle');
+		let height = -1;
+		for (let i = 0; i < 20; i++) {
+			const now = await page.evaluate(() => {
+				window.scrollTo(0, document.documentElement.scrollHeight);
+				return document.documentElement.scrollHeight;
+			});
+			if (now === height) break;
+			height = now;
+			await page.waitForTimeout(150);
+		}
 		const { lowest, navTop, viewport } = await page.evaluate(() => {
 			const nav = document.querySelector('nav[aria-label="Main"]')!.getBoundingClientRect();
 			let lowest = { bottom: 0, what: '' };
 			for (const el of document.querySelectorAll('main *')) {
 				const r = el.getBoundingClientRect();
-				if (r.width === 0 || r.height === 0) continue;
+				// skip what isn't rendered (e.g. the content of a closed <details>)
+				if (r.width === 0 || r.height === 0 || !el.checkVisibility()) continue;
 				if (r.bottom > lowest.bottom) {
 					lowest = {
 						bottom: r.bottom,
