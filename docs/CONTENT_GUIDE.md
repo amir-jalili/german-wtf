@@ -18,6 +18,27 @@ Rules:
 - Book-based items get our own explanation, errorTags and **all** accepted variants, and pass the same quality gates (§6). If AJ provides the book's answer key, check against it; if key and our check disagree, flag.
 - They live in `content/books/` (a separate **private** Git repo, see ARCHITECTURE §8) and reach the phone as an imported _book pack_. They never go into the main repo or the public site: the app is deployed on a public URL, and a publisher could get the whole site taken down if its exercises appeared there.
 - The main (public) content is written by us; it may follow the books' topic order and terminology.
+
+**File format** (private repo `amir-jalili/german-wtf-books`, cloned into `content/books/`; the shape is shown by the made-up `tests/fixtures/books/`):
+
+```yaml
+# books/grammatik-aktiv-b2c1/book.yaml
+slug: grammatik-aktiv-b2c1 # = folder name; kebab-case; part of every item id, never changes
+title: Grammatik aktiv B2-C1 # = origin.book of every item
+chapters:
+  - { id: '12', title: Passiv } # id = chapter file name (12.yaml)
+
+# books/grammatik-aktiv-b2c1/12.yaml
+book: grammatik-aktiv-b2c1
+chapter: '12'
+items:
+  - id: passive-werden/grammatik-aktiv-b2c1.001 # <point-id>/<book-slug>.<nnn>
+    # … the normal item fields (§4) …
+    source: book-variant # book-exact when origin.mode is exact
+    origin: { book: Grammatik aktiv B2-C1, chapter: '12', exercise: Ü3, mode: variant }
+```
+
+The point id before `/` must be in the catalogue and the item's `level` must equal the point's. Ids are unique across all books and never reuse a public id. The word limits of §2 apply to `variant`/`remix` items, not to `exact` sentences. `pnpm books:validate` checks all of this; `pnpm books:pack` packs the verified items only.
 - Open data: Tatoeba (CC BY 2.0 FR), Wiktionary via kaikki.org (CC BY-SA) — record attribution in `content/SOURCES.md`.
 
 ## 2. Writing style

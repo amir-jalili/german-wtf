@@ -37,11 +37,14 @@ When the session is getting long, write the `PROGRESS.md` entry before you run o
 ```bash
 pnpm install          # once
 pnpm dev              # dev server (use --host to open it on the phone in the same Wi-Fi)
-pnpm verify           # lint + typecheck + unit tests + content:validate + build  (must be green)
+pnpm verify           # lint + typecheck + unit tests + content:validate + books:validate + build + books:guard  (must be green)
 pnpm test             # unit tests (Vitest)
 pnpm test:e2e         # Playwright (phone + desktop viewports)
 pnpm content:validate # schema + consistency checks on content/ (gate 1)
 pnpm content:compile  # validate + write static/content/*.json (runs before dev/build)
+pnpm books:validate   # gates on the private book repo in content/books/ (no clone → nothing to check)
+pnpm books:pack       # → private-dist/book-pack-<date>.json, imported in Settings (never deployed)
+pnpm books:guard      # fails if book content is in static/content/ or build/ (part of verify)
 pnpm content:lint-de  # LanguageTool check of every correct sentence (cached, report only) — P4.4
 pnpm content:stats    # items per point/level/type, coverage of CURRICULUM.md — P4.4
 pnpm build && pnpm preview   # preview = GitHub-Pages-like static server for build/ (scripts/serve.ts)

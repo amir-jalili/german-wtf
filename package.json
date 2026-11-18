@@ -25,7 +25,10 @@
 		"test:e2e": "playwright test",
 		"content:validate": "tsx scripts/content-validate.ts",
 		"content:compile": "tsx scripts/content-compile.ts",
-		"verify": "pnpm lint && pnpm check && pnpm test && pnpm content:validate && pnpm build"
+		"books:validate": "tsx scripts/books-validate.ts",
+		"books:pack": "tsx scripts/books-pack.ts",
+		"books:guard": "tsx scripts/books-guard.ts",
+		"verify": "pnpm lint && pnpm check && pnpm test && pnpm content:validate && pnpm books:validate && pnpm build && pnpm books:guard"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",

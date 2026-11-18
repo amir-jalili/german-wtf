@@ -1,0 +1,9 @@
+# Test fixture only: a made-up book with our own sentences, shaped like a real book pack
+# (ADR 0003). Real book content lives in the private repo, never here.
+slug: testbuch-a2
+title: Testbuch A2
+chapters:
+  - id: '3'
+    title: Akkusativ und Dativ
+  - id: '4'
+    title: Wechselpräpositionen

@@ -4,6 +4,7 @@
  * scripts/content-validate.ts does the file I/O and reporting.
  */
 import { levelIndex, type Level } from '#lib/engine/content/levels.js';
+import { isBookItem } from '#lib/engine/content/books.js';
 import { clozeGapAnswers, fillCloze } from '#lib/engine/content/cloze.js';
 import type { Catalogue, CatalogueEntry, GrammarPoint, Item } from '#lib/engine/content/schema.js';
 import type { CurriculumPoint } from './curriculum-md.ts';
@@ -198,7 +199,7 @@ export function validatePoints(
 			const dup = seenItemIds.get(item.id);
 			if (dup) problems.push({ where: itemWhere, message: `duplicate item id (also in ${dup})` });
 			seenItemIds.set(item.id, path);
-			if (!options.allowBooks && (item.origin || item.source.startsWith('book-'))) {
+			if (!options.allowBooks && isBookItem(item)) {
 				problems.push({
 					where: itemWhere,
 					message: 'book-based item in public content (ADR 0003: put it in content/books/)'

@@ -1,0 +1,57 @@
+book: testbuch-a2
+chapter: '3'
+items:
+  - id: accusative-articles/testbuch-a2.001
+    type: cloze
+    level: A1
+    skill: form
+    text: Ich kaufe {{einen}} Tisch.
+    hint: (ein)
+    accepted: [einen]
+    explanation: _kaufen_ takes an Akkusativ object; _Tisch_ is masculine → _einen_.
+    errorTags: [article-form, case]
+    distractorNotes:
+      ein: _ein_ is Nominativ (or neuter). Masculine Akkusativ → _einen_.
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-18 }
+    source: book-variant
+    origin: { book: Testbuch A2, chapter: '3', exercise: Ü1, mode: variant }
+  - id: dative-articles/testbuch-a2.002
+    type: cloze
+    level: A2
+    skill: form
+    text: Wir helfen {{der}} Nachbarin.
+    hint: (die)
+    accepted: [der]
+    explanation: _helfen_ always takes the Dativ; feminine Dativ → _der_.
+    errorTags: [case, article-form]
+    distractorNotes:
+      die: _die_ is Nominativ/Akkusativ. _helfen_ needs the Dativ → _der_.
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-18 }
+    source: book-variant
+    origin: { book: Testbuch A2, chapter: '3', exercise: Ü2, mode: variant }
+  - id: dative-articles/testbuch-a2.003
+    type: cloze
+    level: A2
+    skill: form
+    text: Das Buch gehört {{dem}} Lehrer.
+    hint: (der)
+    accepted: [dem]
+    explanation: _gehören_ takes the Dativ; masculine Dativ → _dem_.
+    errorTags: [case, article-form]
+    distractorNotes:
+      den: _den_ is Akkusativ. _gehören_ takes the Dativ → _dem_.
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-18 }
+    source: book-exact
+    origin: { book: Testbuch A2, chapter: '3', exercise: Ü2, mode: exact }
+  - id: accusative-articles/testbuch-a2.004
+    type: cloze
+    level: A1
+    skill: form
+    text: Er sieht {{den}} Hund.
+    hint: (der)
+    accepted: [den]
+    explanation: _sehen_ takes an Akkusativ object; masculine Akkusativ → _den_.
+    errorTags: [article-form, case]
+    review: { status: draft, by: claude, date: 2026-11-18, note: drafts are never packed }
+    source: book-variant
+    origin: { book: Testbuch A2, chapter: '3', exercise: Ü3, mode: variant }

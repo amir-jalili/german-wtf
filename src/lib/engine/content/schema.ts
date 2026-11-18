@@ -84,10 +84,16 @@ export const PointIdSchema = z
 	.string()
 	.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'point id must be kebab-case');
 
-/** `<point-id>/<nnn>` */
+/**
+ * `<point-id>/<nnn>`, or `<point-id>/<book-slug>.<nnn>` for items from AJ's books (ADR 0003),
+ * so book items can never collide with public ones. The part before `/` is the point id.
+ */
 export const ItemIdSchema = z
 	.string()
-	.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*\/\d{3}$/, 'item id must be <point-id>/<nnn>');
+	.regex(
+		/^[a-z0-9]+(?:-[a-z0-9]+)*\/(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)?\d{3}$/,
+		'item id must be <point-id>/<nnn> (or <point-id>/<book-slug>.<nnn> for book items)'
+	);
 
 const IsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'date must be YYYY-MM-DD');
 

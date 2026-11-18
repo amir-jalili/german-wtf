@@ -1,0 +1,31 @@
+book: testbuch-a2
+chapter: '4'
+items:
+  - id: two-way-prepositions/testbuch-a2.001
+    type: cloze
+    level: A2
+    skill: form
+    text: Ich lege das Handy auf {{den}} Tisch.
+    hint: (der)
+    accepted: [den]
+    explanation: _legen_ answers _wohin?_ (movement to a place) → auf + Akkusativ → _den_.
+    errorTags: [preposition-case, article-form]
+    distractorNotes:
+      dem: _dem_ would answer _wo?_ Here it's _wohin?_ → Akkusativ → _den_.
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-18 }
+    source: book-variant
+    origin: { book: Testbuch A2, chapter: '4', exercise: Ü1, mode: variant }
+  - id: two-way-prepositions/testbuch-a2.002
+    type: cloze
+    level: A2
+    skill: form
+    text: Das Handy liegt auf {{dem}} Tisch.
+    hint: (der)
+    accepted: [dem]
+    explanation: _liegen_ answers _wo?_ (position) → auf + Dativ → _dem_.
+    errorTags: [preposition-case, article-form]
+    distractorNotes:
+      den: _den_ would answer _wohin?_ Here it's _wo?_ → Dativ → _dem_.
+    review: { status: verified, by: claude-blind-solve, date: 2026-11-18 }
+    source: book-variant
+    origin: { book: Testbuch A2, chapter: '4', exercise: Ü1, mode: variant }
