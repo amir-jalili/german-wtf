@@ -11,6 +11,7 @@ import {
 	BackupV1Schema,
 	BackupV2Schema,
 	BackupV3Schema,
+	BackupV4Schema,
 	exportBackup,
 	parseBackup
 } from './backup';
@@ -37,11 +38,22 @@ const fixtureV2 = BackupV2Schema.parse(
 	JSON.parse(readFileSync('tests/fixtures/backup-v2.json', 'utf8'))
 );
 const fixtureV3Raw: unknown = JSON.parse(readFileSync('tests/fixtures/backup-v3.json', 'utf8'));
+const fixtureV4Raw: unknown = JSON.parse(readFileSync('tests/fixtures/backup-v4.json', 'utf8'));
 
 /** The v2 schema exactly as shipped in 0.2.x (copied, never edited). */
 function openV2(name: string): Dexie {
 	const db = openV1(name);
 	db.version(2).stores({ funSeen: '++id, funId, timestamp' });
+	return db;
+}
+
+/** The v3 schema exactly as shipped in 0.2.x / P2.3 (copied, never edited). */
+function openV3(name: string): Dexie {
+	const db = openV2(name);
+	db.version(3).stores({
+		cards: '&key, pointId, fsrs.dueAt',
+		mistakeCards: '&key, pointId, errorTag, fsrs.dueAt'
+	});
 	return db;
 }
 
@@ -80,7 +92,7 @@ describe('Dexie migrations', () => {
 
 		const db = new GymDB(name);
 		await db.open();
-		expect(db.verno).toBe(3);
+		expect(db.verno).toBe(DB_VERSION);
 		expect(await db.reviewLog.toArray()).toEqual(fixtureV2.tables.reviewLog);
 		// IndexedDB returns rows in key order
 		expect(await db.settings.toArray()).toEqual(
@@ -104,22 +116,50 @@ describe('Dexie migrations', () => {
 		await db.delete();
 	});
 
-	it('a fresh database opens at v3 with no cards', async () => {
-		const db = new GymDB('fresh-v3');
+	it('v3 → v4: every row and card survives unchanged; bookPacks exists and is empty', async () => {
+		const name = 'migrate-v3';
+		const v3 = parseBackup(fixtureV3Raw);
+		const old = openV3(name);
+		await old.open();
+		await old.table('reviewLog').bulkAdd(v3.tables.reviewLog);
+		await old.table('settings').bulkAdd(v3.tables.settings);
+		await old.table('meta').bulkAdd(v3.tables.meta);
+		await old.table('funSeen').bulkAdd(v3.tables.funSeen);
+		await old.table('cards').bulkAdd(v3.tables.cards);
+		await old.table('mistakeCards').bulkAdd(v3.tables.mistakeCards);
+		old.close();
+
+		const db = new GymDB(name);
 		await db.open();
-		expect(db.verno).toBe(3);
-		expect(await db.cards.count()).toBe(0);
+		expect(db.verno).toBe(4);
+		expect(await db.reviewLog.toArray()).toEqual(v3.tables.reviewLog);
+		expect(await db.funSeen.toArray()).toEqual(v3.tables.funSeen);
+		expect(await db.cards.toArray()).toEqual(
+			[...v3.tables.cards].sort((a, b) => a.key.localeCompare(b.key))
+		);
+		expect(await db.mistakeCards.toArray()).toEqual(v3.tables.mistakeCards);
+		expect(await db.bookPacks.count()).toBe(0);
 		await db.delete();
 	});
 
-	it('old v1 and v2 backups still parse and are upgraded to v3 with replayed cards', () => {
+	it('a fresh database opens at the current version with no cards or books', async () => {
+		const db = new GymDB('fresh');
+		await db.open();
+		expect(db.verno).toBe(DB_VERSION);
+		expect(await db.cards.count()).toBe(0);
+		expect(await db.bookPacks.count()).toBe(0);
+		await db.delete();
+	});
+
+	it('old v1 and v2 backups still parse and are upgraded with replayed cards', () => {
 		const fromV1 = parseBackup(fixtureV1);
-		expect(fromV1.dbVersion).toBe(3);
+		expect(fromV1.dbVersion).toBe(DB_VERSION);
+		expect(fromV1.tables.bookPacks).toEqual([]);
 		expect(fromV1.tables.funSeen).toEqual([]);
 		expect(fromV1.tables.reviewLog).toHaveLength(3);
 		expect(fromV1.tables.cards.length).toBeGreaterThan(0);
 		const fromV2 = parseBackup(fixtureV2);
-		expect(fromV2.dbVersion).toBe(3);
+		expect(fromV2.dbVersion).toBe(DB_VERSION);
 		expect(fromV2.tables.funSeen).toHaveLength(2);
 		expect(fromV2.tables.mistakeCards).toEqual([]);
 	});
@@ -131,6 +171,29 @@ describe('Dexie migrations', () => {
 		expect(v3.tables.mistakeCards.map((c) => c.key)).toEqual(['mistake:dative-articles:case']);
 		expect(v3.tables.cards[0]!.fsrs.dueAt).toBeInstanceOf(Date);
 		expect(v3.tables.reviewLog.find((e) => e.errorTags)?.errorTags).toEqual(['case']);
+	});
+
+	it('the committed v4 fixture validates, and v3 backups upgrade with no books', () => {
+		expect(BackupV4Schema.safeParse(fixtureV4Raw).success).toBe(true);
+		const v4 = parseBackup(fixtureV4Raw);
+		expect(v4.tables.bookPacks.map((b) => b.slug)).toEqual(['testbuch-a2']);
+		expect(v4.tables.bookPacks[0]!.chapters.flatMap((c) => c.items)).toHaveLength(5);
+		expect(v4.tables.cards[0]!.fsrs.dueAt).toBeInstanceOf(Date);
+		const fromV3 = parseBackup(fixtureV3Raw);
+		expect(fromV3.dbVersion).toBe(4);
+		expect(fromV3.tables.bookPacks).toEqual([]);
+	});
+
+	it('v4 export → JSON → parse round-trips cards and books exactly', async () => {
+		const db = new GymDB('roundtrip-v4');
+		const v4 = parseBackup(fixtureV4Raw);
+		await db.cards.bulkAdd(v4.tables.cards);
+		await db.bookPacks.bulkAdd(v4.tables.bookPacks);
+		const exported = await exportBackup(db, '0.3.0', new Date('2026-11-18T00:00:00Z'));
+		expect(exported.dbVersion).toBe(4);
+		const back = parseBackup(JSON.parse(JSON.stringify(exported)));
+		expect(back.tables.bookPacks).toEqual(v4.tables.bookPacks);
+		await db.delete();
 	});
 
 	it('v3 export → JSON → parse round-trips cards exactly', async () => {

@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { BookPackSchema } from '#lib/engine/content/books.js';
 import { buildPack, readBooks, validateBooks, type BookSource } from './books';
@@ -92,6 +93,11 @@ describe('book pack', () => {
 		expect(pack.createdAt).toBe('2026-11-18T10:00:00.000Z');
 		// same content → same hash
 		expect(buildPack(await fixture(), new Date()).hash).toBe(pack.hash);
+	});
+
+	it('the committed pack fixture (used by e2e tests) matches the fixture book', async () => {
+		const committed: unknown = JSON.parse(readFileSync('tests/fixtures/book-pack.json', 'utf8'));
+		expect(buildPack(await fixture(), new Date('2026-11-18T09:00:00Z'))).toEqual(committed);
 	});
 });
 

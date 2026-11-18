@@ -1,0 +1,346 @@
+{
+	"app": "grammatik-gym",
+	"dbVersion": 4,
+	"appVersion": "0.3.0",
+	"exportedAt": "2026-11-18T12:00:00.000Z",
+	"tables": {
+		"reviewLog": [
+			{
+				"id": 1,
+				"itemId": "accusative-articles/001",
+				"pointId": "accusative-articles",
+				"cardKey": "accusative-articles:form",
+				"verdict": "correct",
+				"answer": {
+					"type": "cloze",
+					"gaps": ["den"]
+				},
+				"ms": 3120,
+				"timestamp": 1794297600000,
+				"mode": "practice"
+			},
+			{
+				"id": 2,
+				"itemId": "accusative-articles/002",
+				"pointId": "accusative-articles",
+				"cardKey": "accusative-articles:form",
+				"verdict": "near-miss",
+				"answer": {
+					"type": "cloze",
+					"gaps": ["einen"]
+				},
+				"ms": 4100,
+				"timestamp": 1794297660000,
+				"mode": "practice"
+			},
+			{
+				"id": 3,
+				"itemId": "dative-articles/003",
+				"pointId": "dative-articles",
+				"cardKey": "dative-articles:form",
+				"verdict": "wrong",
+				"answer": {
+					"type": "choice",
+					"option": "den"
+				},
+				"ms": 5480,
+				"timestamp": 1794297720000,
+				"mode": "practice",
+				"errorTags": ["case"]
+			},
+			{
+				"id": 4,
+				"itemId": "accusative-articles/003",
+				"pointId": "accusative-articles",
+				"cardKey": "accusative-articles:form",
+				"verdict": "correct",
+				"answer": {
+					"type": "cloze",
+					"gaps": ["die"]
+				},
+				"ms": 2900,
+				"timestamp": 1794556800000,
+				"mode": "practice"
+			},
+			{
+				"id": 5,
+				"itemId": "subordinate-weil-dass/001",
+				"pointId": "subordinate-weil-dass",
+				"cardKey": "subordinate-weil-dass:syntax",
+				"verdict": "correct",
+				"answer": {
+					"type": "order",
+					"tiles": ["weil", "ich", "müde", "bin"]
+				},
+				"ms": 9100,
+				"timestamp": 1794556860000,
+				"mode": "practice"
+			}
+		],
+		"settings": [
+			{
+				"key": "catChaos",
+				"value": "maximum"
+			}
+		],
+		"meta": [
+			{
+				"key": "createdAt",
+				"value": 1794931594430
+			}
+		],
+		"funSeen": [
+			{
+				"id": 1,
+				"funId": "claude-de-tischkante",
+				"event": "session-done",
+				"timestamp": 1794297800000
+			}
+		],
+		"cards": [
+			{
+				"key": "accusative-articles:form",
+				"pointId": "accusative-articles",
+				"skill": "form",
+				"fsrs": {
+					"stability": 7.03175447,
+					"stabilityFast": 113.12385374,
+					"difficulty": 5.21096553,
+					"dueAt": "2026-11-21T22:16:21.899Z",
+					"lastReviewAt": "2026-11-13T08:00:00.000Z",
+					"state": 2,
+					"scheduleStatus": "review",
+					"cardId": "accusative-articles:form",
+					"reps": 2,
+					"lapses": 0,
+					"scheduledDays": 8.594697915875654,
+					"learningStep": 0
+				}
+			},
+			{
+				"key": "dative-articles:form",
+				"pointId": "dative-articles",
+				"skill": "form",
+				"fsrs": {
+					"stability": 0.1104,
+					"stabilityFast": 0.08832,
+					"difficulty": 6.1686,
+					"dueAt": "2026-11-10T08:03:00.000Z",
+					"lastReviewAt": "2026-11-10T08:02:00.000Z",
+					"state": 1,
+					"scheduleStatus": "learning",
+					"cardId": "dative-articles:form",
+					"reps": 1,
+					"lapses": 0,
+					"scheduledDays": 0.0006944444444444445,
+					"learningStep": 0
+				}
+			},
+			{
+				"key": "subordinate-weil-dass:syntax",
+				"pointId": "subordinate-weil-dass",
+				"skill": "syntax",
+				"fsrs": {
+					"stability": 3.9221,
+					"stabilityFast": 3.13768,
+					"difficulty": 3.53072398,
+					"dueAt": "2026-11-18T02:40:55.164Z",
+					"lastReviewAt": "2026-11-13T08:01:00.000Z",
+					"state": 2,
+					"scheduleStatus": "review",
+					"cardId": "subordinate-weil-dass:syntax",
+					"reps": 1,
+					"lapses": 0,
+					"scheduledDays": 4.777721809269842,
+					"learningStep": 0
+				}
+			}
+		],
+		"mistakeCards": [
+			{
+				"key": "mistake:dative-articles:case",
+				"pointId": "dative-articles",
+				"errorTag": "case",
+				"fsrs": {
+					"stability": 0.1104,
+					"stabilityFast": 0.08832,
+					"difficulty": 6.1686,
+					"dueAt": "2026-11-10T08:03:00.000Z",
+					"lastReviewAt": "2026-11-10T08:02:00.000Z",
+					"state": 1,
+					"scheduleStatus": "learning",
+					"cardId": "mistake:dative-articles:case",
+					"reps": 1,
+					"lapses": 0,
+					"scheduledDays": 0.0006944444444444445,
+					"learningStep": 0
+				},
+				"createdAt": "2026-11-10T08:02:00.000Z",
+				"correctStreak": 0
+			}
+		],
+		"bookPacks": [
+			{
+				"slug": "testbuch-a2",
+				"title": "Testbuch A2",
+				"chapters": [
+					{
+						"id": "3",
+						"title": "Akkusativ und Dativ",
+						"items": [
+							{
+								"id": "accusative-articles/testbuch-a2.001",
+								"level": "A1",
+								"skill": "form",
+								"hint": "(ein)",
+								"explanation": "_kaufen_ takes an Akkusativ object; _Tisch_ is masculine → _einen_.",
+								"errorTags": ["article-form", "case"],
+								"distractorNotes": {
+									"ein": "_ein_ is Nominativ (or neuter). Masculine Akkusativ → _einen_."
+								},
+								"audio": true,
+								"review": {
+									"status": "verified",
+									"by": "claude-blind-solve",
+									"date": "2026-11-18"
+								},
+								"source": "book-variant",
+								"origin": {
+									"book": "Testbuch A2",
+									"chapter": "3",
+									"exercise": "Ü1",
+									"mode": "variant"
+								},
+								"retired": false,
+								"type": "cloze",
+								"text": "Ich kaufe {{einen}} Tisch.",
+								"accepted": [["einen"]]
+							},
+							{
+								"id": "dative-articles/testbuch-a2.002",
+								"level": "A2",
+								"skill": "form",
+								"hint": "(die)",
+								"explanation": "_helfen_ always takes the Dativ; feminine Dativ → _der_.",
+								"errorTags": ["case", "article-form"],
+								"distractorNotes": {
+									"die": "_die_ is Nominativ/Akkusativ. _helfen_ needs the Dativ → _der_."
+								},
+								"audio": true,
+								"review": {
+									"status": "verified",
+									"by": "claude-blind-solve",
+									"date": "2026-11-18"
+								},
+								"source": "book-variant",
+								"origin": {
+									"book": "Testbuch A2",
+									"chapter": "3",
+									"exercise": "Ü2",
+									"mode": "variant"
+								},
+								"retired": false,
+								"type": "cloze",
+								"text": "Wir helfen {{der}} Nachbarin.",
+								"accepted": [["der"]]
+							},
+							{
+								"id": "dative-articles/testbuch-a2.003",
+								"level": "A2",
+								"skill": "form",
+								"hint": "(der)",
+								"explanation": "_gehören_ takes the Dativ; masculine Dativ → _dem_.",
+								"errorTags": ["case", "article-form"],
+								"distractorNotes": {
+									"den": "_den_ is Akkusativ. _gehören_ takes the Dativ → _dem_."
+								},
+								"audio": true,
+								"review": {
+									"status": "verified",
+									"by": "claude-blind-solve",
+									"date": "2026-11-18"
+								},
+								"source": "book-exact",
+								"origin": {
+									"book": "Testbuch A2",
+									"chapter": "3",
+									"exercise": "Ü2",
+									"mode": "exact"
+								},
+								"retired": false,
+								"type": "cloze",
+								"text": "Das Buch gehört {{dem}} Lehrer.",
+								"accepted": [["dem"]]
+							}
+						]
+					},
+					{
+						"id": "4",
+						"title": "Wechselpräpositionen",
+						"items": [
+							{
+								"id": "two-way-prepositions/testbuch-a2.001",
+								"level": "A2",
+								"skill": "form",
+								"hint": "(der)",
+								"explanation": "_legen_ answers _wohin?_ (movement to a place) → auf + Akkusativ → _den_.",
+								"errorTags": ["preposition-case", "article-form"],
+								"distractorNotes": {
+									"dem": "_dem_ would answer _wo?_ Here it's _wohin?_ → Akkusativ → _den_."
+								},
+								"audio": true,
+								"review": {
+									"status": "verified",
+									"by": "claude-blind-solve",
+									"date": "2026-11-18"
+								},
+								"source": "book-variant",
+								"origin": {
+									"book": "Testbuch A2",
+									"chapter": "4",
+									"exercise": "Ü1",
+									"mode": "variant"
+								},
+								"retired": false,
+								"type": "cloze",
+								"text": "Ich lege das Handy auf {{den}} Tisch.",
+								"accepted": [["den"]]
+							},
+							{
+								"id": "two-way-prepositions/testbuch-a2.002",
+								"level": "A2",
+								"skill": "form",
+								"hint": "(der)",
+								"explanation": "_liegen_ answers _wo?_ (position) → auf + Dativ → _dem_.",
+								"errorTags": ["preposition-case", "article-form"],
+								"distractorNotes": {
+									"den": "_den_ would answer _wohin?_ Here it's _wo?_ → Dativ → _dem_."
+								},
+								"audio": true,
+								"review": {
+									"status": "verified",
+									"by": "claude-blind-solve",
+									"date": "2026-11-18"
+								},
+								"source": "book-variant",
+								"origin": {
+									"book": "Testbuch A2",
+									"chapter": "4",
+									"exercise": "Ü1",
+									"mode": "variant"
+								},
+								"retired": false,
+								"type": "cloze",
+								"text": "Das Handy liegt auf {{dem}} Tisch.",
+								"accepted": [["dem"]]
+							}
+						]
+					}
+				],
+				"packHash": "b844702c1cb3",
+				"packCreatedAt": "2026-11-18T09:00:00.000Z",
+				"importedAt": 1794996000000
+			}
+		]
+	}
+}

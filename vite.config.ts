@@ -2,7 +2,8 @@ import tailwindcss from '@tailwindcss/vite';
 import adapter from '@sveltejs/adapter-static';
 import { withPwa } from '@vite-pwa/sveltekit';
 import { defineConfig } from 'vitest/config';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import type { Plugin } from 'vite';
 
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as {
 	version: string;
@@ -20,12 +21,37 @@ function parseBasePath(value: string | undefined): '' | `/${string}` {
 	return value as `/${string}`;
 }
 
+/**
+ * `pnpm dev` only: serves the pack built from the private content/books/ at dev start
+ * (`books:pack --dev`), so book items can be tried without importing (ADR 0003). Never in a
+ * build: `apply: 'serve'`, and the file lives in git-ignored private-dist/.
+ */
+function devBookPack(): Plugin {
+	return {
+		name: 'german-wtf:dev-book-pack',
+		apply: 'serve',
+		configureServer(server) {
+			server.middlewares.use(`${base}/__dev/book-pack.json`, (_req, res) => {
+				const file = 'private-dist/dev-book-pack.json';
+				res.setHeader('content-type', 'application/json');
+				if (!existsSync(file)) {
+					res.statusCode = 404;
+					res.end('{}');
+					return;
+				}
+				res.end(readFileSync(file));
+			});
+		}
+	};
+}
+
 /** The SPA fallback page: GitHub Pages serves 404.html for unknown paths, so deep links work. */
 const FALLBACK = '404.html';
 
 export default defineConfig({
 	define: { __APP_VERSION__: JSON.stringify(pkg.version) },
 	plugins: [
+		devBookPack(),
 		tailwindcss(),
 		withPwa(
 			{

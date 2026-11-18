@@ -3,6 +3,7 @@
  * pure engine, and records answers. Cards are rebuilt from the review log after every answer
  * (ADR 0007), so this module never edits FSRS state by hand.
  */
+import { loadBookItemsByPoint } from '#lib/content/books.js';
 import { loadCatalogue, loadLevel } from '#lib/content/load.js';
 import type { CompiledCatalogueEntry } from '#lib/content/types.js';
 import {
@@ -15,6 +16,7 @@ import {
 	type Settings,
 	type SrsState
 } from '#lib/db/index.js';
+import { mergeItemsByPoint } from '#lib/engine/content/books.js';
 import type { Item } from '#lib/engine/content/schema.js';
 import {
 	buildDailySession,
@@ -32,12 +34,18 @@ export interface TodayData {
 	createdAt: number;
 }
 
-/** Every servable item by point (the compiled bundles only contain verified, unretired items). */
+/**
+ * Every servable item by point: the compiled public bundles (verified, unretired items only)
+ * plus the items of imported book packs (P2.9b).
+ */
 export async function loadServableItems(): Promise<{
 	catalogue: CompiledCatalogueEntry[];
 	itemsByPoint: Map<string, Item[]>;
 }> {
-	const catalogue = (await loadCatalogue()).points;
+	const [catalogue, bookItems] = await Promise.all([
+		loadCatalogue().then((c) => c.points),
+		loadBookItemsByPoint()
+	]);
 	const levels = [...new Set(catalogue.filter((p) => p.itemCount > 0).map((p) => p.level))];
 	const bundles = await Promise.all(levels.map((l) => loadLevel(l)));
 	const itemsByPoint = new Map<string, Item[]>();
@@ -47,7 +55,7 @@ export async function loadServableItems(): Promise<{
 			if (items.length) itemsByPoint.set(point.id, items);
 		}
 	}
-	return { catalogue, itemsByPoint };
+	return { catalogue, itemsByPoint: mergeItemsByPoint(itemsByPoint, bookItems) };
 }
 
 export async function prepareToday(now = new Date()): Promise<TodayData> {

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { ItemSchema } from '#lib/engine/content/schema.js';
 import { checkItem } from '#lib/engine/checker/index.js';
-import { BackupV1Schema, BackupV3Schema, backupFileName, exportBackup } from './backup';
+import { BackupV1Schema, BackupV4Schema, backupFileName, exportBackup } from './backup';
 import { countAnswers, logAnswer, toLogEntry } from './review-log';
 import { DB_VERSION, GymDB } from './schema';
 
@@ -57,7 +57,7 @@ describe('GymDB', () => {
 		expect(await countAnswers(db)).toBe(1);
 	});
 
-	it('exports a backup that validates against the current (v3) backup schema', async () => {
+	it('exports a backup that validates against the current (v4) backup schema', async () => {
 		const answer = { type: 'cloze' as const, gaps: ['dem'] };
 		await logAnswer(db, {
 			item,
@@ -68,7 +68,8 @@ describe('GymDB', () => {
 		});
 		await db.settings.put({ key: 'theme', value: 'dark' });
 		const backup = await exportBackup(db, '0.1.0', new Date('2026-11-17T12:00:00Z'));
-		expect(BackupV3Schema.parse(backup).tables.reviewLog).toHaveLength(1);
+		expect(BackupV4Schema.parse(backup).tables.reviewLog).toHaveLength(1);
+		expect(backup.tables.bookPacks).toEqual([]);
 		expect(backup.tables.settings).toEqual([{ key: 'theme', value: 'dark' }]);
 		expect(backupFileName(new Date('2026-11-17T12:00:00Z'))).toBe(
 			'german-wtf-backup-2026-11-17.json'

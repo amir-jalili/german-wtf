@@ -4,6 +4,7 @@
  * Fixtures: tests/fixtures/backup-v<n>.json (keep forever, CLAUDE.md §9).
  */
 import { z } from 'zod';
+import { PackedBookSchema } from '#lib/engine/content/books.js';
 import { ErrorTagSchema, SkillSchema } from '#lib/engine/content/schema.js';
 import {
 	createScheduler,
@@ -12,7 +13,13 @@ import {
 	type PointCard
 } from '#lib/engine/scheduler/index.js';
 import { clampRetention, DEFAULT_RETENTION } from '#lib/engine/scheduler/retention.js';
-import { ANSWER_MODES, DB_VERSION, type GymDB, type ReviewLogEntry } from './schema.js';
+import {
+	ANSWER_MODES,
+	DB_VERSION,
+	type GymDB,
+	type ReviewLogEntry,
+	type StoredBook
+} from './schema.js';
 
 const VerdictSchema = z.enum(['correct', 'near-miss', 'wrong']);
 const AnswerSchema = z.discriminatedUnion('type', [
@@ -120,15 +127,32 @@ export const BackupV3Schema = BackupV2Schema.extend({
 	})
 });
 
+export const StoredBookSchema = PackedBookSchema.extend({
+	packHash: z.string(),
+	packCreatedAt: z.string(),
+	importedAt: z.number().int()
+});
+
+/** v4 (P2.9b) adds the imported book packs. */
+export const BackupV4Schema = BackupV3Schema.extend({
+	dbVersion: z.literal(4),
+	tables: BackupV3Schema.shape.tables.extend({ bookPacks: z.array(StoredBookSchema) })
+});
+
 export type BackupV1 = z.infer<typeof BackupV1Schema>;
 export type BackupV2 = z.infer<typeof BackupV2Schema>;
 type ParsedV3 = z.infer<typeof BackupV3Schema>;
-/** Same as the parsed v3 shape, with cards typed as the engine's card types. */
-export type Backup = Omit<ParsedV3, 'tables'> & {
+type ParsedV4 = z.infer<typeof BackupV4Schema>;
+/** v3 with cards typed as the engine's card types (the loose FSRS schema keeps every field). */
+type BackupV3 = Omit<ParsedV3, 'tables'> & {
 	tables: Omit<ParsedV3['tables'], 'cards' | 'mistakeCards'> & {
 		cards: PointCard[];
 		mistakeCards: MistakeCard[];
 	};
+};
+/** The newest backup shape. */
+export type Backup = Omit<ParsedV4, 'tables'> & {
+	tables: BackupV3['tables'] & { bookPacks: StoredBook[] };
 };
 
 function v1ToV2(v1: BackupV1): BackupV2 {
@@ -136,21 +160,34 @@ function v1ToV2(v1: BackupV1): BackupV2 {
 }
 
 /** Like the Dexie v3 upgrade: replay the answers into cards (mistake cards need tags v2 lacks). */
-function v2ToV3(v2: BackupV2): Backup {
+function v2ToV3(v2: BackupV2): BackupV3 {
 	const setting = v2.tables.settings.find((r) => r.key === 'targetRetention')?.value;
 	const retention = typeof setting === 'number' ? clampRetention(setting) : DEFAULT_RETENTION;
 	const { cards, mistakeCards } = replayAnswers(createScheduler(retention), v2.tables.reviewLog);
 	return { ...v2, dbVersion: 3, tables: { ...v2.tables, cards, mistakeCards } };
 }
 
-/** Reads a backup of any known version and upgrades it to the newest shape. */
-export function parseBackup(data: unknown): Backup {
+function v3ToV4(v3: BackupV3): Backup {
+	return { ...v3, dbVersion: 4, tables: { ...v3.tables, bookPacks: [] } };
+}
+
+/**
+ * Reads a backup of any known version and upgrades it to the newest shape.
+ * `hadBooks` is false for backups from before v4: they carry no book packs, and importing
+ * them should keep the books already on this device.
+ */
+export function parseBackupWithInfo(data: unknown): { backup: Backup; hadBooks: boolean } {
+	const v4 = BackupV4Schema.safeParse(data);
+	if (v4.success) return { backup: v4.data as Backup, hadBooks: true };
 	const v3 = BackupV3Schema.safeParse(data);
-	// The loose FSRS schema keeps every ts-fsrs field, so this is the engine's card shape.
-	if (v3.success) return v3.data as Backup;
+	if (v3.success) return { backup: v3ToV4(v3.data as BackupV3), hadBooks: false };
 	const v2 = BackupV2Schema.safeParse(data);
-	if (v2.success) return v2ToV3(v2.data);
-	return v2ToV3(v1ToV2(BackupV1Schema.parse(data)));
+	if (v2.success) return { backup: v3ToV4(v2ToV3(v2.data)), hadBooks: false };
+	return { backup: v3ToV4(v2ToV3(v1ToV2(BackupV1Schema.parse(data)))), hadBooks: false };
+}
+
+export function parseBackup(data: unknown): Backup {
+	return parseBackupWithInfo(data).backup;
 }
 
 export async function exportBackup(
@@ -159,7 +196,15 @@ export async function exportBackup(
 	now = new Date()
 ): Promise<Backup> {
 	const version: Backup['dbVersion'] = DB_VERSION;
-	const tables = [db.reviewLog, db.settings, db.meta, db.funSeen, db.cards, db.mistakeCards];
+	const tables = [
+		db.reviewLog,
+		db.settings,
+		db.meta,
+		db.funSeen,
+		db.cards,
+		db.mistakeCards,
+		db.bookPacks
+	];
 	return db.transaction('r', tables, async () => ({
 		app: 'grammatik-gym' as const,
 		dbVersion: version,
@@ -171,7 +216,8 @@ export async function exportBackup(
 			meta: await db.meta.toArray(),
 			funSeen: await db.funSeen.toArray(),
 			cards: await db.cards.toArray(),
-			mistakeCards: await db.mistakeCards.toArray()
+			mistakeCards: await db.mistakeCards.toArray(),
+			bookPacks: await db.bookPacks.toArray()
 		}
 	}));
 }

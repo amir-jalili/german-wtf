@@ -21,6 +21,7 @@
 	import { settings } from '#lib/stores/settings.svelte.js';
 	import { CHAOS_LEVELS, type ChaosLevel } from '#lib/engine/fun/pick.js';
 	import Mascot from '#lib/ui/fun/Mascot.svelte';
+	import BookPacks from '#lib/ui/books/BookPacks.svelte';
 	import changelog from '../../../CHANGELOG.md?raw';
 
 	const chaosLabels: Record<ChaosLevel, { label: string; hint: string; mood: string }> = {
@@ -327,6 +328,8 @@
 		</p>
 	{/if}
 </section>
+
+<BookPacks />
 
 <section class="card mt-4 text-sm">
 	<div class="flex justify-between">

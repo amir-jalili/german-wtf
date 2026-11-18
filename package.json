@@ -13,7 +13,7 @@
 		"#lib/*": "./src/lib/*"
 	},
 	"scripts": {
-		"dev": "pnpm content:compile && vite dev",
+		"dev": "pnpm content:compile && pnpm books:pack --dev && vite dev",
 		"build": "pnpm content:compile && vite build",
 		"preview": "tsx scripts/serve.ts build",
 		"prepare": "svelte-kit sync || echo ''",

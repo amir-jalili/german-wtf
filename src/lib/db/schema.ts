@@ -5,6 +5,7 @@
  */
 import Dexie, { type EntityTable } from 'dexie';
 import type { ItemAnswer } from '#lib/engine/checker/index.js';
+import type { PackedBook } from '#lib/engine/content/books.js';
 import type { ErrorTag } from '#lib/engine/content/schema.js';
 import {
 	createScheduler,
@@ -15,7 +16,8 @@ import {
 import { clampRetention, DEFAULT_RETENTION } from '#lib/engine/scheduler/retention.js';
 
 export type Verdict = 'correct' | 'near-miss' | 'wrong';
-export const ANSWER_MODES = ['practice', 'due', 'mistake', 'new'] as const;
+/** `chapter`: "Practise chapter X" from a book pack (P2.9c). */
+export const ANSWER_MODES = ['practice', 'due', 'mistake', 'new', 'chapter'] as const;
 export type AnswerMode = (typeof ANSWER_MODES)[number];
 
 /** One answered item. Append-only. */
@@ -52,6 +54,15 @@ export interface FunSeenEntry {
 	timestamp: number;
 }
 
+/** One imported book (ADR 0003). Re-importing a pack replaces its books by slug. */
+export interface StoredBook extends PackedBook {
+	packHash: string;
+	/** ISO time the pack was built. */
+	packCreatedAt: string;
+	/** Unix ms. */
+	importedAt: number;
+}
+
 export interface MetaRow {
 	key: string;
 	value: unknown;
@@ -60,7 +71,7 @@ export interface MetaRow {
 /** Storage key — deliberately unchanged by the rename to German WTF (ADR 0006). Never change it. */
 export const DB_NAME = 'grammatik-gym';
 /** The newest Dexie schema version. */
-export const DB_VERSION = 3 as const;
+export const DB_VERSION = 4 as const;
 
 export class GymDB extends Dexie {
 	reviewLog!: EntityTable<ReviewLogEntry, 'id'>;
@@ -69,6 +80,7 @@ export class GymDB extends Dexie {
 	funSeen!: EntityTable<FunSeenEntry, 'id'>;
 	cards!: EntityTable<PointCard, 'key'>;
 	mistakeCards!: EntityTable<MistakeCard, 'key'>;
+	bookPacks!: EntityTable<StoredBook, 'slug'>;
 
 	constructor(name = DB_NAME) {
 		super(name);
@@ -100,6 +112,10 @@ export class GymDB extends Dexie {
 				await tx.table('cards').bulkPut(cards);
 				await tx.table('mistakeCards').bulkPut(mistakeCards);
 			});
+		// v4 (P2.9b): imported book packs, one row per book. New empty table; nothing to migrate.
+		this.version(4).stores({
+			bookPacks: '&slug'
+		});
 		this.on('populate', (tx) => {
 			void tx.table('meta').add({ key: 'createdAt', value: Date.now() });
 		});

@@ -1,0 +1,167 @@
+{
+	"format": "german-wtf-book-pack",
+	"version": 1,
+	"contentSchemaVersion": 1,
+	"createdAt": "2026-11-18T09:00:00.000Z",
+	"hash": "b844702c1cb3",
+	"books": [
+		{
+			"slug": "testbuch-a2",
+			"title": "Testbuch A2",
+			"chapters": [
+				{
+					"id": "3",
+					"title": "Akkusativ und Dativ",
+					"items": [
+						{
+							"id": "accusative-articles/testbuch-a2.001",
+							"level": "A1",
+							"skill": "form",
+							"hint": "(ein)",
+							"explanation": "_kaufen_ takes an Akkusativ object; _Tisch_ is masculine → _einen_.",
+							"errorTags": ["article-form", "case"],
+							"distractorNotes": {
+								"ein": "_ein_ is Nominativ (or neuter). Masculine Akkusativ → _einen_."
+							},
+							"audio": true,
+							"review": {
+								"status": "verified",
+								"by": "claude-blind-solve",
+								"date": "2026-11-18"
+							},
+							"source": "book-variant",
+							"origin": {
+								"book": "Testbuch A2",
+								"chapter": "3",
+								"exercise": "Ü1",
+								"mode": "variant"
+							},
+							"retired": false,
+							"type": "cloze",
+							"text": "Ich kaufe {{einen}} Tisch.",
+							"accepted": [["einen"]]
+						},
+						{
+							"id": "dative-articles/testbuch-a2.002",
+							"level": "A2",
+							"skill": "form",
+							"hint": "(die)",
+							"explanation": "_helfen_ always takes the Dativ; feminine Dativ → _der_.",
+							"errorTags": ["case", "article-form"],
+							"distractorNotes": {
+								"die": "_die_ is Nominativ/Akkusativ. _helfen_ needs the Dativ → _der_."
+							},
+							"audio": true,
+							"review": {
+								"status": "verified",
+								"by": "claude-blind-solve",
+								"date": "2026-11-18"
+							},
+							"source": "book-variant",
+							"origin": {
+								"book": "Testbuch A2",
+								"chapter": "3",
+								"exercise": "Ü2",
+								"mode": "variant"
+							},
+							"retired": false,
+							"type": "cloze",
+							"text": "Wir helfen {{der}} Nachbarin.",
+							"accepted": [["der"]]
+						},
+						{
+							"id": "dative-articles/testbuch-a2.003",
+							"level": "A2",
+							"skill": "form",
+							"hint": "(der)",
+							"explanation": "_gehören_ takes the Dativ; masculine Dativ → _dem_.",
+							"errorTags": ["case", "article-form"],
+							"distractorNotes": {
+								"den": "_den_ is Akkusativ. _gehören_ takes the Dativ → _dem_."
+							},
+							"audio": true,
+							"review": {
+								"status": "verified",
+								"by": "claude-blind-solve",
+								"date": "2026-11-18"
+							},
+							"source": "book-exact",
+							"origin": {
+								"book": "Testbuch A2",
+								"chapter": "3",
+								"exercise": "Ü2",
+								"mode": "exact"
+							},
+							"retired": false,
+							"type": "cloze",
+							"text": "Das Buch gehört {{dem}} Lehrer.",
+							"accepted": [["dem"]]
+						}
+					]
+				},
+				{
+					"id": "4",
+					"title": "Wechselpräpositionen",
+					"items": [
+						{
+							"id": "two-way-prepositions/testbuch-a2.001",
+							"level": "A2",
+							"skill": "form",
+							"hint": "(der)",
+							"explanation": "_legen_ answers _wohin?_ (movement to a place) → auf + Akkusativ → _den_.",
+							"errorTags": ["preposition-case", "article-form"],
+							"distractorNotes": {
+								"dem": "_dem_ would answer _wo?_ Here it's _wohin?_ → Akkusativ → _den_."
+							},
+							"audio": true,
+							"review": {
+								"status": "verified",
+								"by": "claude-blind-solve",
+								"date": "2026-11-18"
+							},
+							"source": "book-variant",
+							"origin": {
+								"book": "Testbuch A2",
+								"chapter": "4",
+								"exercise": "Ü1",
+								"mode": "variant"
+							},
+							"retired": false,
+							"type": "cloze",
+							"text": "Ich lege das Handy auf {{den}} Tisch.",
+							"accepted": [["den"]]
+						},
+						{
+							"id": "two-way-prepositions/testbuch-a2.002",
+							"level": "A2",
+							"skill": "form",
+							"hint": "(der)",
+							"explanation": "_liegen_ answers _wo?_ (position) → auf + Dativ → _dem_.",
+							"errorTags": ["preposition-case", "article-form"],
+							"distractorNotes": {
+								"den": "_den_ would answer _wohin?_ Here it's _wo?_ → Dativ → _dem_."
+							},
+							"audio": true,
+							"review": {
+								"status": "verified",
+								"by": "claude-blind-solve",
+								"date": "2026-11-18"
+							},
+							"source": "book-variant",
+							"origin": {
+								"book": "Testbuch A2",
+								"chapter": "4",
+								"exercise": "Ü1",
+								"mode": "variant"
+							},
+							"retired": false,
+							"type": "cloze",
+							"text": "Das Handy liegt auf {{dem}} Tisch.",
+							"accepted": [["dem"]]
+						}
+					]
+				}
+			]
+		}
+	]
+}

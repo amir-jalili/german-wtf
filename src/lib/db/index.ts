@@ -15,6 +15,7 @@ export {
 	BackupV1Schema,
 	BackupV2Schema,
 	BackupV3Schema,
+	BackupV4Schema,
 	type Backup
 } from './backup.js';
 export { recordFunSeen, recentFunIds } from './fun-seen.js';
@@ -39,4 +40,18 @@ export {
 } from './srs.js';
 export { logAnswer, countAnswers, type AnswerToLog } from './review-log.js';
 export { importBackup, readBackupText, BackupImportError, type ImportSummary } from './import.js';
-export { DB_VERSION, type AnswerMode, type ReviewLogEntry, type Verdict } from './schema.js';
+export {
+	importBookPack,
+	loadBooks,
+	readBookPackText,
+	removeBook,
+	BookPackImportError,
+	type BookImportSummary
+} from './books.js';
+export {
+	DB_VERSION,
+	type StoredBook,
+	type AnswerMode,
+	type ReviewLogEntry,
+	type Verdict
+} from './schema.js';
