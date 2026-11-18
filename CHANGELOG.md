@@ -4,6 +4,20 @@ All notable changes to German WTF. Format: [Keep a Changelog](https://keepachang
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-18
+
+### Added
+
+- Today: one Start button runs the day's mix (reviews that are due, mistakes to fix, then a new grammar point), with a summary of what came back, what got stronger and which mistakes are fixed.
+- Spaced repetition (FSRS): every answer you've ever given, including those from 0.2, schedules the next review. Wrong answers become mistake cards that come back until they're fixed.
+- Your books: import a book pack in Settings → My books; the Map gets a "My books" tab with mastery per chapter, and Today offers "Practise chapter X".
+- Map with all A1–C2 points (mastery, due counts, "learn first" hints, search that ignores umlauts) and Stats (12-week heatmap, optional streak, 7-day forecast, mastery per level, accuracy per topic, weakest points).
+- Settings: minutes and new points per day, how much to remember, typing or choosing, theme, German voice and speed, English or German interface, backup import that always asks first.
+
+### Fixed
+
+- The session summary no longer appears before the last answer is saved, and a setting changed while the app is still loading is no longer overwritten.
+
 ## [0.2.1] - 2026-11-17
 
 ### Fixed
