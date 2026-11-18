@@ -63,7 +63,8 @@
 	const sourceLabel: Record<SessionStep['source'], MessageKey> = {
 		due: 'session.review',
 		mistake: 'session.mistake',
-		new: 'session.new'
+		new: 'session.new',
+		chapter: 'session.chapter'
 	};
 	const headerMood = $derived.by(() => {
 		if (endsWithWrongStreak(checked)) return 'flat-on-keyboard';

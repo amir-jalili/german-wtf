@@ -8,7 +8,9 @@
 	import { resolve } from '$app/paths';
 	import type { FunPick } from '#lib/engine/fun/pick.js';
 	import { t } from '#lib/i18n/index.svelte.js';
-	import { handOffPlan, prepareToday, type TodayData } from '#lib/srs/daily.js';
+	import { nextChapter, type ChapterProgress } from '#lib/engine/session/index.js';
+	import { chapterPlan, handOffPlan, prepareToday, type TodayData } from '#lib/srs/daily.js';
+	import MasteryBadge from '#lib/ui/common/MasteryBadge.svelte';
 	import { FunSession } from '#lib/stores/fun.svelte.js';
 	import Mascot from '#lib/ui/fun/Mascot.svelte';
 	import MascotBubble from '#lib/ui/fun/MascotBubble.svelte';
@@ -42,6 +44,16 @@
 	function start(): void {
 		if (!today) return;
 		handOffPlan(today);
+		void goto(resolve('/session'));
+	}
+
+	/** The book chapter to offer (P2.9c): the first one not yet answered through or strong. */
+	const chapter = $derived(today ? nextChapter(today.chapters) : undefined);
+
+	function practiseChapter(c: ChapterProgress): void {
+		const data = today && chapterPlan(today, c.bookSlug, c.id);
+		if (!data) return;
+		handOffPlan(data);
 		void goto(resolve('/session'));
 	}
 </script>
@@ -89,6 +101,32 @@
 		<p class="font-semibold">{t('today.nothingDue')}</p>
 		<p class="text-muted">{t('today.nothingDueBody')}</p>
 		{#if fun}<div class="text-left"><MascotBubble pick={fun} size={64} /></div>{/if}
+	</section>
+{/if}
+
+{#if chapter}
+	<section class="card mt-4 space-y-2" data-testid="today-chapter" aria-labelledby="chapter-h">
+		<p class="text-xs tracking-wide text-muted uppercase">{t('books.fromBook')}</p>
+		<h2 id="chapter-h" class="font-semibold">
+			{chapter.bookTitle} · {t('books.chapter')}
+			{chapter.id}: {chapter.title}
+		</h2>
+		<div class="flex flex-wrap items-center justify-between gap-2">
+			<MasteryBadge mastery={chapter.mastery} />
+			<span class="text-xs text-muted">
+				{chapter.answered} / {chapter.items}
+				{t('books.answered')}
+			</span>
+		</div>
+		<button
+			type="button"
+			class="btn-secondary w-full"
+			onclick={() => chapter && practiseChapter(chapter)}
+			data-testid="practise-chapter"
+		>
+			{t('books.practise')}
+			{chapter.id}
+		</button>
 	</section>
 {/if}
 

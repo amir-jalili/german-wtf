@@ -55,7 +55,7 @@ Goal: open the app, tap one button, get today's right mix.
 - [ ] **P2.9** Book packs (ARCHITECTURE §8): private repo `german-wtf-books` cloned into git-ignored `content/books/` (ask AJ before creating), `origin` schema, `books:validate`, `books:pack`, CI guard against book items in the public build, _Import book pack_ in Settings, _My books_ tab with mastery per chapter, "Practise chapter X" on Today. First pack: one chapter AJ chooses, made with `/book`.
   - [x] **P2.9a** Book format (`book.yaml` + chapter files, item ids `<point>/<book>.<nnn>`), `books:validate`, `books:pack`, leak guard in `pnpm verify` and CI. Private repo created 2026-11-18.
   - [x] **P2.9b** Dexie v4 `bookPacks` (migration + fixture test, backup v4), _Import book pack_ in Settings, book items join sessions and point practice; `pnpm dev` loads `content/books/` directly.
-  - [ ] **P2.9c** _My books_ on the Map (book → chapter → mastery), "Practise chapter X" on Today.
+  - [x] **P2.9c** _My books_ on the Map (book → chapter → mastery), "Practise chapter X" on Today.
   - [ ] **P2.9d** First real pack: one chapter AJ chooses, made with `/book`. _Needs AJ._
 - [ ] **P2.10** E2E for a 2-day simulated schedule (clock mocked) and a book-pack import. Deploy. 🛑 **Stop.**
 

@@ -41,3 +41,10 @@ export {
 	type StatAnswer,
 	type WeakPoint
 } from './stats';
+export {
+	buildChapterSession,
+	chapterCardKeys,
+	chapterProgress,
+	nextChapter,
+	type ChapterProgress
+} from './books';

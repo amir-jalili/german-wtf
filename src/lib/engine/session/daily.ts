@@ -20,7 +20,8 @@ export const NEW_POINT_ITEMS = 3;
 /** Items answered this recently are avoided when another item exists. */
 export const RECENT_ITEMS = 20;
 
-export type StepSource = 'due' | 'mistake' | 'new';
+/** `chapter`: "Practise chapter X" from a book pack (P2.9c), outside the daily plan. */
+export type StepSource = 'due' | 'mistake' | 'new' | 'chapter';
 
 export interface SessionStep {
 	item: Item;
