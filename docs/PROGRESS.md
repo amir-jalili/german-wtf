@@ -44,6 +44,44 @@ _(Update counts from `pnpm content:stats`; the catalogue counts above are the CU
 
 ## Entries
 
+### 2026-11-18 · Phase 2 done 🛑 · German WTF v0.3.0 live — daily sessions, spaced repetition, map, stats, book packs
+
+- **Done:** everything in the entry below (P2.1–P2.8), plus:
+  - P2.9a: book format, `books:validate`, `books:pack` and the `books:guard` leak check inside `pnpm verify` (0f8f6f7).
+  - P2.9b: Dexie v4 `bookPacks`, backup v4, *Import book pack* in Settings, book items join sessions and point practice; `pnpm dev` serves `content/books/` directly (265fd88).
+  - P2.9c: *My books* tab on the Map, "Practise chapter X" on Today (65d970f).
+  - P2.10: e2e for simulated days with a mocked clock, plus the book-pack import and chapter-practice e2e tests (aec9c1d); release 0.3.0 (8494822).
+- **Private repo:** `amir-jalili/german-wtf-books` was created 2026-11-18 (AJ said yes). It is private and only has a README so far. It is already cloned at `content/books/`, which is git-ignored here.
+- **Decisions:**
+  - Book item ids are `<point-id>/<book-slug>.<nnn>`, so they can never collide with public ids. The part before `/` is still the point id, and the content schema change is additive.
+  - A book item needs `origin.book` equal to the book's title, `origin.chapter` equal to its file's chapter, a matching `source` (`book-exact` only for `mode: exact`), and `level` equal to the point's level.
+  - Word limits apply to variants only, not to exact book sentences.
+  - Importing a pack replaces books by slug and keeps other books. Removing a book keeps all answers. Importing a backup from before v4 keeps the books on the device; a v4 backup replaces them.
+  - Book items share their point's cards, so chapter practice counts as real reviews. A chapter's mastery is the weakest card its items review.
+  - Today offers the first chapter that isn't answered through or "strong" yet.
+  - The leak guard scans every JSON file in `static/content/` and `build/` for `origin`, book sources, book ids and pack files. It runs in CI and before every deploy.
+  - There is no new ADR; this is ADR 0003 as built.
+- **New dependencies:** none.
+- **State:** `pnpm verify` is green with 619 unit tests. All 72 browser tests passed three runs in a row. CI and Deploy are green. **Live: https://amir-jalili.github.io/german-wtf/ — v0.3.0** (smoke-checked: version, Today, *My books* section).
+- **How to try it on the phone:**
+  1. Open the home-screen app while online. "New version — reload" should appear; tap it. Settings should then say 0.3.0.
+  2. Today → **Start**. The first day is one new point with 3 exercises. Come back tomorrow for the next one; reviews come back when they're due.
+  3. Map and Stats: have a look around. Settings has the new options (minutes, new points per day, typing or choosing, theme, voice, German interface).
+  4. Book packs, with a test book until we make a real one: AirDrop `tests/fixtures/book-pack.json` from the laptop to the phone and save it to Files. Then Settings → *My books* → *Import book pack…*. Today now shows "Testbuch A2 · Chapter 3", and the Map has a *My books* tab. Remove the test book afterwards (Settings → *My books* → *Remove*); your answers stay saved.
+- **What to test (please report back):**
+  1. Does the daily session feel right in length and mix? Are 15 minutes and 1 new point a day the right defaults?
+  2. Typing vs choosing (Settings): is tapping an answer useful on the train, or too easy?
+  3. Importing the test pack from Files on iPhone: does the file picker find it?
+  4. German interface: which English strings still bother you? (Known: Check/Continue, feedback, lesson headings.)
+  5. Night-cat theme and the German voice: is the voice list usable on your iPhone?
+- **Known issues / debt:**
+  - Everything listed in the entry below still applies.
+  - A book item for a point that has no public lesson yet is served in sessions, but its point page says "no exercises yet".
+  - The dev pack is rebuilt only when `pnpm dev` starts.
+  - Book-pack errors are English only, like the backup errors.
+- **Needs AJ:** **P2.9d, the first real pack.** Which book and chapter? Send the exercises with `/book <book>, <chapter>, <exercise>, <variant|exact|remix>`, as photos or typed. I'll write them into the private repo and run `pnpm books:pack`; you then import `private-dist/book-pack-<date>.json` on the phone.
+- **Next:** wait for AJ's feedback. Then P2.9d once AJ names a chapter, and Phase 3 from P3.1 (exercise types: transform, combine, errorHunt, endingBuilder, …).
+
 ### 2026-11-17 · Phase 2 (in progress) · Scheduler, storage v3, one-tap Today, Map, Stats, Settings — waiting for AJ on book packs
 
 - **Done:** P2.1 FSRS-7 scheduler wrapper, card keys, `gradeFromAnswer`, mastery levels (3695723) · P2.2 mistake cards (point × error tag, resolve after 3 correct + stability ≥ 21 d) and leeches (≥ 6 lapses, re-flag every 3, scaffold next 3 reviews) (69c87cb) · P2.3 Dexie v3 `cards` + `mistakeCards`, upgrade replays the old review log so Phase 1 practice counts, backup v3 + fixture (19ebc35) · P2.4 `buildDailySession`: due → mistakes → new points, time budget, fresh items, interleaving; property tests over 200 random inputs (504f2c7) · P2.5 Today start button with counts and minutes, `/session`, summary (came back, level-ups, fixed mistakes, leech hint), new fun lines (ed3d60f) · P2.6 full grammar map: levels, families, mastery badges, due badges, prerequisite hints, umlaut-insensitive search, coming-soon points (8d20316) · P2.7 Stats: 12-week heatmap, streak with toggle, 7-day forecast, mastery per level, accuracy per family, weakest 5 (7695b75) · P2.8 Settings, split into a–e: backup import (validate → confirm → replace in one transaction → rebuild cards; b9f0dc0), session settings incl. retention target (8d3cfb4), theme + German voice/speed (8483501), typed vs choice: 59 of 65 cloze items can be answered by tapping, with options from `distractorNotes` filtered through the checker (4031228), German UI (5735693). Also fix v0.2.1: bottom nav no longer hides page ends on iPhone (dc6e051).
